@@ -16,6 +16,8 @@ class Country extends Model
         'code', 
     ];
 
+    /**********************   Relaciones   **********************/
+    // Un pais tiene muchas ciudades
     public function cities()
     {
     	return $this->hasMany('App\City');

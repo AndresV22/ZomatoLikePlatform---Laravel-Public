@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Permission extends Model
+class Place extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -13,13 +13,17 @@ class Permission extends Model
      */
     protected $fillable = [
         'name',
-        'type',
+        'address', 
+        'opening_time',
+        'closing_time',
+        'average_value',
     ];
 
     /**********************   Relaciones   **********************/
-    // Un permiso le pertenece a muchos roles
-    public function roles()
+    // Un local tiene muchos comentarios
+    public function comments()
     {
-    	return $this->belongsToMany('App\Role');
+    	return $this->hasMany('App\Comment');
     }
+
 }

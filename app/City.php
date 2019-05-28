@@ -16,9 +16,17 @@ class City extends Model
         'code', 
     ];
 
+    /**********************   Relaciones   **********************/
+    // Una ciudad pertenece a un pais
     public function country()
     {
     	return $this->belongsTo('App\Country');
+    }
+
+    // En una ciudad hay muchos usuarios
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
     }
 
 }

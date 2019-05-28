@@ -39,4 +39,63 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**********************   Relaciones   **********************/
+    // Un usuario puede estar en vaias ciudades 
+    public function cities()
+    {
+        return $this->belongsToMany('App\City');
+    }
+
+    // Un usuario tiene muchos roles
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role');
+    }
+
+    // Un usuario tiene un registro de usuario
+    public function userRegister()
+    {
+        return $this->belongsTo('App\UserRegister');
+    }
+
+    //Un usuario realiza muchos comentarios
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

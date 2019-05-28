@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Permission extends Model
+class UserRegister extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,14 +12,13 @@ class Permission extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'type',
+        'actions',
     ];
 
     /**********************   Relaciones   **********************/
-    // Un permiso le pertenece a muchos roles
-    public function roles()
+    // Una tabla de registro usuario tiene un usuario
+    public function users()
     {
-    	return $this->belongsToMany('App\Role');
+    	return $this->hasOne('App\User');
     }
 }
