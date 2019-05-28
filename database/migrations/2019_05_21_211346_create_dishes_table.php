@@ -15,6 +15,8 @@ class CreateDishesTable extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('purchases_id')->unsigned();
+            $table->foreign('purchases_id')->references('id')->on('purchases');
             $table->timestamps();
             $table->string('name', 20);
             $table->integer('price');

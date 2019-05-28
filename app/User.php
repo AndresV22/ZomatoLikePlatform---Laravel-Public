@@ -41,7 +41,7 @@ class User extends Authenticatable
     ];
 
     /**********************   Relaciones   **********************/
-    // Un usuario puede estar en vaias ciudades 
+    // Un usuario puede estar en varias ciudades 
     public function cities()
     {
         return $this->belongsToMany('App\City');

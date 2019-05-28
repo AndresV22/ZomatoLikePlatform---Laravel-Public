@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserRegistersTable extends Migration
+class CreateCitiesUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateUserRegistersTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_registers', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('cities_users', function (Blueprint $table) {
+            $table->bigInteger('cities_id')->unsigned();
             $table->bigInteger('users_id')->unsigned();
+            $table->foreign('cities_id')->references('id')->on('cities');
             $table->foreign('users_id')->references('id')->on('users');
             $table->timestamps();
-            $table->text('actions');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateUserRegistersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_registers');
+        Schema::dropIfExists('cities_users');
     }
 }
