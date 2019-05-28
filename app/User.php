@@ -65,6 +65,29 @@ class User extends Authenticatable
         return $this->hasMany('App\Comment');
     }
 
+    // Un usuario tiene muchas reservas
+    public function reservations()
+    {
+        return $this->hasMany('App\Reservation');
+    }
+
+    // Un usuario tiene muchos locales
+    public function places()
+    {
+        return $this->hasMany('App\Place');
+    }
+
+    // Un usuario tiene muchas compras
+    public function parchases()
+    {
+        return $this->hasMany('App\Purchase');
+    }
+
+    // Un usuario tiene muchos metodos de pago
+    public function paymentMethods()
+    {
+        return $this->hasMany('App\PaymentMethod');
+    }
 
 }
 
