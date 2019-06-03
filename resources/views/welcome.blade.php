@@ -78,13 +78,12 @@
                     @endauth
                 </div>
             @endif
-
             <div class="content">
                 <div class="title m-b-md">
-                    Zomato666
+                    GGWP
                 </div>
-
                 <div class="links">
+<<<<<<< Updated upstream
                     <a href="https://laravel.com/docs">Esta</a>
                     <a href="https://laracasts.com">Entero</a>
                     <a href="https://laravel-news.com">Brigido</a>
@@ -92,6 +91,15 @@
                     <a href="https://nova.laravel.com">ramo</a>
                     <a href="https://forge.laravel.com">loko</a>
                     <a href="https://github.com/laravel/laravel">hmno</a>
+=======
+                    <a href="https://taringa.net">porfa</a>
+                    <a href="https://laracasts.com">ponganos</a>
+                    <a href="https://laravel-news.com">un</a>
+                    <a href="https://blog.laravel.com">siete</a>
+                    <a href="https://nova.laravel.com">en</a>
+                    <a href="https://forge.laravel.com">este</a>
+                    <a href="https://github.com/laravel/laravel">trabajo</a>
+>>>>>>> Stashed changes
                 </div>
             </div>
         </div>
