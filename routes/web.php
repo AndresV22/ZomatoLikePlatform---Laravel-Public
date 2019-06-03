@@ -15,4 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/country/all', 'CountryController@index');
+// Country Routes
+Route::get('/country', 'CountryController@index');
+Route::get('/country/find/{id}', 'CountryController@show');
+Route::delete('/country/destroy/{id}', 'CountryController@destroy');
+Route::post('/country', 'CountryController@store');
+Route::put('/country/edit/{id}', 'CountryController@update');

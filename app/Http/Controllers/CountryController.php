@@ -24,9 +24,9 @@ class CountryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
     }
 
     /**
@@ -37,7 +37,19 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        /*/ 
+        Validation code here?
+        /*/
+
+        //$name = $request->input('name');
+        //$code = $request->input('code');
+        
+        
+
+        $data = $request->all();
+        Country::create($data);
+        return "Created";
     }
 
     /**
@@ -71,7 +83,15 @@ class CountryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        /*/
+        Validation code here
+        /*/
+
+        $data = $request->all();
+        $country = Country::find($id);
+        $country->update($data);
+        return "Updated";
     }
 
     /**
@@ -83,7 +103,7 @@ class CountryController extends Controller
     public function destroy($id)
     {
         $country = Country::find($id);
-        $conutry->delete();
+        $country->delete();
         return "Deleted";
         //
     }
