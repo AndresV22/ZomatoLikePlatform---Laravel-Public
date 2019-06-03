@@ -5,8 +5,10 @@
 use App\Model;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(App\City::class, function (Faker $faker) {
     return [
-        //
+      'countries_id' => $faker->numberBetween($min = 1, $max = 100),
+      'name' => $faker->unique()->city,
+      'code' => $faker->cityPrefix,
     ];
 });
