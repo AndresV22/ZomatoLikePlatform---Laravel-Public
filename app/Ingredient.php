@@ -17,8 +17,8 @@ class Ingredient extends Model
         'category',
     ];
 
-    /**********************   Relaciones   **********************/
-    // Una ingrediente pertenece a un plato
+    /**********************   Relations   **********************/
+    // An ingredient belongs to one dish
     public function dishes()
     {
         return $this->belongsTo('App\Dish');

@@ -17,14 +17,14 @@ class Reservation extends Model
         'allow', 
     ];
 
-    /**********************   Relaciones   **********************/
-    // Una reserva le pertenece a un usuario
+    /**********************   Relations   **********************/
+    // A reservation belongs to one user
     public function user()
     {
     	return $this->belongsTo('App\User');
     }
 
-    // Una reserva tiene muchas mesas
+    // A reservation has many tables
 	public function tables()
     {
     	return $this->belongsToMany('App\Table');

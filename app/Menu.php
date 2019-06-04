@@ -17,20 +17,20 @@ class Menu extends Model
         'category',
     ];
 
-    /**********************   Relaciones   **********************/
-    // Un menu pertenece a un local
+    /**********************   Relations   **********************/
+    // A menu belongs to one place
     public function place()
     {
         return $this->belongsTo('App\Place');
     }
 
-    // Un menu pertenece a una compra
+    // A menu belongs to one purchase
     public function purchase()
     {
         return $this->belongsTo('App\Purchase');
     }
 
-    // Un menu tiene muchos platos
+    // A menu has many dishes
     public function dishes()
     {
         return $this->belongsToMany('App\Dish');

@@ -16,14 +16,14 @@ class PaymentMethod extends Model
         'bank', 
     ];
 
-    /**********************   Relaciones   **********************/
-    // Un metodo de pago le pertenece a un usuario
+    /**********************   Relations   **********************/
+    // A payment method belongs to one user
     public function user()
     {
     	return $this->belongsTo('App\User');
     }
 
-    // Un metodo de pago genera muchos comprobantes de pago
+    // A payment method generates many payment vouchers
     public function paymentVouchers()
     {
     	return $this->hasMany('App\PaymentVoucher');

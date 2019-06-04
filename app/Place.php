@@ -19,26 +19,26 @@ class Place extends Model
         'average_value',
     ];
 
-    /**********************   Relaciones   **********************/
-    // Un local le pertenece a un usuario
+    /**********************   Relations   **********************/
+    // A place belongs to one user
     public function user()
     {
         return $this->belongsTo('App\User');
     }
 
-    // Un local tiene muchas mesas
+    // A place has many tables
     public function tables()
     {
         return $this->hasMany('App\Table');
     }
 
-    // Un local tiene muchos menus
+    // A place has many menus
     public function menus()
     {
         return $this->hasMany('App\Menu');
     }
 
-    // Un local tiene muchos comentarios
+    // A place has many comments
     public function comments()
     {
     	return $this->hasMany('App\Comment');

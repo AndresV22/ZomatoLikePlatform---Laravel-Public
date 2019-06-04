@@ -15,8 +15,8 @@ class UserRegister extends Model
         'actions',
     ];
 
-    /**********************   Relaciones   **********************/
-    // Una tabla de registro usuario tiene un usuario
+    /**********************   Relations   **********************/
+    // A UserRegister has one user
     public function users()
     {
     	return $this->hasOne('App\User');

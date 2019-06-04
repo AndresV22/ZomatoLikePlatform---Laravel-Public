@@ -19,6 +19,8 @@ class User extends Authenticatable
         'name',
         'email', 
         'password',
+        'phone_number',
+        'address'
     ];
 
     /**
@@ -40,85 +42,53 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /**********************   Relaciones   **********************/
-    // Un usuario puede estar en varias ciudades 
+    /**********************   Relations   **********************/
+    // A user belongs to many cities 
     public function cities()
     {
         return $this->belongsToMany('App\City');
     }
 
-    // Un usuario tiene muchos roles
+    // A user belongs to many roles
     public function roles()
     {
         return $this->belongsToMany('App\Role');
     }
 
-    // Un usuario tiene un registro de usuario
+    // A user belongs to one UserRegister
     public function userRegister()
     {
         return $this->belongsTo('App\UserRegister');
     }
 
-    //Un usuario realiza muchos comentarios
+    // A user has many comments
     public function comments()
     {
         return $this->hasMany('App\Comment');
     }
 
-    // Un usuario tiene muchas reservas
+    // A user has many reservations
     public function reservations()
     {
         return $this->hasMany('App\Reservation');
     }
 
-    // Un usuario tiene muchos locales
+    // A user can have many places
     public function places()
     {
         return $this->hasMany('App\Place');
     }
 
-    // Un usuario tiene muchas compras
+    // A user can have many purchases
     public function parchases()
     {
         return $this->hasMany('App\Purchase');
     }
 
-    // Un usuario tiene muchos metodos de pago
+    // A user has many payment methods
     public function paymentMethods()
     {
         return $this->hasMany('App\PaymentMethod');
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
