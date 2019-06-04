@@ -17,14 +17,14 @@ class Table extends Model
         'taken', 
     ];
 
-    /**********************   Relaciones   **********************/
-    // Una mesa le pertenece a un local
+    /**********************   Relations   **********************/
+    // A table belongs to one place
     public function place()
     {
     	return $this->belongsTo('App\Place');
     }
 
-    // Una mesa tiene muchas reservas
+    // A table belongs to many reservations
 	public function reservations()
     {
     	return $this->belongsToMany('App\Reservation');

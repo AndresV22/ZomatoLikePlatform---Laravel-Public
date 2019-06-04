@@ -15,26 +15,26 @@ class Purchase extends Model
         'status',
     ];
 
-    /**********************   Relaciones   **********************/
-    // Una compra le pertenece a un usuario
+    /**********************   Relations   **********************/
+    // Una purchase belongs to one user
     public function user()
     {
     	return $this->belongsTo('App\User');
     }
 
-    // Una compra pertenece a un comprobante de vago
+    // A purchase belongs to one payment voucher
     public function paymentVoucher()
     {
     	return $this->belongsTo('App\PaymentVoucher');
     } 
 
-    // Una compra tiene  muchos platos
+    // A purchase has many dishes
     public function dishes()
     {
     	return $this->hasMany('App\Dish');
     }
 
-    // Una compra tiene muchos menus
+    // A purchase has many menus
     public function menus()
     {
     	return $this->belongsTo('App\Menu');

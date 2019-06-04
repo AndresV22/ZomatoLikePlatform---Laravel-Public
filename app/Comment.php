@@ -16,14 +16,14 @@ class Comment extends Model
         'value', 
     ];
 
-    /**********************   Relaciones   **********************/
-    // Un comentario le pertenece a un usuario
+    /**********************   Relations   **********************/
+    // A comment belongs to one user
     public function user()
     {
     	return $this->belongsTo('App\User');
     }
 
-    // Un comentario le pertenece a un local
+    // A comment belongs to one place
     public function place()
     {
     	return $this->belongsTo('App\Place');

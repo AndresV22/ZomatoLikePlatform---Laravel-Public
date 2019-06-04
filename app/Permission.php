@@ -16,8 +16,8 @@ class Permission extends Model
         'type',
     ];
 
-    /**********************   Relaciones   **********************/
-    // Un permiso le pertenece a muchos roles
+    /**********************   Relations   **********************/
+    // A permission belongs to many roles
     public function roles()
     {
     	return $this->belongsToMany('App\Role');

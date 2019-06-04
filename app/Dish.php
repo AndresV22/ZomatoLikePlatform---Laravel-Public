@@ -19,26 +19,26 @@ class Dish extends Model
         'discount',
     ];
 
-    /**********************   Relaciones   **********************/
-    // Un plato pertenece a un local
+    /**********************   Relations   **********************/
+    // A dish belongs to one place
     public function place()
     {
         return $this->belongsTo('App\Place');
     }
 
-    // Un plato pertenece a una compra
+    // A dish belongs to one purchase
     public function purchase()
     {
         return $this->belongsTo('App\Purchase');
     }
 
-    // Un plato pertenece a muchos menus
+    // A dish belongs to many menus
     public function menus()
     {
         return $this->belongsToMany('App\Menu');
     }
 
-    // Un plato tiene muchos ingredientes
+    // A dish has many ingredients
     public function ingredients()
     {
         return $this->hasMany('App\Ingredient');

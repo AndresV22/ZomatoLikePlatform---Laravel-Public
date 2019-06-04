@@ -19,13 +19,15 @@ class PaymentVoucher extends Model
         'delivery', 
     ];
 
-    /**********************   Relaciones   **********************/
+    /**********************   Relations   **********************/
+
+    // A payment voucher belongs to one payment method
     public function paymentMethod()
     {
     	return $this->belongsTo('App\PaymentMethod');
     }
 
-    // A un comporbante de pago le pertenece una compra
+    // A payment method has one purchase
     public function purchase()
     {
         return $this->hasOne('App\Purchase');
