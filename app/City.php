@@ -17,7 +17,7 @@ class City extends Model
     ];
 
     /**********************   Relations   **********************/
-    // Una city belongs to a country
+    // A city belongs to a country
     public function country()
     {
     	return $this->belongsTo('App\Country');

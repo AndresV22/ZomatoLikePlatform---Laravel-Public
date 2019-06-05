@@ -12,7 +12,7 @@ $factory->define(App\Dish::class, function (Faker $faker) {
         'name' => $faker->foodName,
         'description' => $faker->realText($maxNbChars = 64, $indexSize = 2),
         'price' => $faker->numberBetween($min = 1000, $max = 9000),
-        'purchases_id' => $purchases_id->random()->id
+        'purchases_id' => $purchases_id->random()->id,
         'discount' => $faker->numberBetween($min = 1, $max = 99),
         'category' => $faker->foodCategory(),
     ];

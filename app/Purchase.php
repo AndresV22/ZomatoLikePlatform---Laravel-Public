@@ -16,7 +16,7 @@ class Purchase extends Model
     ];
 
     /**********************   Relations   **********************/
-    // Una purchase belongs to one user
+    // A purchase belongs to one user
     public function user()
     {
     	return $this->belongsTo('App\User');
