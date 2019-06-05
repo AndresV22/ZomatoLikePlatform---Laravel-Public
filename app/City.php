@@ -26,7 +26,7 @@ class City extends Model
     // In one city there are many users
     public function users()
     {
-        return $this->belongsToMany('App\User');
+    return $this->belongsToMany(users::class, 'cities_users', 'id' /*/ Cities /*/, 'id' /*/ Users /*/);
     }
 
 }

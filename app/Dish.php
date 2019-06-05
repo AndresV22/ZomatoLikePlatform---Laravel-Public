@@ -35,7 +35,7 @@ class Dish extends Model
     // A dish belongs to many menus
     public function menus()
     {
-        return $this->belongsToMany('App\Menu');
+    return $this->belongsToMany(menus::class, 'menus_dishes', 'id' /*/ Dishes /*/, 'id' /*/ Menus /*/);
     }
 
     // A dish has many ingredients

@@ -48,8 +48,7 @@ class CountryController extends Controller
         
 
         $data = $request->all();
-        Country::create($data);
-        return "Created";
+        return Country::create($data);
     }
 
     /**

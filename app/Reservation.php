@@ -27,6 +27,6 @@ class Reservation extends Model
     // A reservation has many tables
 	public function tables()
     {
-    	return $this->belongsToMany('App\Table');
+        return $this->belongsToMany(tables::class, 'tables_reservations', 'id' /*/ Reservations /*/, 'id' /*/ Tables /*/);
     }    
 }

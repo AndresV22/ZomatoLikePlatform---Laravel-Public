@@ -15,8 +15,8 @@ class CreateMenusTable extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('premises_id')->unsigned()->nullable();
-            $table->bigInteger('purchases_id')->unsigned()->nullable();
+            $table->bigInteger('premises_id')->unsigned();
+            $table->bigInteger('purchases_id')->unsigned();
             $table->foreign('premises_id')->references('id')->on('places');
             $table->foreign('purchases_id')->references('id')->on('purchases');
             $table->timestamps();
