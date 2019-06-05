@@ -14,8 +14,8 @@ class CreateCitiesUsersTable extends Migration
     public function up()
     {
         Schema::create('cities_users', function (Blueprint $table) {
-            $table->bigInteger('cities_id')->unsigned()->nullable();
-            $table->bigInteger('users_id')->unsigned()->nullable();
+            $table->bigInteger('cities_id')->unsigned();
+            $table->bigInteger('users_id')->unsigned();
             $table->foreign('cities_id')->references('id')->on('cities');
             $table->foreign('users_id')->references('id')->on('users');
             $table->timestamps();

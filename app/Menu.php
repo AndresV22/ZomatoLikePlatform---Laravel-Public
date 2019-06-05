@@ -33,6 +33,6 @@ class Menu extends Model
     // A menu has many dishes
     public function dishes()
     {
-        return $this->belongsToMany('App\Dish');
+        return $this->belongsToMany(dishes::class, 'menus_dishes', 'id' /*/ Menus /*/, 'id' /*/ Dishes /*/);
     }
 }
