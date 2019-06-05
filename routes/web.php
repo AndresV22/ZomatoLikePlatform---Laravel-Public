@@ -16,11 +16,11 @@ Route::get('/', function () {
 });
 
 // Country Routes
-Route::get('/country', 'CountryController@index');
+Route::get('/country/all', 'CountryController@index');
 Route::get('/country/find/{id}', 'CountryController@show');
-Route::delete('/country/destroy/{id}', 'CountryController@destroy');
-Route::post('/country', 'CountryController@store');
+Route::post('/country/submit', 'CountryController@store');
 Route::put('/country/edit/{id}', 'CountryController@update');
+Route::delete('/country/destroy/{id}', 'CountryController@destroy');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

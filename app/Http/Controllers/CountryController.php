@@ -45,10 +45,14 @@ class CountryController extends Controller
         //$name = $request->input('name');
         //$code = $request->input('code');
         
-        
+        $country = new Country([
+            'name' => $request->get('name'),
+            'code' => $request->get('code')
+        ]);
 
-        $data = $request->all();
-        return Country::create($data);
+        $country->save();
+
+        return "Created succesfully";
     }
 
     /**
@@ -90,7 +94,7 @@ class CountryController extends Controller
         $data = $request->all();
         $country = Country::find($id);
         $country->update($data);
-        return "Updated";
+        return "Updated succesfully";
     }
 
     /**
