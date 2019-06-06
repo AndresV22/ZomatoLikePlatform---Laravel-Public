@@ -14,8 +14,8 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        purchase = Purchase::all();
-        return purchase;
+        $purchase = Purchase::all();
+        return $purchase;
     }
 
     /**
@@ -30,7 +30,7 @@ class PurchaseController extends Controller
         Validation code here
         /*/
         $purchase = new Purchase([
-            'vouchers_id' => $request->get('vouchers_id'),
+            'payment_vouchers_id' => $request->get('payment_vouchers_id'),
             'users_id' => $request->get('users_id'),
             'status' => $request->get('status')
         ]);

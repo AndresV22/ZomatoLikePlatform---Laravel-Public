@@ -6,39 +6,34 @@ use App\Model;
 use Faker\Generator as Faker;
 
 $factory->define(App\Ingredient::class, function (Faker $faker) {
+
 	$faker->addProvider(new \FakerRestaurant\Provider\en_US\Restaurant($faker));
-	$vegetable = $faker->vegetableName();
-	$fruit = $faker->fruitName();
-	$meat = $faker->meatName();
-	$sauce = $faker->sauceName();
+	$categories = array('Vegetable', 'Meat', 'Fruit', 'Sauce', 'Spice');
+	$dishes_id = DB::table('dishes')->select('id')->get();
+
 	$choice = $faker->numberBetween($min = 0, $max = 3);
 
 	if($choice == 0){
-		$ingredient = $vegetable;
-		$type = 'vegetable';
-		$category = 'vegan/vegetarian';
+		$ingredient = $faker->vegetableName();;
+		$type = 'Vegetable';
 	}
 	else if($choice == 1){
-		$ingredient = $fruit;
-		$type = 'fruit';
-		$category = 'vegan/vegetarian';
+		$ingredient = $faker->fruitName();;
+		$type = 'Fruit';
 	}
 	else if($choice == 2){
-		$ingredient = $meat;
-		$type = 'meat';
-		$category = 'meat';
+		$ingredient = $faker->meatName();;
+		$type = 'Meat';
 	}
 	else{
-		$ingredient = $sauce;
-		$type = 'sauce';
-		$category = 'vegetarian';
+		$ingredient = $faker->sauceName();;
+		$type = 'Sauce';
 	}
 
-
-
     return [
+		'dishes_id' => $dishes_id->random()->id,
         'name' => $ingredient,
         'type' => $type,
-        'category' => $category,
+        'category' => $faker->randomElement($categories),
     ];
 });

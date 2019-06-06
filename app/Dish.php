@@ -14,7 +14,7 @@ class Dish extends Model
     protected $fillable = [
         'purchases_id',
         'name',
-        'price', 
+        'price',
         'description',
         'category',
         'discount',
@@ -31,12 +31,6 @@ class Dish extends Model
     public function purchase()
     {
         return $this->belongsTo('App\Purchase');
-    }
-
-    // A dish has many MenuDishes tables
-    public function menuDishes()
-    {
-        return $this->hasMany('App\MenyDishes');
     }
 
     // A dish has many ingredients

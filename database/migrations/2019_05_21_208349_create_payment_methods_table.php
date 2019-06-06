@@ -19,7 +19,7 @@ class CreatePaymentMethodsTable extends Migration
             $table->foreign('users_id')->references('id')->on('users');
             $table->timestamps();
             $table->string('type', 20);
-            $table->string('bank', 20);
+            $table->string('bank', 64);
         });
     }
 

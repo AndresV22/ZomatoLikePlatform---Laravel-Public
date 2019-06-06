@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Country Routes
+// Countries Routes
 Route::get('/country/all', 'CountryController@index');
 Route::get('/country/find/{id}', 'CountryController@show');
 Route::post('/country/submit', 'CountryController@store');
@@ -56,9 +56,8 @@ Route::get('/dish/find/{id}', 'DishController@show');
 Route::post('/dish/submit', 'DishController@store');
 Route::put('/dish/edit/{id}', 'DishController@update');
 Route::delete('/dish/destroy/{id}', 'DishController@destroy');
-Auth::routes();
 
-// Place Routes
+// Comment Routes
 Route::get('/comment/all', 'CommentController@index');
 Route::get('/comment/find/{id}', 'CommentController@show');
 Route::post('/comment/submit', 'CommentController@store');
@@ -80,5 +79,4 @@ Route::put('/ingredient/edit/{id}', 'IngredientController@update');
 Route::delete('/ingredient/destroy/{id}', 'IngredientController@destroy');
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');

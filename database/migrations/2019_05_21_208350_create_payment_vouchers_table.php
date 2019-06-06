@@ -15,14 +15,14 @@ class CreatePaymentVouchersTable extends Migration
     {
         Schema::create('payment_vouchers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('methods_id')->unsigned();
-            $table->foreign('methods_id')->references('id')->on('payment_methods');
-            $table->timestamps();
+            $table->bigInteger('payment_methods_id')->unsigned();
+            $table->foreign('payment_methods_id')->references('id')->on('payment_methods');
             $table->integer('amount');
             $table->date('date');
             $table->string('detail', 40);
             $table->integer('status');
             $table->boolean('delivery');
+            $table->timestamps();
         });
     }
 

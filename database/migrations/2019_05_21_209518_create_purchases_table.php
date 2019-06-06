@@ -15,9 +15,9 @@ class CreatePurchasesTable extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('vouchers_id')->unsigned();
+            $table->bigInteger('payment_vouchers_id')->unsigned();
             $table->bigInteger('users_id')->unsigned();
-            $table->foreign('vouchers_id')->references('id')->on('payment_vouchers');
+            $table->foreign('payment_vouchers_id')->references('id')->on('payment_vouchers');
             $table->foreign('users_id')->references('id')->on('users');
             $table->integer('status');
             $table->timestamps();

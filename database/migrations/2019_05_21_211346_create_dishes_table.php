@@ -17,15 +17,14 @@ class CreateDishesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('purchases_id')->unsigned();
             $table->foreign('purchases_id')->references('id')->on('purchases');
-            $table->timestamps();
             $table->string('name', 32);
             $table->integer('price');
             $table->text('description');
             $table->string('category', 20);
             $table->integer('discount');
+            $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

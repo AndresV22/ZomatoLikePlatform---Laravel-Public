@@ -17,7 +17,6 @@ class DishController extends Controller
       $dish = Dish::all();
       return $dish;
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -29,24 +28,17 @@ class DishController extends Controller
       /*/
       Validation code here?
       /*/
-
-      //$name = $request->input('name');
-      //$code = $request->input('code');
-
       $dish = new Dish([
           'purchases_id' => $request->get('purchases_id'),
           'name' => $request->get('name'),
-          'price' => $request->get('price')
-          'description' => $request->get('description')
-          'category' => $request->get('category')
+          'price' => $request->get('price'),
+          'description' => $request->get('description'),
+          'category' => $request->get('category'),
           'discount' => $request->get('discount')
       ]);
-
       $dish->save();
-
       return "Created successfully!";
     }
-
     /**
      * Display the specified resource.
      *
@@ -57,18 +49,6 @@ class DishController extends Controller
     {
         return Dish::find($id);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      *
@@ -81,13 +61,11 @@ class DishController extends Controller
       /*/
       Validation code here
       /*/
-
       $data = $request->all();
       $dish = Dish::find($id);
       $dish->update($data);
       return "Updated successfully!";
     }
-
     /**
      * Remove the specified resource from storage.
      *

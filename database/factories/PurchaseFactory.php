@@ -6,13 +6,12 @@ use App\Model;
 use Faker\Generator as Faker;
 
 $factory->define(App\Purchase::class, function (Faker $faker) {
-	$users_id = App\User::pluck('users_id')->toArray();
-	$payment_vouchers_id = App\PaymentVoucher::pluck('payment_vouchers_id')->toArray();
-	$status = array('paid', 'cancelled', 'waiting of payment');
+	$users_id = DB::table('users')->select('id')->get();
+    $payment_vouchers_id = DB::table('payment_vouchers')->select('id')->get();
 
     return [
-        'users_id' => $faker->randomElement($users_id),
-        'payment_vouchers_id' => $faker->randomElement($payment_vouchers_id),
-        'status' => $faker->randomElement($status),
+        'users_id' => $users_id->random()->id,
+        'payment_vouchers_id' => $payment_vouchers_id->random()->id,
+        'status' => $faker->numberBetween($min=0, $max=2),
     ];
 });

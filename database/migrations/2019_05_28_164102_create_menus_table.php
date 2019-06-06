@@ -19,10 +19,10 @@ class CreateMenusTable extends Migration
             $table->bigInteger('purchases_id')->unsigned();
             $table->foreign('places_id')->references('id')->on('places');
             $table->foreign('purchases_id')->references('id')->on('purchases');
-            $table->timestamps();
             $table->integer('price');
             $table->integer('discount');
             $table->string('category', 20);
+            $table->timestamps();
         });
     }
 

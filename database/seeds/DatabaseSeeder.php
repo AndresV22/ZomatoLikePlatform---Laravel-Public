@@ -20,10 +20,10 @@ class DatabaseSeeder extends Seeder
         $this->call(PaymentVouchersTableSeeder::class);
         $this->call(PurchasesTableSeeder::class);
         $this->call(DishesTableSeeder::class);
+        $this->call(IngredientsTableSeeder::class);
         /*
         $this->call(DishesTableSeeder::class);
         $this->call(PaymentMethodsTableSeeder::class);
-        $this->call(IngredientsTableSeeder::class);
         $this->call(ReservationsTableSeeder::class);
         $this->call(TablesTableSeeder::class);
         */
