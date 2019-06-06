@@ -24,10 +24,4 @@ class City extends Model
     	return $this->belongsTo('App\Country');
     }
 
-    // A city has many UserCities table
-    public function userCities()
-    {
-    return $this->hasMany('App/UserCity');
-    }
-
 }

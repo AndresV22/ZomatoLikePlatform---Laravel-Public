@@ -20,16 +20,6 @@ class CityController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -42,18 +32,15 @@ class CityController extends Controller
         Validation code here?
         /*/
 
-        $countries_id = DB::table('countries')->select('id')->get();
-
         $city = new City([
-            'countries_id' => $countries_id->random()->id,
-            //'countries_id' => $request(get('countries_id')),
+            'countries_id' => $request->get('countries_id'),
             'name' => $request->get('name'),
             'code' => $request->get('code')
         ]);
 
         $city->save();
 
-        return "Created succesfully";
+        return "Created successfully!";
     }
 
     /**
@@ -65,17 +52,6 @@ class CityController extends Controller
     public function show($id)
     {
         return City::find($id);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -94,7 +70,7 @@ class CityController extends Controller
         $data = $request->all();
         $city = City::find($id);
         $city->update($data);
-        return "Updated succesfully";
+        return "Updated successfully!";
     }
 
     /**
@@ -107,6 +83,6 @@ class CityController extends Controller
     {
         $city = City::find($id);
         $city->delete();
-        return "Deleted";
+        return "Deleted successfully!";
     }
 }
