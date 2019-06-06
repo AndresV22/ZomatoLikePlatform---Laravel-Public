@@ -21,11 +21,11 @@ class DatabaseSeeder extends Seeder
         $this->call(PurchasesTableSeeder::class);
         $this->call(DishesTableSeeder::class);
         $this->call(IngredientsTableSeeder::class);
-        /*
-        $this->call(DishesTableSeeder::class);
-        $this->call(PaymentMethodsTableSeeder::class);
+        $this->call(PermissionsTableSeeder::class);
+        $this->call(MenusTableSeeder::class);
         $this->call(ReservationsTableSeeder::class);
         $this->call(TablesTableSeeder::class);
-        */
+        $this->call(RolesTableSeeder::class);
+        $this->call(UserRegistersTableSeeder::class);
     }
 }

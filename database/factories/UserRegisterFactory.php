@@ -6,10 +6,10 @@ use App\Model;
 use Faker\Generator as Faker;
 
 $factory->define(App\UserRegister::class, function (Faker $faker) {
-	$users_id = App\Destino::pluck('users_id')->toArray();
+	$users_id = DB::table('users')->select('id')->get();
 
     return [
-        'users_id' => $faker->randomElement($users_id),
+        'users_id' => $users_id->random()->id,
         'actions' => $faker->realText($maxNbChars = 64, $indexSize = 2),
     ];
 });
