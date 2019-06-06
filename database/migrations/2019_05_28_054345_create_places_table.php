@@ -17,12 +17,12 @@ class CreatePlacesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('users_id')->unsigned();
             $table->foreign('users_id')->references('id')->on('users');
-            $table->timestamps();
             $table->string('name');
             $table->string('address');
             $table->time('opening_time');
             $table->time('closing_time');
             $table->float('average_value');
+            $table->timestamps();
         });
     } 
 

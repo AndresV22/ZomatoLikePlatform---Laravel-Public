@@ -58,4 +58,12 @@ Route::put('/dish/edit/{id}', 'DishController@update');
 Route::delete('/dish/destroy/{id}', 'DishController@destroy');
 Auth::routes();
 
+// Place Routes
+Route::get('/comment/all', 'CommentController@index');
+Route::get('/comment/find/{id}', 'CommentController@show');
+Route::post('/comment/submit', 'CommentController@store');
+Route::put('/comment/edit/{id}', 'CommentController@update');
+Route::delete('/comment/destroy/{id}', 'CommentController@destroy');
+Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');

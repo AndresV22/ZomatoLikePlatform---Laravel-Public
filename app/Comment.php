@@ -15,7 +15,7 @@ class Comment extends Model
         'places_id',
         'users_id',
         'content',
-        'value', 
+        'value'
     ];
 
     /**********************   Relations   **********************/
