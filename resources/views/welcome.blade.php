@@ -82,15 +82,6 @@
                 <div class="title m-b-md">
                     Zomato666
                 </div>
-                <div class="links">
-                    <a href="">Esta</a>
-                    <a href="">Entero</a>
-                    <a href="">Brigido</a>
-                    <a href="">el</a>
-                    <a href="">ramo</a>
-                    <a href="">loko</a>
-                    <a href="">hmno</a>
-                </div>
             </div>
         </div>
     </body>

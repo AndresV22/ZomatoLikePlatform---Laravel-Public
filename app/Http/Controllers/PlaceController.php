@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Country;
+use App\Place;
 
-class CountryController extends Controller
+class PlaceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class CountryController extends Controller
      */
     public function index()
     {
-        $country = Country::all();
-        return $country;
-        //
+        $place = Place::all();
+        return $place;
     }
 
     /**
@@ -27,21 +26,17 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-
+        /*/ 
+        Validation code here
         /*/
-        Validation code here?
-        /*/
-
-        //$name = $request->input('name');
-        //$code = $request->input('code');
-
-        $country = new Country([
+        $place = new Place([
             'name' => $request->get('name'),
-            'code' => $request->get('code')
+            'address' => $request->get('address'),
+            'opening_time' => $request->get('opening_time'),
+            'closing_time' => $request->get('closing_time'),
+            'average_value' => $request->get('average_value')
         ]);
-
-        $country->save();
-
+        $place->save();
         return "Created successfully!";
     }
 
@@ -53,7 +48,7 @@ class CountryController extends Controller
      */
     public function show($id)
     {
-        return Country::find($id);
+        return Place::find($id);
     }
 
     /**
@@ -65,14 +60,12 @@ class CountryController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         /*/
         Validation code here
         /*/
-
         $data = $request->all();
-        $country = Country::find($id);
-        $country->update($data);
+        $place = Place::find($id);
+        $place->update($data);
         return "Updated successfully!";
     }
 
@@ -84,9 +77,8 @@ class CountryController extends Controller
      */
     public function destroy($id)
     {
-        $country = Country::find($id);
-        $country->delete();
+        $place = Place::find($id);
+        $place->delete();
         return "Deleted successfully!";
-        //
     }
 }

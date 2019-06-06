@@ -36,6 +36,20 @@ Route::post('/city/submit', 'CityController@store');
 Route::put('/city/edit/{id}', 'CityController@update');
 Route::delete('/city/destroy/{id}', 'CityController@destroy');
 
+// User Routes
+Route::get('/user/all', 'UserController@index');
+Route::get('/user/find/{id}', 'UserController@show');
+Route::post('/user/submit', 'UserController@store');
+Route::put('/user/edit/{id}', 'UserController@update');
+Route::delete('/user/destroy/{id}', 'UserController@destroy');
+Auth::routes();
+
+// Place Routes
+Route::get('/place/all', 'PlaceController@index');
+Route::get('/place/find/{id}', 'PlaceController@show');
+Route::post('/place/submit', 'PlaceController@store');
+Route::put('/place/edit/{id}', 'PlaceController@update');
+Route::delete('/place/destroy/{id}', 'PlaceController@destroy');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
