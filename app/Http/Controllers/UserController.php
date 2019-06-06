@@ -38,7 +38,7 @@ class UserController extends Controller
             'address' => $request->get('address')
         ]);
         $user->save();
-        return "Created successfully!";
+        return $user;
     }
 
     /**
@@ -67,7 +67,7 @@ class UserController extends Controller
         $data = $request->all();
         $user = User::find($id);
         $user->update($data);
-        return "Updated successfully!";
+        return $user;
     }
 
     /**
