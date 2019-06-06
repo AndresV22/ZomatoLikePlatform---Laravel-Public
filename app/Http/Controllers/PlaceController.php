@@ -30,6 +30,7 @@ class PlaceController extends Controller
         Validation code here
         /*/
         $place = new Place([
+            'users_id' => $request->get('users_id'),
             'name' => $request->get('name'),
             'address' => $request->get('address'),
             'opening_time' => $request->get('opening_time'),
