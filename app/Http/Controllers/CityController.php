@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Country;
 
-class CountryController extends Controller
+class CityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,6 @@ class CountryController extends Controller
      */
     public function index()
     {
-        $country = Country::all();
-        return $country;
         //
     }
 
@@ -24,9 +21,9 @@ class CountryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-
+        //
     }
 
     /**
@@ -37,22 +34,7 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-
-        /*/
-        Validation code here?
-        /*/
-
-        //$name = $request->input('name');
-        //$code = $request->input('code');
-
-        $country = new Country([
-            'name' => $request->get('name'),
-            'code' => $request->get('code')
-        ]);
-
-        $country->save();
-
-        return "Created succesfully";
+        //
     }
 
     /**
@@ -63,7 +45,7 @@ class CountryController extends Controller
      */
     public function show($id)
     {
-        return Country::find($id);
+        //
     }
 
     /**
@@ -86,15 +68,7 @@ class CountryController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        /*/
-        Validation code here
-        /*/
-
-        $data = $request->all();
-        $country = Country::find($id);
-        $country->update($data);
-        return "Updated succesfully";
+        //
     }
 
     /**
@@ -105,8 +79,6 @@ class CountryController extends Controller
      */
     public function destroy($id)
     {
-        $country = Country::find($id);
-        $country->delete();
-        return "Deleted";
+        //
     }
 }

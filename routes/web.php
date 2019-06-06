@@ -21,6 +21,19 @@ Route::get('/country/find/{id}', 'CountryController@show');
 Route::post('/country/submit', 'CountryController@store');
 Route::put('/country/edit/{id}', 'CountryController@update');
 Route::delete('/country/destroy/{id}', 'CountryController@destroy');
+
+Route::get('/comment/all', 'CommentController@index');
+Route::get('/comment/find/{id}', 'CommentController@show');
+Route::post('/comment/submit', 'CommentController@store');
+Route::put('/comment/edit/{id}', 'CommentController@update');
+Route::delete('/comment/destroy/{id}', 'CommentController@destroy');
+
+Route::get('/city/all', 'CityController@index');
+Route::get('/city/find/{id}', 'CityController@show');
+Route::post('/city/submit', 'CityController@store');
+Route::put('/city/edit/{id}', 'CityController@update');
+Route::delete('/city/destroy/{id}', 'CityController@destroy');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
