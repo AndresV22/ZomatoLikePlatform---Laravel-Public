@@ -42,7 +42,6 @@ Route::get('/user/find/{id}', 'UserController@show');
 Route::post('/user/submit', 'UserController@store');
 Route::put('/user/edit/{id}', 'UserController@update');
 Route::delete('/user/destroy/{id}', 'UserController@destroy');
-Auth::routes();
 
 // Place Routes
 Route::get('/place/all', 'PlaceController@index');
@@ -50,6 +49,13 @@ Route::get('/place/find/{id}', 'PlaceController@show');
 Route::post('/place/submit', 'PlaceController@store');
 Route::put('/place/edit/{id}', 'PlaceController@update');
 Route::delete('/place/destroy/{id}', 'PlaceController@destroy');
+
+// Dish Routes
+Route::get('/dish/all', 'DishController@index');
+Route::get('/dish/find/{id}', 'DishController@show');
+Route::post('/dish/submit', 'DishController@store');
+Route::put('/dish/edit/{id}', 'DishController@update');
+Route::delete('/dish/destroy/{id}', 'DishController@destroy');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

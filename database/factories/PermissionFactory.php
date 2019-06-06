@@ -7,8 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Permission::class, function (Faker $faker) {
 	$name = array('remove place', 'create place', 'modify place', 'none', 'remove user', 'create user', 'modify user');
-	
     return [
-        'name' = $faker->randomElement($name),
+        'name' => $faker->randomElement($name),
     ];
 });
