@@ -12,6 +12,7 @@ class Reservation extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
         'date',
         'time',
         'allow', 
@@ -25,8 +26,8 @@ class Reservation extends Model
     }
 
     // A reservation has many tables
-	public function tables()
+	public function tableReservations()
     {
-    	return $this->belongsToMany('App\Table');
+        return $this->hasMany('App\TableReservation');
     }    
 }

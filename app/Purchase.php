@@ -12,11 +12,13 @@ class Purchase extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
+        'payment_voucher_id',
         'status',
     ];
 
     /**********************   Relations   **********************/
-    // Una purchase belongs to one user
+    // A purchase belongs to one user
     public function user()
     {
     	return $this->belongsTo('App\User');

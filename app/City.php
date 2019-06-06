@@ -12,21 +12,22 @@ class City extends Model
      * @var array
      */
     protected $fillable = [
+        'country_id',
         'name',
         'code', 
     ];
 
     /**********************   Relations   **********************/
-    // Una city belongs to a country
+    // A city belongs to a country
     public function country()
     {
     	return $this->belongsTo('App\Country');
     }
 
-    // In one city there are many users
-    public function users()
+    // A city has many UserCities table
+    public function userCities()
     {
-        return $this->belongsToMany('App\User');
+    return $this->hasMany(UserCity::class, 'cities_users', 'id' /*/ Cities /*/, 'id' /*/ Users /*/);
     }
 
 }

@@ -5,7 +5,7 @@
 use App\Model;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(App\UserRegister::class, function (Faker $faker) {
     return [
         //
     ];

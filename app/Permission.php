@@ -18,8 +18,8 @@ class Permission extends Model
 
     /**********************   Relations   **********************/
     // A permission belongs to many roles
-    public function roles()
+    public function permissionRoles()
     {
-    	return $this->belongsToMany('App\Role');
+        return $this->hasMany('App\PermissionRole');
     }
 }

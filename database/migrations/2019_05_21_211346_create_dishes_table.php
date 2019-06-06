@@ -15,10 +15,10 @@ class CreateDishesTable extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('purchases_id')->unsigned()->nullable();
+            $table->bigInteger('purchases_id')->unsigned();
             $table->foreign('purchases_id')->references('id')->on('purchases');
             $table->timestamps();
-            $table->string('name', 20);
+            $table->string('name', 32);
             $table->integer('price');
             $table->text('description');
             $table->string('category', 20);

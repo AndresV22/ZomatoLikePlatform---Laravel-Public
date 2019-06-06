@@ -43,16 +43,16 @@ class User extends Authenticatable
     ];
 
     /**********************   Relations   **********************/
-    // A user belongs to many cities 
-    public function cities()
+    // A user has many UserCities table models
+    public function userCities()
     {
-        return $this->belongsToMany('App\City');
+    return $this->hasMany('App\UserCity');
     }
 
-    // A user belongs to many roles
-    public function roles()
+    // A user has many UserRoles table models
+    public function userRoles()
     {
-        return $this->belongsToMany('App\Role');
+        return $this->hasMany('App\UserRole');
     }
 
     // A user belongs to one UserRegister
@@ -80,7 +80,7 @@ class User extends Authenticatable
     }
 
     // A user can have many purchases
-    public function parchases()
+    public function purchases()
     {
         return $this->hasMany('App\Purchase');
     }
