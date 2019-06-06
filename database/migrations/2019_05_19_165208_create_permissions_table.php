@@ -17,7 +17,6 @@ class CreatePermissionsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('name');
-            $table->string('type');
         });
     }
 

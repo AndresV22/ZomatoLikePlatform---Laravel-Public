@@ -10,6 +10,6 @@ $factory->define(App\Role::class, function (Faker $faker) {
 
     return [
         'name' => $faker->randomElement($name),
-        'desciption' => $faker->text($maxNbChars = 30),
+        'description' => $faker->text($maxNbChars = 30),
     ];
 });
