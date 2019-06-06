@@ -22,12 +22,14 @@ Route::post('/country/submit', 'CountryController@store');
 Route::put('/country/edit/{id}', 'CountryController@update');
 Route::delete('/country/destroy/{id}', 'CountryController@destroy');
 
+// Comments Routes
 Route::get('/comment/all', 'CommentController@index');
 Route::get('/comment/find/{id}', 'CommentController@show');
 Route::post('/comment/submit', 'CommentController@store');
 Route::put('/comment/edit/{id}', 'CommentController@update');
 Route::delete('/comment/destroy/{id}', 'CommentController@destroy');
 
+// Cities Routes
 Route::get('/city/all', 'CityController@index');
 Route::get('/city/find/{id}', 'CityController@show');
 Route::post('/city/submit', 'CityController@store');

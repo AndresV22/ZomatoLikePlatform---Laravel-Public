@@ -35,18 +35,18 @@ class CityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         /*/
         Validation code here?
         /*/
 
-        //$country_id = $request->input('country_id')
-        //$name = $request->input('name');
-        //$code = $request->input('code');
+        $countries_id = DB::table('countries')->select('id')->get();
 
         $city = new City([
-            'country_id' => $reqquest(get('country_id')),
+            'countries_id' => $countries_id->random()->id,
+            //'countries_id' => $request(get('countries_id')),
             'name' => $request->get('name'),
             'code' => $request->get('code')
         ]);

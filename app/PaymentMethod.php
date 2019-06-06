@@ -12,7 +12,7 @@ class PaymentMethod extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
+        'users_id',
         'type',
         'bank', 
     ];

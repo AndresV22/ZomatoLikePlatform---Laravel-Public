@@ -12,7 +12,7 @@ class Ingredient extends Model
      * @var array
      */
     protected $fillable = [
-        'dish_id',
+        'dishes_id',
         'name',
         'type', 
         'category',

@@ -12,7 +12,7 @@ class City extends Model
      * @var array
      */
     protected $fillable = [
-        'country_id',
+        'countries_id',
         'name',
         'code', 
     ];
@@ -27,7 +27,7 @@ class City extends Model
     // A city has many UserCities table
     public function userCities()
     {
-    return $this->hasMany(UserCity::class, 'cities_users', 'id' /*/ Cities /*/, 'id' /*/ Users /*/);
+    return $this->hasMany('App/UserCity');
     }
 
 }

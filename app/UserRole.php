@@ -12,15 +12,15 @@ class UserRole extends Model
      * @var array
      */
     protected $fillable = [
-        'role_id',
-        'user_id',
+        'roles_id',
+        'users_id',
     ];
 
     /**********************   Relations   **********************/
     // A UserRol intermediate model belongs to a Role
      public function role()
      {
-     	return $this->belongsTo('App\Roll');
+     	return $this->belongsTo('App\Role');
      }
 
      // A UserRol intermediate model belongs to a User
