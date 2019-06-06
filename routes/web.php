@@ -64,6 +64,21 @@ Route::get('/comment/find/{id}', 'CommentController@show');
 Route::post('/comment/submit', 'CommentController@store');
 Route::put('/comment/edit/{id}', 'CommentController@update');
 Route::delete('/comment/destroy/{id}', 'CommentController@destroy');
+
+// Purchase Routes
+Route::get('/purchase/all', 'PurchaseController@index');
+Route::get('/purchase/find/{id}', 'PurchaseController@show');
+Route::post('/purchase/submit', 'PurchaseController@store');
+Route::put('/purchase/edit/{id}', 'PurchaseController@update');
+Route::delete('/purchase/destroy/{id}', 'PurchaseController@destroy');
+
+// Ingredient Routes
+Route::get('/ingredient/all', 'IngredientController@index');
+Route::get('/ingredient/find/{id}', 'IngredientController@show');
+Route::post('/ingredient/submit', 'IngredientController@store');
+Route::put('/ingredient/edit/{id}', 'IngredientController@update');
+Route::delete('/ingredient/destroy/{id}', 'IngredientController@destroy');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
