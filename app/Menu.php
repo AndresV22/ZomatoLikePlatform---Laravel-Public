@@ -12,6 +12,8 @@ class Menu extends Model
      * @var array
      */
     protected $fillable = [
+        'place_id',
+        'purchase_id',
         'price', 
         'discount',
         'category',
@@ -31,8 +33,8 @@ class Menu extends Model
     }
 
     // A menu has many dishes
-    public function dishes()
+    public function menuDishes()
     {
-        return $this->belongsToMany(dishes::class, 'menus_dishes', 'id' /*/ Menus /*/, 'id' /*/ Dishes /*/);
+        return $this->hasMany('App\MenuDish');
     }
 }

@@ -12,6 +12,7 @@ class Table extends Model
      * @var array
      */
     protected $fillable = [
+        'place_id',
         'capacity',
         'code',
         'taken', 
@@ -24,9 +25,9 @@ class Table extends Model
     	return $this->belongsTo('App\Place');
     }
 
-    // A table belongs to many reservations
-	public function reservations()
+    // A table has many tableReservations models
+	public function tableReservations()
     {
-        return $this->belongsToMany(reservations::class, 'tables_reservations', 'id' /*/ Tables /*/, 'id' /*/ Reservations /*/);
+        return $this->hasMany('App\TableReservation');
     }    
 }

@@ -12,6 +12,7 @@ class Dish extends Model
      * @var array
      */
     protected $fillable = [
+        'purchase_id',
         'name',
         'price', 
         'description',
@@ -32,10 +33,10 @@ class Dish extends Model
         return $this->belongsTo('App\Purchase');
     }
 
-    // A dish belongs to many menus
-    public function menus()
+    // A dish has many MenuDishes tables
+    public function menuDishes()
     {
-    return $this->belongsToMany(menus::class, 'menus_dishes', 'id' /*/ Dishes /*/, 'id' /*/ Menus /*/);
+        return $this->hasMany('App\MenyDishes');
     }
 
     // A dish has many ingredients
