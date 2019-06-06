@@ -5,7 +5,7 @@
 use App\Model;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(App\MenuDish::class, function (Faker $faker) {
 	$menus_id = DB::table('menus')->select('id')->get();
 	$dishes_id = DB::table('dishes')->select('id')->get();	
 
