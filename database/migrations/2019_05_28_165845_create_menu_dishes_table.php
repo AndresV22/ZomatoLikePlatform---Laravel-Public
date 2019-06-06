@@ -17,8 +17,8 @@ class CreateMenuDishesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('menus_id')->unsigned();
             $table->bigInteger('dishes_id')->unsigned();
-            $table->foreign('menus_id')->references('id')->on('menus');
-            $table->foreign('dishes_id')->references('id')->on('dishes');
+            $table->foreign('menus_id')->references('id')->on('menus')->onDelete('cascade');
+            $table->foreign('dishes_id')->references('id')->on('dishes')->onDelete('cascade');
             $table->timestamps();
         });
     }

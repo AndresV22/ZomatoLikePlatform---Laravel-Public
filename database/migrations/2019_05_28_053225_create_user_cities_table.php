@@ -17,8 +17,8 @@ class CreateUserCitiesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('cities_id')->unsigned();
             $table->bigInteger('users_id')->unsigned();
-            $table->foreign('cities_id')->references('id')->on('cities');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('cities_id')->references('id')->on('cities')->onDelete('cascade');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
