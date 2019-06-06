@@ -16,8 +16,8 @@ class CreateUserCitiesTable extends Migration
         Schema::create('user_cities', function (Blueprint $table) {
             $table->bigInteger('cities_id')->unsigned();
             $table->bigInteger('users_id')->unsigned();
-            $table->foreign('cities_id')->references('id')->on('cities');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('cities_id')->references('id')->on('cities')->onDelete('cascade');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,8 +17,8 @@ class CreateCommentsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('places_id')->unsigned();
             $table->bigInteger('users_id')->unsigned();
-            $table->foreign('places_id')->references('id')->on('places');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('places_id')->references('id')->on('places')->onDelete('cascade');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('content');
             $table->integer('value');
             $table->timestamps();

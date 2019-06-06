@@ -16,7 +16,7 @@ class CreatePaymentVouchersTable extends Migration
         Schema::create('payment_vouchers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('payment_methods_id')->unsigned();
-            $table->foreign('payment_methods_id')->references('id')->on('payment_methods');
+            $table->foreign('payment_methods_id')->references('id')->on('payment_methods')->onDelete('cascade');
             $table->integer('amount');
             $table->date('date');
             $table->string('detail', 40);

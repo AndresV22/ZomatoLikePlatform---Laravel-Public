@@ -28,7 +28,7 @@ class Purchase extends Model
     public function paymentVoucher()
     {
     	return $this->belongsTo('App\PaymentVoucher');
-    } 
+    }
 
     // A purchase has many dishes
     public function dishes()
