@@ -14,6 +14,7 @@ class CreateMenuDishesTable extends Migration
     public function up()
     {
         Schema::create('menu_dishes', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('menus_id')->unsigned();
             $table->bigInteger('dishes_id')->unsigned();
             $table->foreign('menus_id')->references('id')->on('menus');

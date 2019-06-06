@@ -28,5 +28,4 @@ class MenuDish extends Model
     {
     	return $this->belongsTo('App\Dish');
     }
-}    
 }
