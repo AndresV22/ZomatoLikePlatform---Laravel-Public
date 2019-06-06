@@ -13,7 +13,7 @@ class Purchase extends Model
      */
     protected $fillable = [
         'users_id',
-        'payment_voucher_id',
+        'payment_vouchers_id',
         'status',
     ];
 

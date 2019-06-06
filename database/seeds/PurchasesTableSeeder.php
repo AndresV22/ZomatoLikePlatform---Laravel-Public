@@ -11,6 +11,6 @@ class PurchasesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Purchase::class, 40)->create();
     }
 }

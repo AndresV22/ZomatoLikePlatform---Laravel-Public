@@ -11,6 +11,6 @@ class UserRegistersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\UserRegister::class, 40)->create();
     }
 }

@@ -11,6 +11,6 @@ class PaymentVouchersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+    	factory(App\PaymentVoucher::class, 40)->create();
     }
 }
