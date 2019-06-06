@@ -11,6 +11,6 @@ class UserCitiesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\UserCity::class, 20)->create();
     }
 }

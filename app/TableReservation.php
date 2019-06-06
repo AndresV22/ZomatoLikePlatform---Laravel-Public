@@ -12,8 +12,8 @@ class TableReservation extends Model
      * @var array
      */
     protected $fillable = [
-        'reservation_id',
-        'table_id',
+        'reservations_id',
+        'tables_id',
     ];
 
     /**********************   Relations   **********************/
