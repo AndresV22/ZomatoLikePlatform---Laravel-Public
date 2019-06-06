@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\City;
 
 class CityController extends Controller
 {
@@ -13,6 +14,8 @@ class CityController extends Controller
      */
     public function index()
     {
+        $city = City::all();
+        return $city;
         //
     }
 
@@ -21,7 +24,7 @@ class CityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
     }
@@ -34,7 +37,23 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*/
+        Validation code here?
+        /*/
+
+        //$country_id = $request->input('country_id')
+        //$name = $request->input('name');
+        //$code = $request->input('code');
+
+        $city = new City([
+            'country_id' => $reqquest(get('country_id')),
+            'name' => $request->get('name'),
+            'code' => $request->get('code')
+        ]);
+
+        $city->save();
+
+        return "Created succesfully";
     }
 
     /**
@@ -45,7 +64,7 @@ class CityController extends Controller
      */
     public function show($id)
     {
-        //
+        return City::find($id);
     }
 
     /**
@@ -68,7 +87,14 @@ class CityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        /*/
+        Validation code here
+        /*/
+
+        $data = $request->all();
+        $city = City::find($id);
+        $city->update($data);
+        return "Updated succesfully";
     }
 
     /**
@@ -79,6 +105,8 @@ class CityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $city = City::find($id);
+        $city->delete();
+        return "Deleted";
     }
 }
