@@ -176,10 +176,3 @@ VALUES (1, '2019-06-07 04:40:55', 1);
 
 INSERT INTO migrations (id, migration, batch)
 VALUES (2, '2019-06-07 04:40:55', 1);
-
-
--- PaswordReset TABLE ----------------------------------------
-INSERT INTO pasword_resets (email, token, created_at)
-VALUES ('victor.huanqui@usach.cl', '2019-06-07 04:40:55', '2019-06-07 04:40:55');
-INSERT INTO pasword_resets (email, token, created_at)
-VALUES ('victor.huanqui@usach.cl', '2019-06-07 04:40:55', '2019-06-07 04:40:55');
