@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Purchase;
+use App\User;
+use App\PaymentVoucher;
 
 class PurchaseController extends Controller
 {
@@ -26,13 +28,22 @@ class PurchaseController extends Controller
      */
     public function store(Request $request)
     {
-        $purchase = new Purchase([
-            'payment_vouchers_id' => $request->get('payment_vouchers_id'),
-            'users_id' => $request->get('users_id'),
-            'status' => $request->get('status')
-        ]);
-        $purchase->save();
-        return "Created successfully!";
+        $possible_payment_voucher = PaymentVoucher::find($request->get('payment_vouchers_id'));
+        $possible_user = User::find($request->get('users_id'));
+        if ($possible_payment_voucher != null && $possible_user != null)
+        {
+            $purchase = new Purchase([
+                'payment_vouchers_id' => $request->get('payment_vouchers_id'),
+                'users_id' => $request->get('users_id'),
+                'status' => $request->get('status')
+            ]);
+            $purchase->save();
+            return "Created successfully!";
+        }
+        else
+        {
+            return "Could not create new purchase.";
+        }
     }
 
     /**

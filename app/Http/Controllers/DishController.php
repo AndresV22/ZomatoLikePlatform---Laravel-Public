@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dish;
+use App\Purchase;
 
 class DishController extends Controller
 {
@@ -25,7 +26,10 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-      $dish = new Dish([
+      $possible_purchase = Purchase::find($request->get('purchases_id'));
+      if ($possible_purchase != null)
+      {
+        $dish = new Dish([
           'purchases_id' => $request->get('purchases_id'),
           'name' => $request->get('name'),
           'price' => $request->get('price'),
@@ -35,6 +39,11 @@ class DishController extends Controller
       ]);
       $dish->save();
       return "Created successfully!";
+      }
+      else
+      {
+          return "Could not create new dish.";
+      }
     }
     /**
      * Display the specified resource.

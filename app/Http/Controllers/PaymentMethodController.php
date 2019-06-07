@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PaymentMethod;
+use App\User;
 
 class PaymentMethodController extends Controller
 {
@@ -26,15 +27,21 @@ class PaymentMethodController extends Controller
      */
     public function store(Request $request)
     {
-      $paymentMethod = new PaymentMethod([
+      $possible_user = User::find($request->get('users_id'));
+      if ($possible_user != null)
+      {
+        $paymentMethod = new PaymentMethod([
           'users_id' => $request->get('users_id'),
           'type' => $request->get('type'),
           'bank' => $request->get('bank')
-      ]);
-
-      $paymentMethod->save();
-
-      return "Created successfully!";
+        ]);
+        $paymentMethod->save();
+        return "Created successfully!";
+      }
+      else
+      {
+        return "Could not create new payment method.";
+      }
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\City;
+use App\Country;
 
 class CityController extends Controller
 {
@@ -27,15 +28,21 @@ class CityController extends Controller
 
     public function store(Request $request)
     {
-        $city = new City([
-            'countries_id' => $request->get('countries_id'),
-            'name' => $request->get('name'),
-            'code' => $request->get('code')
-        ]);
-
-        $city->save();
-
-        return "Created successfully!";
+        $possible_country = Country::find($request->get('countries_id'));
+        if ($possible_country != null)
+        {
+            $city = new City([
+                'countries_id' => $request->get('countries_id'),
+                'name' => $request->get('name'),
+                'code' => $request->get('code')
+            ]);
+            $city->save();
+            return "Created successfully!";
+        }
+        else
+        {
+            return "Could not create new city.";
+        }
     }
 
     /**

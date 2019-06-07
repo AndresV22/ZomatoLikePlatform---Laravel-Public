@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Comment;
+use App\Place;
+use App\User;
 
 class CommentController extends Controller
 {
@@ -28,16 +30,23 @@ class CommentController extends Controller
 
     public function store(Request $request)
     {
-        $comment = new Comment([
-            'places_id' => $request->get('places_id'),
-            'users_id' => $request->get('users_id'),
-            'content' => $request->get('content'),
-            'value' => $request->get('value')
-        ]);
-
-        $comment->save();
-
-        return "Created successfully!";
+        $possible_place = Place::find($request->get('places_id'));
+        $possible_user = User::find($request->get('users_id'));
+        if ($possible_user != null && $possible_place != null)
+        {
+            $comment = new Comment([
+                'places_id' => $request->get('places_id'),
+                'users_id' => $request->get('users_id'),
+                'content' => $request->get('content'),
+                'value' => $request->get('value')
+            ]);
+            $comment->save();
+            return "Created successfully!";
+        }
+        else
+        {
+            return "Could not create new comment.";
+        }
     }
 
     /**

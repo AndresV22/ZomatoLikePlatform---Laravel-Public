@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Menu;
+use App\Place;
+use App\Purchase;
 
 class MenuController extends Controller
 {
@@ -26,16 +28,24 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-
-      $menu = new Menu([
+      $possible_place = Place::find($request->get('places_id'));
+      $possible_purchase = Purchase::find($request->get('purchases_id'));
+      if ($possible_place != null && $possible_purchase != null)
+      {
+        $menu = new Menu([
           'places_id' => $request->get('places_id'),
           'purchases_id' => $request->get('purchases_id'),
           'price' => $request->get('price'),
           'category' => $request->get('category'),
           'discount' => $request->get('discount')
-      ]);
-      $menu->save();
-      return "Created successfully!";
+        ]);
+        $menu->save();
+        return "Created successfully!";
+      }
+      else
+      {
+        return "Could not create new menu.";
+      }
     }
 
     /**

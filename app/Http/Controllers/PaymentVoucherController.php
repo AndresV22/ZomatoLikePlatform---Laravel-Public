@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PaymentVoucher;
+use App\PaymentMethod;
 
 class PaymentVoucherController extends Controller
 {
@@ -26,11 +27,10 @@ class PaymentVoucherController extends Controller
      */
     public function store(Request $request)
     {
-      /*/
-      Validation code here?
-      /*/
-
-      $paymentVoucher = new PaymentVoucher([
+      $possible_payment_method = PaymentMethod::find($request->get('payment_methods_id'));
+      if ($possible_payment_method != null)
+      {
+        $paymentVoucher = new PaymentVoucher([
           'payment_methods_id' => $request->get('payment_methods_id'),
           'amount' => $request->get('amount'),
           'date' => $request->get('date'),
@@ -38,10 +38,13 @@ class PaymentVoucherController extends Controller
           'status' => $request->get('status'),
           'delivery' => $request->get('delivery')
       ]);
-
       $paymentVoucher->save();
-
       return "Created successfully!";
+      }
+      else
+      {
+        return "Could not create new payment voucher.";
+      }
     }
 
     /**

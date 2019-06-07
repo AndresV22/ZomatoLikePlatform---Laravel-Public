@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Table;
+use App\Place;
 
 class TableController extends Controller
 {
@@ -17,7 +18,6 @@ class TableController extends Controller
       $table = Table::all();
       return $table;
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -26,18 +26,23 @@ class TableController extends Controller
      */
     public function store(Request $request)
     {
-      $table = new Table([
+      $possible_place = Place::find($request->get('places_id'));
+      if ($possible_place != null)
+      {
+        $table = new Table([
           'places_id' => $request->get('places_id'),
           'capacity' => $request->get('capacity'),
           'code' => $request->get('code'),
           'taken' => $request->get('taken')
-      ]);
-
-      $table->save();
-
-      return "Created successfully!";
+        ]);
+        $table->save();
+        return "Created successfully!";
+      }
+      else
+      {
+          return "Could not create new table.";
+      }
     }
-
     /**
      * Display the specified resource.
      *
@@ -48,7 +53,6 @@ class TableController extends Controller
     {
         return Table::find($id);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -64,7 +68,6 @@ class TableController extends Controller
       $table->update($data);
       return "Updated successfully!";
     }
-
     /**
      * Remove the specified resource from storage.
      *

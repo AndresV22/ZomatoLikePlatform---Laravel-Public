@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ingredient;
+use App\Dish;
 
 class IngredientController extends Controller
 {
@@ -25,14 +26,22 @@ class IngredientController extends Controller
      */
     public function store(Request $request)
     {
-      $ingredient = new Ingredient([
+      $possible_dish = Dish::find($request->get('dishes_id'));
+      if ($possible_dish != null)
+      {
+        $ingredient = new Ingredient([
           'dishes_id' => $request->get('dishes_id'),
           'name' => $request->get('name'),
           'type' => $request->get('type'),
           'category' => $request->get('category')
-      ]);
+        ]);
       $ingredient->save();
       return "Created successfully!";
+      }
+      else
+      {
+        return "Could not create new ingredient.";
+      }
     }
 
     /**

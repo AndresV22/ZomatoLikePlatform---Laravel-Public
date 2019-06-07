@@ -17,7 +17,6 @@ class MenuDishController extends Controller
       $menuDish = MenuDish::all();
       return $menuDish;
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -33,7 +32,6 @@ class MenuDishController extends Controller
       $menuDish->save();
       return "Created successfully!";
     }
-
     /**
      * Display the specified resource.
      *
@@ -44,7 +42,6 @@ class MenuDishController extends Controller
     {
         return MenuDish::find($id);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -59,7 +56,6 @@ class MenuDishController extends Controller
       $menuDish->update($data);
       return "Updated successfully!";
     }
-
     /**
      * Remove the specified resource from storage.
      *
