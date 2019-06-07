@@ -119,7 +119,7 @@ ALTER TABLE cities
 	ADD CONSTRAINT cities_countries_id_foreign FOREIGN KEY ( countries_id )
 	REFERENCES countries ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -143,7 +143,7 @@ ALTER TABLE places
 	ADD CONSTRAINT places_users_id_foreign FOREIGN KEY ( users_id )
 	REFERENCES users ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -165,7 +165,7 @@ ALTER TABLE comments
 	ADD CONSTRAINT comments_users_id_foreign FOREIGN KEY ( users_id )
 	REFERENCES users ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -186,7 +186,7 @@ ALTER TABLE payment_methods
 	ADD CONSTRAINT payment_methods_users_id_foreign FOREIGN KEY ( users_id )
 	REFERENCES users ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -210,7 +210,7 @@ ALTER TABLE payment_vouchers
 	ADD CONSTRAINT payment_vouchers_payment_methods_id_foreign FOREIGN KEY ( payment_methods_id )
 	REFERENCES payment_methods ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -231,13 +231,13 @@ ALTER TABLE purchases
 	ADD CONSTRAINT purchases_users_id_foreign FOREIGN KEY ( users_id )
 	REFERENCES users ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- CREATE LINK purchases_payment_vouchers_id_foreign ---------
 ALTER TABLE purchases
 	ADD CONSTRAINT purchases_payment_vouchers_id_foreign FOREIGN KEY ( payment_vouchers_id )
 	REFERENCES payment_vouchers ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -261,7 +261,7 @@ ALTER TABLE dishes
 	ADD CONSTRAINT dishes_purchases_id_foreign FOREIGN KEY ( purchases_id )
 	REFERENCES purchases ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -283,7 +283,7 @@ ALTER TABLE ingredients
 	ADD CONSTRAINT ingredients_dishes_id_foreign FOREIGN KEY ( dishes_id )
 	REFERENCES dishes ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -319,13 +319,13 @@ ALTER TABLE menus
 	ADD CONSTRAINT menus_purchases_id_foreign FOREIGN KEY ( purchases_id )
 	REFERENCES purchases ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- CREATE LINK menus_places_id_foreign -----------------------
 ALTER TABLE menus
 	ADD CONSTRAINT menus_places_id_foreign FOREIGN KEY ( places_id )
 	REFERENCES places ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -347,7 +347,7 @@ ALTER TABLE reservations
 	ADD CONSTRAINT reservations_users_id_foreign FOREIGN KEY ( users_id )
 	REFERENCES users ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -369,7 +369,7 @@ ALTER TABLE tables
 	ADD CONSTRAINT tables_places_id_foreign FOREIGN KEY ( places_id )
 	REFERENCES places ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -403,7 +403,7 @@ ALTER TABLE user_registers
 	ADD CONSTRAINT user_registers_users_id_foreign FOREIGN KEY ( users_id )
 	REFERENCES users ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -423,13 +423,13 @@ ALTER TABLE menu_dishes
 	ADD CONSTRAINT menu_dishes_dishes_id_foreign FOREIGN KEY ( dishes_id )
 	REFERENCES dishes ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- CREATE LINK menu_dishes_menus_id_foreign ------------------
 ALTER TABLE menu_dishes
 	ADD CONSTRAINT menu_dishes_menus_id_foreign FOREIGN KEY ( menus_id )
 	REFERENCES menus ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -449,13 +449,13 @@ ALTER TABLE permission_roles
 	ADD CONSTRAINT permission_roles_roles_id_foreign FOREIGN KEY ( roles_id )
 	REFERENCES roles ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- CREATE LINK permission_roles_permissions_id_foreign -------
 ALTER TABLE permission_roles
 	ADD CONSTRAINT permission_roles_permissions_id_foreign FOREIGN KEY ( permissions_id )
 	REFERENCES permissions ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -475,13 +475,13 @@ ALTER TABLE table_reservations
 	ADD CONSTRAINT table_reservations_reservations_id_foreign FOREIGN KEY ( reservations_id )
 	REFERENCES reservations ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- CREATE LINK table_reservations_tables_id_foreign ----------
 ALTER TABLE table_reservations
 	ADD CONSTRAINT table_reservations_tables_id_foreign FOREIGN KEY ( tables_id )
 	REFERENCES tables ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -501,13 +501,13 @@ ALTER TABLE user_cities
 	ADD CONSTRAINT user_cities_users_id_foreign FOREIGN KEY ( users_id )
 	REFERENCES users ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- CREATE LINK user_cities_cities_id_foreign -----------------
 ALTER TABLE user_cities
 	ADD CONSTRAINT user_cities_cities_id_foreign FOREIGN KEY ( cities_id )
 	REFERENCES cities ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 
@@ -527,13 +527,13 @@ ALTER TABLE user_roles
 	ADD CONSTRAINT user_roles_users_id_foreign FOREIGN KEY ( users_id )
 	REFERENCES users ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- CREATE LINK user_roles_roles_id_foreign -------------------
 ALTER TABLE user_roles
 	ADD CONSTRAINT user_roles_roles_id_foreign FOREIGN KEY ( roles_id )
 	REFERENCES roles ( id ) MATCH SIMPLE
 	ON DELETE Cascade
-	ON UPDATE No Action;
+	ON UPDATE Cascade;
 -- -------------------------------------------------------------
 
 

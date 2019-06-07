@@ -107,6 +107,12 @@ VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55', '2019-06-07 05:35:28', '16
 INSERT INTO reservations (created_at, updated_at, date, time, allow)
 VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55', '2018-06-07 14:22:46', '20:30:00', FALSE);
 
+-- Tables TABLE ----------------------------------------
+INSERT INTO tables (capacity, code, created_at, taken, updated_at) 
+VALUES ( 10, 'Mesa 1', '2019-06-07 04:40:55', TRUE, '2019-06-07 04:40:55');
+
+INSERT INTO tables (capacity, code, created_at, taken, updated_at) 
+VALUES ( 3, 'Mesa 2', '2019-06-07 04:40:55', FALSE, '2019-06-07 04:40:55');
 
 -- Role TABLE ----------------------------------------
 INSERT INTO roles (created_at, updated_at, name, description)
@@ -166,14 +172,14 @@ VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55');
 
 -- Migration TABLE ----------------------------------------
 INSERT INTO migrations (id, migration, batch)
-VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55');
+VALUES (1, '2019-06-07 04:40:55', 1);
 
 INSERT INTO migrations (id, migration, batch)
-VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55');
+VALUES (2, '2019-06-07 04:40:55', 1);
 
 
 -- PaswordReset TABLE ----------------------------------------
 INSERT INTO pasword_resets (email, token, created_at)
-VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55');
+VALUES ('victor.huanqui@usach.cl', '2019-06-07 04:40:55', '2019-06-07 04:40:55');
 INSERT INTO pasword_resets (email, token, created_at)
-VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55');
+VALUES ('victor.huanqui@usach.cl', '2019-06-07 04:40:55', '2019-06-07 04:40:55');
