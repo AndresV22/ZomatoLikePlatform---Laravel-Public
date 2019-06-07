@@ -8,7 +8,8 @@ use Faker\Generator as Faker;
 $factory->define(App\Ingredient::class, function (Faker $faker) {
 
 	$faker->addProvider(new \FakerRestaurant\Provider\en_US\Restaurant($faker));
-	$categories = array('Vegetable', 'Meat', 'Fruit', 'Sauce', 'Spice');
+	$categories = array('Oils', 'Meat', 'Fruit', 'Sauce', 'Spice', 'Legume', 'pasta', 'Seaweed', 'Bread');
+	$types = array('Animal', 'Vegetable')
 	$dishes_id = DB::table('dishes')->select('id')->get();
 
 	$choice = $faker->numberBetween($min = 0, $max = 3);
@@ -31,9 +32,9 @@ $factory->define(App\Ingredient::class, function (Faker $faker) {
 	}
 
     return [
-		'dishes_id' => $dishes_id->random()->id,
+				'dishes_id' => $dishes_id->random()->id,
         'name' => $ingredient,
-        'type' => $type,
+        'type' => $faker->randomElement($types),
         'category' => $faker->randomElement($categories),
     ];
 });
