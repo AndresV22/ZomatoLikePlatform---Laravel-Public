@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Place;
+use App\User;
 
 class PlaceController extends Controller
 {
@@ -26,16 +27,24 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-        $place = new Place([
-            'users_id' => $request->get('users_id'),
-            'name' => $request->get('name'),
-            'address' => $request->get('address'),
-            'opening_time' => $request->get('opening_time'),
-            'closing_time' => $request->get('closing_time'),
-            'average_value' => $request->get('average_value')
-        ]);
-        $place->save();
-        return "Created successfully!";
+        $possible_user = User::find($request->get('users_id'));
+        if ($possible_user != null)
+        {
+            $place = new Place([
+                'users_id' => $request->get('users_id'),
+                'name' => $request->get('name'),
+                'address' => $request->get('address'),
+                'opening_time' => $request->get('opening_time'),
+                'closing_time' => $request->get('closing_time'),
+                'average_value' => $request->get('average_value')
+            ]);
+            $place->save();
+            return "Created successfully!";
+        }
+        else
+        {
+            return "Could not create new restaurant.";
+        }
     }
 
     /**
