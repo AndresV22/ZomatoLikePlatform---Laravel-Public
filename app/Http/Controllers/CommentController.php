@@ -28,10 +28,6 @@ class CommentController extends Controller
 
     public function store(Request $request)
     {
-        /*/
-        Validation code here?
-        /*/
-
         $comment = new Comment([
             'places_id' => $request->get('places_id'),
             'users_id' => $request->get('users_id'),
@@ -64,10 +60,6 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /*/
-        Validation code here
-        /*/
-
         $data = $request->all();
         $comment = Comment::find($id);
         $comment->update($data);

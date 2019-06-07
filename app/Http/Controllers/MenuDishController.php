@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use App\User;
+use App\MenuDish;
 
-class UserController extends Controller
+class MenuDishController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return $user;
+      $menuDish = MenuDish::all();
+      return $menuDish;
     }
 
     /**
@@ -27,15 +26,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User([
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'password' => Hash::make($request->get('password')),
-            'phone_number' => $request->get('phone_number'),
-            'address' => $request->get('address')
-        ]);
-        $user->save();
-        return $user;
+      $menuDish = new MenuDish([
+          'menus_id' => $request->get('menus_id'),
+          'dishes_id' => $request->get('dishes_id')
+      ]);
+      $menuDish->save();
+      return "Created successfully!";
     }
 
     /**
@@ -46,7 +42,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::find($id);
+        return MenuDish::find($id);
     }
 
     /**
@@ -58,10 +54,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $user = User::find($id);
-        $user->update($data);
-        return $user;
+      $data = $request->all();
+      $menuDish = MenuDish::find($id);
+      $menuDish->update($data);
+      return "Updated successfully!";
     }
 
     /**
@@ -72,8 +68,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
-        return "Deleted successfully!";
+      $menuDish = MenuDish::find($id);
+      $menuDish->delete();
+      return "Deleted successfully!";
     }
 }

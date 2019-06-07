@@ -16,7 +16,6 @@ class CityController extends Controller
     {
         $city = City::all();
         return $city;
-        //
     }
 
     /**
@@ -28,10 +27,6 @@ class CityController extends Controller
 
     public function store(Request $request)
     {
-        /*/
-        Validation code here?
-        /*/
-
         $city = new City([
             'countries_id' => $request->get('countries_id'),
             'name' => $request->get('name'),
@@ -63,10 +58,6 @@ class CityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /*/
-        Validation code here
-        /*/
-
         $data = $request->all();
         $city = City::find($id);
         $city->update($data);

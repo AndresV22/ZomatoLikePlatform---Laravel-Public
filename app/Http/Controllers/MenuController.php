@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use App\User;
+use App\Menu;
 
-class UserController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return $user;
+      $menu = Menu::all();
+      return $menu;
     }
 
     /**
@@ -27,15 +26,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User([
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'password' => Hash::make($request->get('password')),
-            'phone_number' => $request->get('phone_number'),
-            'address' => $request->get('address')
-        ]);
-        $user->save();
-        return $user;
+
+      $menu = new Menu([
+          'places_id' => $request->get('places_id'),
+          'purchases_id' => $request->get('purchases_id'),
+          'price' => $request->get('price'),
+          'category' => $request->get('category'),
+          'discount' => $request->get('discount')
+      ]);
+      $menu->save();
+      return "Created successfully!";
     }
 
     /**
@@ -46,7 +46,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::find($id);
+        return Menu::find($id);
     }
 
     /**
@@ -58,10 +58,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $user = User::find($id);
-        $user->update($data);
-        return $user;
+      $data = $request->all();
+      $menu = Menu::find($id);
+      $menu->update($data);
+      return "Updated successfully!";
     }
 
     /**
@@ -72,8 +72,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
-        return "Deleted successfully!";
+      $menu = Menu::find($id);
+      $menu->delete();
+      return "Deleted successfully!";
     }
 }

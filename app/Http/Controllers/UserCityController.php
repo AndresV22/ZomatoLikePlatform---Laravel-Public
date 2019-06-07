@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use App\User;
+use App\UserCity;
 
-class UserController extends Controller
+class UserCityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return $user;
+      $userCity = UserCity::all();
+      return $userCity;
     }
 
     /**
@@ -27,15 +26,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User([
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'password' => Hash::make($request->get('password')),
-            'phone_number' => $request->get('phone_number'),
-            'address' => $request->get('address')
-        ]);
-        $user->save();
-        return $user;
+      $userCity = new UserCity([
+          'cities_id' => $request->get('cities_id'),
+          'users_id' => $request->get('users_id')
+      ]);
+
+      $userCity->save();
+
+      return "Created successfully!";
     }
 
     /**
@@ -46,7 +44,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::find($id);
+        return UserCity::find($id);
     }
 
     /**
@@ -58,10 +56,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $user = User::find($id);
-        $user->update($data);
-        return $user;
+      $data = $request->all();
+      $userCity = UserCity::find($id);
+      $userCity->update($data);
+      return "Updated successfully!";
     }
 
     /**
@@ -72,8 +70,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
-        return "Deleted successfully!";
+      $userCity = UserCity::find($id);
+      $userCity->delete();
+      return "Deleted successfully!";
     }
 }

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use App\User;
+use App\Reservation;
 
-class UserController extends Controller
+class ReservationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return $user;
+      $reservation = Reservation::all();
+      return $reservation;
     }
 
     /**
@@ -27,15 +26,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User([
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'password' => Hash::make($request->get('password')),
-            'phone_number' => $request->get('phone_number'),
-            'address' => $request->get('address')
-        ]);
-        $user->save();
-        return $user;
+      $reservation = new Reservation([
+          'users_id' => $request->get('users_id'),
+          'date' => $request->get('date'),
+          'time' => $request->get('time'),
+          'allow' => $request->get('allow')
+      ]);
+
+      $reservation->save();
+
+      return "Created successfully!";
     }
 
     /**
@@ -46,7 +46,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::find($id);
+        return Reservation::find($id);
     }
 
     /**
@@ -58,10 +58,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $user = User::find($id);
-        $user->update($data);
-        return $user;
+      $data = $request->all();
+      $reservation = Reservation::find($id);
+      $reservation->update($data);
+      return "Updated successfully!";
     }
 
     /**
@@ -72,8 +72,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
-        return "Deleted successfully!";
+      $reservation = Reservation::find($id);
+      $reservation->delete();
+      return "Deleted successfully!";
     }
 }

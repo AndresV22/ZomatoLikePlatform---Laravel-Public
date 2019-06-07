@@ -26,9 +26,6 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-        /*/ 
-        Validation code here
-        /*/
         $place = new Place([
             'users_id' => $request->get('users_id'),
             'name' => $request->get('name'),
@@ -61,9 +58,6 @@ class PlaceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /*/
-        Validation code here
-        /*/
         $data = $request->all();
         $place = Place::find($id);
         $place->update($data);

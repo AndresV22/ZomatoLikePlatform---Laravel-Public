@@ -28,13 +28,6 @@ class CountryController extends Controller
     public function store(Request $request)
     {
 
-        /*/
-        Validation code here?
-        /*/
-
-        //$name = $request->input('name');
-        //$code = $request->input('code');
-
         $country = new Country([
             'name' => $request->get('name'),
             'code' => $request->get('code')
@@ -65,11 +58,6 @@ class CountryController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        /*/
-        Validation code here
-        /*/
-
         $data = $request->all();
         $country = Country::find($id);
         $country->update($data);

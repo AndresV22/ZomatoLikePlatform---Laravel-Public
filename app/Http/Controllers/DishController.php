@@ -25,9 +25,6 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-      /*/
-      Validation code here?
-      /*/
       $dish = new Dish([
           'purchases_id' => $request->get('purchases_id'),
           'name' => $request->get('name'),
@@ -58,9 +55,6 @@ class DishController extends Controller
      */
     public function update(Request $request, $id)
     {
-      /*/
-      Validation code here
-      /*/
       $data = $request->all();
       $dish = Dish::find($id);
       $dish->update($data);

@@ -25,9 +25,6 @@ class IngredientController extends Controller
      */
     public function store(Request $request)
     {
-      /*/
-      Validation code here
-      /*/
       $ingredient = new Ingredient([
           'dishes_id' => $request->get('dishes_id'),
           'name' => $request->get('name'),
@@ -58,9 +55,6 @@ class IngredientController extends Controller
      */
     public function update(Request $request, $id)
     {
-      /*/
-      Validation code here
-      /*/
       $data = $request->all();
       $ingredient = Ingredient::find($id);
       $ingredient->update($data);

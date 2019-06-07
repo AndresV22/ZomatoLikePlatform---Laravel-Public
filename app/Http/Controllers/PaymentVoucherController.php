@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use App\User;
+use App\PaymentVoucher;
 
-class UserController extends Controller
+class PaymentVoucherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return $user;
+      $paymentVoucher = PaymentVoucher::all();
+      return $paymentVoucher;
     }
 
     /**
@@ -27,15 +26,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User([
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'password' => Hash::make($request->get('password')),
-            'phone_number' => $request->get('phone_number'),
-            'address' => $request->get('address')
-        ]);
-        $user->save();
-        return $user;
+      /*/
+      Validation code here?
+      /*/
+
+      $paymentVoucher = new PaymentVoucher([
+          'payment_methods_id' => $request->get('payment_methods_id'),
+          'amount' => $request->get('amount'),
+          'date' => $request->get('date'),
+          'detail' => $request->get('detail'),
+          'status' => $request->get('status'),
+          'delivery' => $request->get('delivery')
+      ]);
+
+      $paymentVoucher->save();
+
+      return "Created successfully!";
     }
 
     /**
@@ -46,7 +52,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::find($id);
+        return PaymentVoucher::find($id);
     }
 
     /**
@@ -58,10 +64,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $user = User::find($id);
-        $user->update($data);
-        return $user;
+
+      $data = $request->all();
+      $paymentVoucher = PaymentVoucher::find($id);
+      $paymentVoucher->update($data);
+      return "Updated successfully!";
     }
 
     /**
@@ -72,8 +79,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
-        return "Deleted successfully!";
+      $paymentVoucher = PaymentVoucher::find($id);
+      $paymentVoucher->delete();
+      return "Deleted successfully!";
     }
 }

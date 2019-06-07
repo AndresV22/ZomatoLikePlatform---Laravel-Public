@@ -26,9 +26,6 @@ class PurchaseController extends Controller
      */
     public function store(Request $request)
     {
-        /*/
-        Validation code here
-        /*/
         $purchase = new Purchase([
             'payment_vouchers_id' => $request->get('payment_vouchers_id'),
             'users_id' => $request->get('users_id'),
@@ -58,9 +55,6 @@ class PurchaseController extends Controller
      */
     public function update(Request $request, $id)
     {
-      /*/
-      Validation code here
-      /*/
       $data = $request->all();
       $purchase = Purchase::find($id);
       $purchase->update($data);

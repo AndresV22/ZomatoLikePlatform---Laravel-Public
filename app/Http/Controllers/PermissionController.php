@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use App\User;
+use App\Permission;
 
-class UserController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return $user;
+      $permission = Permission::all();
+      return $permission;
     }
 
     /**
@@ -27,15 +26,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User([
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'password' => Hash::make($request->get('password')),
-            'phone_number' => $request->get('phone_number'),
-            'address' => $request->get('address')
-        ]);
-        $user->save();
-        return $user;
+
+      $permission = new Permission([
+          'name' => $request->get('name'),
+      ]);
+
+      $permission->save();
+
+      return "Created successfully!";
     }
 
     /**
@@ -46,7 +44,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return User::find($id);
+        return Permission::find($id);
     }
 
     /**
@@ -58,10 +56,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $user = User::find($id);
-        $user->update($data);
-        return $user;
+      $data = $request->all();
+      $permission = Permission::find($id);
+      $permission->update($data);
+      return "Updated successfully!";
     }
 
     /**
@@ -72,8 +70,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
-        return "Deleted successfully!";
+      $permission = Permission::find($id);
+      $permission->delete();
+      return "Deleted successfully!";
     }
 }
