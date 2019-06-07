@@ -38,10 +38,10 @@ VALUES ('BurgerKing', 'Moneda 1313', '10:00:00', '22:00:00', '4.2', '2019-06-07 
 
 -- Comment TABLE ----------------------------------------
 INSERT INTO comments (content, value, created_at, updated_at)
-VALUES ('I ate a very tasty hamburger, I recommend it.', '4.4', '2019-06-07 04:40:55', '2019-06-07 04:40:55');
+VALUES ('I ate a very tasty hamburger, I recommend it.', 4, '2019-06-07 04:40:55', '2019-06-07 04:40:55');
 
 INSERT INTO comments (content, value, created_at, updated_at)
-VALUES ('I liked the food but the air conditioning did not work.', '4.2', '2019-06-07 04:40:55', '2019-06-07 04:40:55');
+VALUES ('I liked the food but the air conditioning did not work.', 3, '2019-06-07 04:40:55', '2019-06-07 04:40:55');
 
 
 -- PaymentMethod TABLE ----------------------------------------
@@ -54,10 +54,10 @@ VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55', 'Credit Card', 'Banco Esta
 
 -- PaymentVoucher TABLE ----------------------------------------
 INSERT INTO payment_vouchers (amount, date, detail, status, delivery, created_at, updated_at)
-VALUES (5990, '2019-06-06', 'None', 0, '2019-06-07 04:40:55', '2019-06-07 04:40:55');
+VALUES (5990, '2019-06-06', 'None', 0, FALSE, '2019-06-07 04:40:55', '2019-06-07 04:40:55');
 
 INSERT INTO payment_vouchers (amount, date, detail, status, delivery, created_at, updated_at)
-VALUES (4990, '2019-06-07', 'None', 0, '2019-06-07 04:40:55', '2019-06-07 04:40:55');
+VALUES (4990, '2019-06-07', 'None', 0, TRUE, '2019-06-07 04:40:55', '2019-06-07 04:40:55');
 
 
 -- Purchase TABLE ----------------------------------------
@@ -93,19 +93,19 @@ VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55', 'Modify user');
 
 
 -- Menu TABLE ----------------------------------------
-INSERT INTO menus (price, discount, category, created_at, updated_at, name)
+INSERT INTO menus (price, discount, category, created_at, updated_at)
 VALUES (5990, 0, 'Fast food', '2019-06-07 04:40:55', '2019-06-07 04:40:55');
 
-INSERT INTO menus (price, discount, category, created_at, updated_at, name)
+INSERT INTO menus (price, discount, category, created_at, updated_at)
 VALUES (4990, 0, 'Fast food', '2019-06-07 04:40:55', '2019-06-07 04:40:55');
 
 
 -- Reservation TABLE ----------------------------------------
 INSERT INTO reservations (created_at, updated_at, date, time, allow)
-VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55', '2019-06-07 05:35:28', '16:00:00', 1);
+VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55', '2019-06-07 05:35:28', '16:00:00', TRUE);
 
 INSERT INTO reservations (created_at, updated_at, date, time, allow)
-VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55', '2018-06-07 14:22:46', '20:30:00', 1);
+VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55', '2018-06-07 14:22:46', '20:30:00', FALSE);
 
 
 -- Role TABLE ----------------------------------------
@@ -118,10 +118,10 @@ VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55',  'Unregistered user', 'Onl
 
 -- UserRegister TABLE ----------------------------------------
 INSERT INTO user_registers (created_at, updated_at, actions)
-VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55',  'GG');
+VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55',  'Action #1');
 
 INSERT INTO user_registers (created_at, updated_at, actions)
-VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55',  'GG');
+VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55',  'Action #2');
 
 
 -- MenuDish TABLE ----------------------------------------
