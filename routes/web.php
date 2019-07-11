@@ -15,6 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/search', function () {
+    return view('search');
+});
+
+Route::get('/profile', function () {
+    $comments = DB::table('comments')->get();
+    $places = DB::table('places')->get();
+    return view('profile', ['comments' => $comments], ['places' => $places]);
+});
+
 // Countries Routes
 Route::get('/country/all', 'CountryController@index');
 Route::get('/country/find/{id}', 'CountryController@show');

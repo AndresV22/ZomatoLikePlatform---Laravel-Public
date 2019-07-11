@@ -1,0 +1,14 @@
+.container-profile{
+    padding:5%;
+}
+.container-profile .img{
+    text-align:center;
+    width: 200px;
+}
+.container-profile .details{
+    border-left:3px solid #ded4da;
+}
+.container-profile .details p{
+    font-size:15px;
+    font-weight:bold;
+}
