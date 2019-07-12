@@ -44,7 +44,7 @@
 	<div class="row">
 	<div class="col comment">
 		@foreach($comments as $comment)
-		@if($comment->users_id == auth()->user()->id)
+		@if($comment->user_id == auth()->user()->id)
 	    <div class="head">
 		@foreach($places as $place)
 		@if($comment->places_id == $place->id)

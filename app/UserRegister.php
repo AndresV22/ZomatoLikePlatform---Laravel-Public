@@ -12,7 +12,7 @@ class UserRegister extends Model
      * @var array
      */
     protected $fillable = [
-        'users_id',
+        'user_id',
         'actions',
     ];
 

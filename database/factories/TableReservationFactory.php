@@ -10,7 +10,7 @@ $factory->define(App\TableReservation::class, function (Faker $faker) {
 	$table_id = DB::table('tables')->select('id')->get();
 
     return [
-        'reservations_id' => $reservation_id->random()->id,
-        'tables_id' => $table_id->random()->id,
+        'reservation_id' => $reservation_id->random()->id,
+        'table_id' => $table_id->random()->id,
     ];
 });

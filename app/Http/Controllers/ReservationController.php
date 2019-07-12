@@ -26,11 +26,11 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-      $possible_user = User::find($request->get('users_id'));
+      $possible_user = User::find($request->get('user_id'));
       if ($possible_user != null)
       {
         $reservation = new Reservation([
-          'users_id' => $request->get('users_id'),
+          'user_id' => $request->get('user_id'),
           'date' => $request->get('date'),
           'time' => $request->get('time'),
           'allow' => $request->get('allow')

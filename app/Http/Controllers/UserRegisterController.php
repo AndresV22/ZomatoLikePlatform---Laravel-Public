@@ -27,7 +27,7 @@ class UserRegisterController extends Controller
     public function store(Request $request)
     {
       $userRegister = new UserRegister([
-          'users_id' => $request->get('users_id'),
+          'user_id' => $request->get('user_id'),
           'actions' => $request->get('actions')
       ]);
       $userRegister->save();

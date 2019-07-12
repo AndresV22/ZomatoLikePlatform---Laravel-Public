@@ -15,10 +15,10 @@ class CreateUserCitiesTable extends Migration
     {
         Schema::create('user_cities', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('cities_id')->unsigned();
-            $table->bigInteger('users_id')->unsigned();
-            $table->foreign('cities_id')->references('id')->on('cities')->onDelete('cascade');
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('city_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

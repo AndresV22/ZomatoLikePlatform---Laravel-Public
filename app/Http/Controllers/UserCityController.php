@@ -28,7 +28,7 @@ class UserCityController extends Controller
     {
       $userCity = new UserCity([
           'cities_id' => $request->get('cities_id'),
-          'users_id' => $request->get('users_id')
+          'user_id' => $request->get('user_id')
       ]);
 
       $userCity->save();

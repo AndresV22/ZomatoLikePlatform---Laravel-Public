@@ -29,7 +29,7 @@ class LogUserCreationTrigger extends Migration
               newPk = pk + 1;
           END CASE;
 
-          INSERT INTO user_registers(id, actions, created_at, updated_at, users_id)
+          INSERT INTO user_registers(id, actions, created_at, updated_at, user_id)
           VALUES(newPk, \'User created\', now(), NULL, NEW.id);
 
           SELECT max(id) INTO pk FROM "user_registers";

@@ -15,8 +15,8 @@ class CreateUserRegistersTable extends Migration
     {
         Schema::create('user_registers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('users_id')->unsigned();
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
             $table->text('actions');
         });

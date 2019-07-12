@@ -12,7 +12,7 @@ class PaymentVoucher extends Model
      * @var array
      */
     protected $fillable = [
-        'payment_methods_id',
+        'payment_method_id',
         'amount',
         'date',
         'detail',

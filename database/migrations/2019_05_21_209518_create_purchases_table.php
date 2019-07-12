@@ -15,10 +15,10 @@ class CreatePurchasesTable extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('payment_vouchers_id')->unsigned();
-            $table->bigInteger('users_id')->unsigned();
-            $table->foreign('payment_vouchers_id')->references('id')->on('payment_vouchers')->onDelete('cascade');
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('payment_voucher_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('payment_voucher_id')->references('id')->on('payment_vouchers')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('status');
             $table->timestamps();
         });

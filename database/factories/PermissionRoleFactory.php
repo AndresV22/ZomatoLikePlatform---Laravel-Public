@@ -6,11 +6,11 @@ use App\Model;
 use Faker\Generator as Faker;
 
 $factory->define(App\PermissionRole::class, function (Faker $faker) {
-	$permissions_id = DB::table('permissions')->select('id')->get();
-	$roles_id = DB::table('roles')->select('id')->get();
+	$permission_id = DB::table('permissions')->select('id')->get();
+	$role_id = DB::table('roles')->select('id')->get();
 
     return [
-        'permissions_id' => $permissions_id->random()->id,
-        'roles_id' => $roles_id->random()->id,
+        'permission_id' => $permission_id->random()->id,
+        'role_id' => $role_id->random()->id,
     ];
 });

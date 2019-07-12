@@ -12,7 +12,7 @@ class Table extends Model
      * @var array
      */
     protected $fillable = [
-        'places_id',
+        'place_id',
         'capacity',
         'code',
         'taken', 

@@ -12,8 +12,8 @@ class UserRole extends Model
      * @var array
      */
     protected $fillable = [
-        'roles_id',
-        'users_id',
+        'role_id',
+        'user_id',
     ];
 
     /**********************   Relations   **********************/

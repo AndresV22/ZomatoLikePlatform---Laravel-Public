@@ -12,8 +12,8 @@ class UserCity extends Model
      * @var array
      */
     protected $fillable = [
-        'cities_id',
-        'users_id',
+        'city_id',
+        'user_id',
     ];
 
     /**********************   Relations   **********************/

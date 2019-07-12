@@ -27,11 +27,11 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-        $possible_user = User::find($request->get('users_id'));
+        $possible_user = User::find($request->get('user_id'));
         if ($possible_user != null)
         {
             $place = new Place([
-                'users_id' => $request->get('users_id'),
+                'user_id' => $request->get('user_id'),
                 'name' => $request->get('name'),
                 'address' => $request->get('address'),
                 'opening_time' => $request->get('opening_time'),

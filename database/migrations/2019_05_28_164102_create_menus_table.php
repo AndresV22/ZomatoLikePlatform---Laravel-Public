@@ -15,10 +15,10 @@ class CreateMenusTable extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('places_id')->unsigned();
-            $table->bigInteger('purchases_id')->unsigned();
-            $table->foreign('places_id')->references('id')->on('places')->onDelete('cascade');
-            $table->foreign('purchases_id')->references('id')->on('purchases')->onDelete('cascade');
+            $table->bigInteger('place_id')->unsigned();
+            $table->bigInteger('purchase_id')->unsigned();
+            $table->foreign('place_id')->references('id')->on('places')->onDelete('cascade');
+            $table->foreign('purchase_id')->references('id')->on('purchases')->onDelete('cascade');
             $table->integer('price');
             $table->integer('discount');
             $table->string('category', 20);

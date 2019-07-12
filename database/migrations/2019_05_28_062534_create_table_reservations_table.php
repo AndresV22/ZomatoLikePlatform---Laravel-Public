@@ -16,10 +16,10 @@ class CreateTableReservationsTable extends Migration
         Schema::create('table_reservations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->bigInteger('tables_id')->unsigned();
-            $table->bigInteger('reservations_id')->unsigned();
-            $table->foreign('tables_id')->references('id')->on('tables')->onDelete('cascade');
-            $table->foreign('reservations_id')->references('id')->on('reservations')->onDelete('cascade');
+            $table->bigInteger('table_id')->unsigned();
+            $table->bigInteger('reservation_id')->unsigned();
+            $table->foreign('table_id')->references('id')->on('tables')->onDelete('cascade');
+            $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('cascade');
         });
     }
 

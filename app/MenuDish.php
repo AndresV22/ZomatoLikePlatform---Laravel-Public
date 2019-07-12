@@ -12,8 +12,8 @@ class MenuDish extends Model
      * @var array
      */
     protected $fillable = [
-        'menus_id',
-        'dishes_id',
+        'menu_id',
+        'dish_id',
     ];
 
     /**********************   Relations   **********************/

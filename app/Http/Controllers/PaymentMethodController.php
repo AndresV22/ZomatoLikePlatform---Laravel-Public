@@ -27,11 +27,11 @@ class PaymentMethodController extends Controller
      */
     public function store(Request $request)
     {
-      $possible_user = User::find($request->get('users_id'));
+      $possible_user = User::find($request->get('user_id'));
       if ($possible_user != null)
       {
         $paymentMethod = new PaymentMethod([
-          'users_id' => $request->get('users_id'),
+          'user_id' => $request->get('user_id'),
           'type' => $request->get('type'),
           'bank' => $request->get('bank')
         ]);

@@ -12,8 +12,8 @@ class PermissionRole extends Model
      * @var array
      */
     protected $fillable = [
-        'permissions_id',
-        'roles_id',
+        'permission_id',
+        'role_id',
     ];
 
     /**********************   Relations   **********************/
