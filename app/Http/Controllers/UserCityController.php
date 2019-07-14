@@ -27,7 +27,7 @@ class UserCityController extends Controller
     public function store(Request $request)
     {
       $userCity = new UserCity([
-          'cities_id' => $request->get('cities_id'),
+          'city_id' => $request->get('city_id'),
           'user_id' => $request->get('user_id')
       ]);
 

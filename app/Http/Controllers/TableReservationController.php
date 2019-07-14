@@ -28,8 +28,8 @@ class TableReservationController extends Controller
     {
 
       $tableReservation = new TableReservation([
-          'reservations_id' => $request->get('reservations_id'),
-          'tables_id' => $request->get('tables_id'),
+          'reservation_id' => $request->get('reservation_id'),
+          'table_id' => $request->get('table_id'),
       ]);
 
       $tableReservation->save();

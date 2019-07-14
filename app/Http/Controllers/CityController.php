@@ -28,11 +28,11 @@ class CityController extends Controller
 
     public function store(Request $request)
     {
-        $possible_country = Country::find($request->get('countries_id'));
+        $possible_country = Country::find($request->get('country_id'));
         if ($possible_country != null)
         {
             $city = new City([
-                'countries_id' => $request->get('countries_id'),
+                'country_id' => $request->get('country_id'),
                 'name' => $request->get('name'),
                 'code' => $request->get('code')
             ]);

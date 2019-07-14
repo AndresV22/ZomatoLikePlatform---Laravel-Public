@@ -28,12 +28,12 @@ class PurchaseController extends Controller
      */
     public function store(Request $request)
     {
-        $possible_payment_voucher = PaymentVoucher::find($request->get('payment_vouchers_id'));
+        $possible_payment_voucher = PaymentVoucher::find($request->get('payment_voucher_id'));
         $possible_user = User::find($request->get('user_id'));
         if ($possible_payment_voucher != null && $possible_user != null)
         {
             $purchase = new Purchase([
-                'payment_vouchers_id' => $request->get('payment_vouchers_id'),
+                'payment_voucher_id' => $request->get('payment_voucher_id'),
                 'user_id' => $request->get('user_id'),
                 'status' => $request->get('status')
             ]);

@@ -27,8 +27,8 @@ class PermissionRoleController extends Controller
     public function store(Request $request)
     {
       $permissionRole = new PermissionRole([
-          'permissions_id' => $request->get('permissions_id'),
-          'roles_id' => $request->get('roles_id')
+          'permission_id' => $request->get('permission_id'),
+          'role_id' => $request->get('role_id')
       ]);
 
       $permissionRole->save();

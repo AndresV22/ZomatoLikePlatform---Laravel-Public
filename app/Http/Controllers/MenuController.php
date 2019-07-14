@@ -28,13 +28,13 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-      $possible_place = Place::find($request->get('places_id'));
-      $possible_purchase = Purchase::find($request->get('purchases_id'));
+      $possible_place = Place::find($request->get('place_id'));
+      $possible_purchase = Purchase::find($request->get('purchase_id'));
       if ($possible_place != null && $possible_purchase != null)
       {
         $menu = new Menu([
-          'places_id' => $request->get('places_id'),
-          'purchases_id' => $request->get('purchases_id'),
+          'place_id' => $request->get('place_id'),
+          'purchase_id' => $request->get('purchase_id'),
           'price' => $request->get('price'),
           'category' => $request->get('category'),
           'discount' => $request->get('discount')

@@ -30,12 +30,12 @@ class CommentController extends Controller
 
     public function store(Request $request)
     {
-        $possible_place = Place::find($request->get('places_id'));
+        $possible_place = Place::find($request->get('place_id'));
         $possible_user = User::find($request->get('user_id'));
         if ($possible_user != null && $possible_place != null)
         {
             $comment = new Comment([
-                'places_id' => $request->get('places_id'),
+                'place_id' => $request->get('place_id'),
                 'user_id' => $request->get('user_id'),
                 'content' => $request->get('content'),
                 'value' => $request->get('value')

@@ -27,11 +27,11 @@ class PaymentVoucherController extends Controller
      */
     public function store(Request $request)
     {
-      $possible_payment_method = PaymentMethod::find($request->get('payment_methods_id'));
+      $possible_payment_method = PaymentMethod::find($request->get('payment_method_id'));
       if ($possible_payment_method != null)
       {
         $paymentVoucher = new PaymentVoucher([
-          'payment_methods_id' => $request->get('payment_methods_id'),
+          'payment_method_id' => $request->get('payment_method_id'),
           'amount' => $request->get('amount'),
           'date' => $request->get('date'),
           'detail' => $request->get('detail'),

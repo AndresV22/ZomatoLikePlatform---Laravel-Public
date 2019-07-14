@@ -26,8 +26,8 @@ class MenuDishController extends Controller
     public function store(Request $request)
     {
       $menuDish = new MenuDish([
-          'menus_id' => $request->get('menus_id'),
-          'dishes_id' => $request->get('dishes_id')
+          'menu_id' => $request->get('menu_id'),
+          'dishe_id' => $request->get('dishe_id')
       ]);
       $menuDish->save();
       return "Created successfully!";

@@ -26,11 +26,11 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-      $possible_purchase = Purchase::find($request->get('purchases_id'));
+      $possible_purchase = Purchase::find($request->get('purchase_id'));
       if ($possible_purchase != null)
       {
         $dish = new Dish([
-          'purchases_id' => $request->get('purchases_id'),
+          'purchase_id' => $request->get('purchase_id'),
           'name' => $request->get('name'),
           'price' => $request->get('price'),
           'description' => $request->get('description'),

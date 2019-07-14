@@ -26,11 +26,11 @@ class IngredientController extends Controller
      */
     public function store(Request $request)
     {
-      $possible_dish = Dish::find($request->get('dishes_id'));
+      $possible_dish = Dish::find($request->get('dish_id'));
       if ($possible_dish != null)
       {
         $ingredient = new Ingredient([
-          'dishes_id' => $request->get('dishes_id'),
+          'dish_id' => $request->get('dish_id'),
           'name' => $request->get('name'),
           'type' => $request->get('type'),
           'category' => $request->get('category')

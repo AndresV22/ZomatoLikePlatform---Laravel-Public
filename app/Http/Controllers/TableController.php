@@ -26,11 +26,11 @@ class TableController extends Controller
      */
     public function store(Request $request)
     {
-      $possible_place = Place::find($request->get('places_id'));
+      $possible_place = Place::find($request->get('place_id'));
       if ($possible_place != null)
       {
         $table = new Table([
-          'places_id' => $request->get('places_id'),
+          'place_id' => $request->get('place_id'),
           'capacity' => $request->get('capacity'),
           'code' => $request->get('code'),
           'taken' => $request->get('taken')
