@@ -20,7 +20,8 @@ class User extends Authenticatable
         'email', 
         'password',
         'phone_number',
-        'address'
+        'address',
+        'last_login_at'
     ];
 
     /**
@@ -40,6 +41,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'last_login_at' => 'datetime'
     ];
 
     /**********************   Relations   **********************/
