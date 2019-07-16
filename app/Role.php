@@ -23,9 +23,9 @@ class Role extends Model
         return $this->hasMany('App\PermissionRole');
     }
 
-    // A role belongs to many users
-    public function userRoles()
+    // A role belongs to one user.
+    public function users()
     {
-        return $this->hasMany('App\UserRole');
+        return $this->belongsTo('App\User');
     }
 }

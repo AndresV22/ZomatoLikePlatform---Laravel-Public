@@ -21,6 +21,7 @@ class User extends Authenticatable
         'password',
         'phone_number',
         'address',
+        'role_id',
         'last_login_at',
         'last_logout_at'
     ];
@@ -53,10 +54,10 @@ class User extends Authenticatable
     return $this->hasMany('App\UserCity');
     }
 
-    // A user has many UserRoles table models
-    public function userRoles()
+    // A user has one Role table models
+    public function roles()
     {
-        return $this->hasMany('App\UserRole');
+        return $this->hasMany('App\Role');
     }
 
     // A user belongs to one UserRegister
