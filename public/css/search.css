@@ -11,13 +11,13 @@
         margin-bottom: auto;
         margin-top: auto;
         height: 60px;
-        background-color: #353b48;
+        background-color: white;
         border-radius: 30px;
         padding: 10px;
         }
     
         .search_input{
-        color: white;
+        color: #e74c3c;
         border: 0;
         outline: 0;
         background: none;
@@ -47,5 +47,5 @@
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        color:white;
+        color:#e74c3c;
         }

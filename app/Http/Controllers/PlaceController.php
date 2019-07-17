@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Place;
 use App\User;
+use App\Comment;
 
 class PlaceController extends Controller
 {
@@ -55,7 +56,9 @@ class PlaceController extends Controller
      */
     public function show($id)
     {
-        return Place::find($id);
+        $place = Place::find($id);
+        $comments = Comment::all();
+        return view('place', compact('comments', 'place'));
     }
 
     /**

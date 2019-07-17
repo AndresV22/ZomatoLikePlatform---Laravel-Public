@@ -1,29 +1,22 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// Auth Controllers
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Welcome Controller
+Route::get('/', 'WelcomeController@show');
+// Admin Dashboard Controller
+Route::get('/admin', 'AdminController@show');
+// Profile Controller
+Route::get('/profile', 'ProfileController@show');
 
-Route::get('/search', function () {
-    return view('search');
-});
-
-Route::get('/profile', function () {
-    $comments = DB::table('comments')->get();
-    $places = DB::table('places')->get();
-    return view('profile', ['comments' => $comments], ['places' => $places]);
-});
+// Place Routes
+Route::get('/place/all', 'PlaceController@index');
+Route::get('/place/{id}', 'PlaceController@show');
+Route::post('/place/submit', 'PlaceController@store');
+Route::put('/place/edit/{id}', 'PlaceController@update');
+Route::delete('/place/destroy/{id}', 'PlaceController@destroy');
 
 // Countries Routes
 Route::get('/country/all', 'CountryController@index');
@@ -52,13 +45,6 @@ Route::get('/user/find/{id}', 'UserController@show');
 Route::post('/user/submit', 'UserController@store');
 Route::put('/user/edit/{id}', 'UserController@update');
 Route::delete('/user/destroy/{id}', 'UserController@destroy');
-
-// Place Routes
-Route::get('/place/all', 'PlaceController@index');
-Route::get('/place/find/{id}', 'PlaceController@show');
-Route::post('/place/submit', 'PlaceController@store');
-Route::put('/place/edit/{id}', 'PlaceController@update');
-Route::delete('/place/destroy/{id}', 'PlaceController@destroy');
 
 // Dish Routes
 Route::get('/dish/all', 'DishController@index');
@@ -162,6 +148,3 @@ Route::get('/tableReservation/find/{id}', 'TableReservationController@show');
 Route::post('/tableReservation/submit', 'TableReservationController@store');
 Route::put('/tableReservation/edit/{id}', 'TableReservationController@update');
 Route::delete('/tableReservation/destroy/{id}', 'TableReservationController@destroy');
-
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');

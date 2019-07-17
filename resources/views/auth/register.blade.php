@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -10,6 +10,18 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
+
+                        <div class="form-group row">
+                            <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
+                            <div class="form-check form-check-inline">
+                                <input id="role_id_1" class="form-check-input @error('role_id') is-invalid @enderror" type="radio" name="role_id" value=1 required autocomplete="role_id" autofocus>
+                                <label class="form-check-label" for="role_id_1">User</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input id="role_id_2" class="form-check-input @error('role_id') is-invalid @enderror" type="radio" name="role_id" value=2 required autocomplete="role_id" autofocus>
+                                <label class="form-check-label" for="role_id_2">Place</label>
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>

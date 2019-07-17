@@ -8,56 +8,79 @@
 @extends('layouts.app')
 @section('content')
 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-<div class="container-profile">
-<div class="row">
-  	<div class="col">
-	  <h1><p class="text-center">Profile</p></h1>
-  	</div>
-  </div>
-  
-  <div class="row">
-    <div class="col img">
-      <img src="https://www.investigacionyciencia.es/images/1499/articleImage-minimal.jpg"  alt="" class="img">
-    </div>
-    <div class="col-6 details">
-      <blockquote>
-        <h5>{{auth()->user()->name}}</h5>
-        <small><cite title="Source Title">{{auth()->user()->address}}<i class="icon-map-marker"></i></cite></small>
-      </blockquote>
-      <p>
-		{{auth()->user()->email}} <br>
-      </p>
-    </div>
-	<div class="col-6">
-
-	</div>
-  </div>
-</div>
-
-<div class="container">
-	<div class="row">
-		<div class="col">
-			<h1><p class="text-center">Comments</p></h1>
+@if (Auth::guest())
+	<font size="7"><p class="text-center">You're not logged in.</p></font>
+	<font size="4"><p class="text-center">Please log in to continue.</p></font>
+@elseif (Auth::user()->role_id == 1)
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
+			<p><font size="6">User Profile</font><br><hr>
+			<img src="https://thispersondoesnotexist.com/image" class="img-responsive img-thumbnail"><hr>
+			Name: {{Auth::user()->name}}<br>
+			Phone: {{Auth::user()->phone_number}}<br>
+			Address: {{Auth::user()->address}}<br>
+			Mail: {{Auth::user()->email}}<br></p>
+			</div>
+			<div class="col-8">
+			<p><font size="6">History</font><br><hr>
+			@foreach($user_registers as $user_register)
+			@if($user_register->user_id == Auth::user()->id)
+			{{$user_register->created_at}} - {{$user_register->actions}}<br>
+			@endif
+			@endforeach
+			</p>
+			<p><font size="6">Comments</font><br><hr>
+			@foreach($comments as $comment)
+			@if($comment->user_id == Auth::user()->id)
+			@foreach($places as $place)
+			@if($comment->place_id == $place->id)
+			<div class="head">
+			<small><strong>Comment in {{$place->name}}</strong> - {{$comment->created_at}}  - {{$comment->value}}/5</small>
+			<p>{{$comment->content}}</p>
+			</div>
+			@endif
+			@endforeach
+			@endif
+			@endforeach
+			</div>
 		</div>
-  	</div>
-	<hr>
-	<div class="row">
-	<div class="col comment">
-		@foreach($comments as $comment)
-		@if($comment->user_id == auth()->user()->id)
-	    <div class="head">
-		@foreach($places as $place)
-		@if($comment->places_id == $place->id)
-	        <small><strong>Comment in {{$place->name}}</strong> - {{$comment->created_at}}  - {{$comment->value}}/5</small>
-		@endif
-		@endforeach
+	</div>
+@elseif (Auth::user()->role_id == 2)
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
+			<p><font size="6">Chain Manager Profile</font><br><hr>
+			<img src="https://thispersondoesnotexist.com/image" class="img-responsive img-thumbnail"><hr>
+			Name: {{Auth::user()->name}}<br>
+			Phone: {{Auth::user()->phone_number}}<br>
+			Address: {{Auth::user()->address}}<br>
+			Mail: {{Auth::user()->email}}<br></p>
+			</div>
+			<div class="col-8">
+			<p><font size="6">History</font><br><hr>
+			@foreach($user_registers as $user_register)
+			@if($user_register->user_id == Auth::user()->id)
+			{{$user_register->created_at}} - {{$user_register->actions}}<br>
+			@endif
+			@endforeach
+			</p>
+			<p><font size="6">Comments</font><br><hr>
+			@foreach($comments as $comment)
+			@if($comment->user_id == Auth::user()->id)
+			@foreach($places as $place)
+			@if($comment->place_id == $place->id)
+			<div class="head">
+			<small><strong>Comment in {{$place->name}}</strong> - {{$comment->created_at}}  - {{$comment->value}}/5</small>
+			<p>{{$comment->content}}</p>
+			</div>
+			@endif
+			@endforeach
+			@endif
+			@endforeach
+			</div>
 		</div>
-	    <p>{{$comment->content}}</p>
-		@endif
-		@endforeach
 	</div>
-	</div>
-	<hr>
-</div>
+@endif
 
 @endsection
