@@ -32,10 +32,4 @@ class Dish extends Model
     {
         return $this->belongsTo('App\Purchase');
     }
-
-    // A dish has many ingredients
-    public function ingredients()
-    {
-        return $this->hasMany('App\Ingredient');
-    }
 }

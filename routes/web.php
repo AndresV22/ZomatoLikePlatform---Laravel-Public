@@ -70,13 +70,6 @@ Route::post('/purchase/submit', 'PurchaseController@store');
 Route::put('/purchase/edit/{id}', 'PurchaseController@update');
 Route::delete('/purchase/destroy/{id}', 'PurchaseController@destroy');
 
-// Ingredient Routes
-Route::get('/ingredient/all', 'IngredientController@index');
-Route::get('/ingredient/find/{id}', 'IngredientController@show');
-Route::post('/ingredient/submit', 'IngredientController@store');
-Route::put('/ingredient/edit/{id}', 'IngredientController@update');
-Route::delete('/ingredient/destroy/{id}', 'IngredientController@destroy');
-
 // UserRegister Routes
 Route::get('/userRegister/all', 'UserRegisterController@index');
 Route::get('/userRegister/find/{id}', 'UserRegisterController@show');

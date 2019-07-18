@@ -37,9 +37,6 @@ DROP TABLE IF EXISTS menus CASCADE;
 -- DROP TABLE permissions ------------------------------------
 DROP TABLE IF EXISTS permissions CASCADE;
 
--- DROP TABLE ingredients ------------------------------------
-DROP TABLE IF EXISTS ingredients CASCADE;
-
 -- DROP TABLE dishes -----------------------------------------
 DROP TABLE IF EXISTS dishes CASCADE;
 
@@ -260,28 +257,6 @@ CREATE TABLE dishes (
 ALTER TABLE dishes
 	ADD CONSTRAINT dishes_purchases_id_foreign FOREIGN KEY ( purchases_id )
 	REFERENCES purchases ( id ) MATCH SIMPLE
-	ON DELETE Cascade
-	ON UPDATE Cascade;
--- -------------------------------------------------------------
-
-
-
-
--- CREATE TABLE ingredients ----------------------------------
-CREATE TABLE ingredients ( 
-	id SERIAL NOT NULL,
-	dishes_id SERIAL NOT NULL,
-	created_at Timestamp( 0 ) Without Time Zone,
-	updated_at Timestamp( 0 ) Without Time Zone,
-	name Character Varying( 20 ) NOT NULL,
-	type Character Varying( 20 ) NOT NULL,
-	category Character Varying( 20 ) NOT NULL,
-	PRIMARY KEY ( id ) );
- ;
--- CREATE LINK ingredients_dishes_id_foreign -----------------
-ALTER TABLE ingredients
-	ADD CONSTRAINT ingredients_dishes_id_foreign FOREIGN KEY ( dishes_id )
-	REFERENCES dishes ( id ) MATCH SIMPLE
 	ON DELETE Cascade
 	ON UPDATE Cascade;
 -- -------------------------------------------------------------

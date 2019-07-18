@@ -76,14 +76,6 @@ INSERT INTO dishes (name, price, description, category, discount, created_at, up
 VALUES ('French fries', 1990, 'French fries.', 'Fast food', 0, '2019-06-07 04:40:55', '2019-06-07 04:40:55');
 
 
--- Ingredient TABLE ----------------------------------------
-INSERT INTO ingredients (created_at, updated_at, name, type, category)
-VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55', 'BBQ sauce', 'Sauce', 'Vegetarian');
-
-INSERT INTO ingredients (created_at, updated_at, name, type, category)
-VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55', 'Potato', 'Vegetable', 'Vegan');
-
-
 -- Permission TABLE ----------------------------------------
 INSERT INTO permissions (created_at, updated_at, name)
 VALUES ('2019-06-07 04:40:55', '2019-06-07 04:40:55', 'None');
