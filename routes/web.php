@@ -14,7 +14,7 @@ Route::get('/profile/edit', 'EditProfileController@show');
 Route::patch('/profile/edit', 'EditProfileController@update');
 
 // Place Routes
-Route::get('/place/{id}', 'PlaceController@show');
+Route::get('/place/find/{id}', 'PlaceController@show');
 
 Route::get('/place/all', 'PlaceController@index');
 Route::post('/place/submit', 'PlaceController@store');
