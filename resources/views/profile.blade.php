@@ -32,6 +32,9 @@
 			<div class="col-md-4">
 				@if (Auth::user()->role_id == 1)
 				<p><font size="6">Comments</font><br><hr>
+				@if ($comments->where('user_id', Auth::user()->id)->count() == 0)
+				You have no comments.
+				@else
 				@foreach($comments as $comment)
 				@if($comment->user_id == Auth::user()->id)
 				@foreach($places as $place)
@@ -44,6 +47,7 @@
 				@endforeach
 				@endif
 				@endforeach
+				@endif
 				@elseif (Auth::user()->role_id == 2)
 				<p><font size="6">Places</font><br><hr>
 				@foreach($places as $place)
@@ -52,6 +56,7 @@
 				@endif
 				@endforeach
 				@endif
+				<hr>
 			</div>
 			<div class="col-md-4">
 				<p><font size="6">History</font><br><hr>
@@ -61,6 +66,7 @@
 				@endif
 				@endforeach
 				</p>
+				<hr>
 			</div>
 		</div>
 	</div>

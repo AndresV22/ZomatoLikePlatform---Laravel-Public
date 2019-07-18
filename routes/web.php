@@ -2,7 +2,6 @@
 
 // Auth Controllers
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
 // Welcome Controller
 Route::get('/', 'WelcomeController@show');
@@ -15,8 +14,9 @@ Route::get('/profile/edit', 'EditProfileController@show');
 Route::patch('/profile/edit', 'EditProfileController@update');
 
 // Place Routes
-Route::get('/place/all', 'PlaceController@index');
 Route::get('/place/{id}', 'PlaceController@show');
+
+Route::get('/place/all', 'PlaceController@index');
 Route::post('/place/submit', 'PlaceController@store');
 Route::put('/place/edit/{id}', 'PlaceController@update');
 Route::delete('/place/destroy/{id}', 'PlaceController@destroy');

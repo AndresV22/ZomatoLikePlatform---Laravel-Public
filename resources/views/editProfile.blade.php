@@ -15,13 +15,14 @@
 	<div class='container'>
 		<div class='row justify-content-center'>
 			<div class="col-md-6 align-self-center">
+				<p><font size="6"><p class="text-center">Edit your profile information</p></font><br>
 				<div class="rating-block">
 					<form action='/profile/edit' method='post'>
 						{{csrf_field()}}
     					{{method_field('patch')}}
     					<div class="form-group">
         					<label for="name" class="control-label"><b>Name:</b></label>
-        					<input type="text" name="name" placeholder="Please enter your name here" class="form-control" value="{{ Auth::user()->name }}"/>
+        					<input type="text" name="name" maxlength="20" placeholder="Please enter your name here" class="form-control" value="{{ Auth::user()->name }}"/>
     					</div>
     					<div class="form-group">
         					<label for="email" class="control-label"><b>Email:</b></label>

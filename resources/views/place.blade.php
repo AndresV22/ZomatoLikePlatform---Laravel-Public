@@ -17,14 +17,25 @@
 		Address: {{$place->address}}<br>
 		Opens at: {{$place->opening_time}}<br>
 		Closes at: {{$place->closing_time}}<br><hr>
+		@if (Auth::user()->role_id == 2 && $place->user_id == Auth::user()->id)
+			<Form method='get'>
+				<button type="submit" class="btn btn-default btn-lg btn-block">Edit Place</button>
+			</Form><hr>
+		@endif
 		</div>
 		<div class="col-md-4">
 		<p><font size="6">Rating</font><br><hr>
 		<div class="rating-block">
-					<h4>Average user rating</h4>
-					<h2 class="bold padding-bottom-7">{{$place->average_value}} <small>/ 5</small></h2>
-				</div><hr>
+			<h4>Average user rating</h4>
+			<h2 class="bold padding-bottom-7">{{$place->average_value}} <small>/ 5</small></h2>
+		</div><br>
+		<Form method='get'>
+			<button type="submit" class="btn btn-default btn-lg btn-block">Add Review</button>
+		</Form><hr>
 		<p><font size="6">Comments</font><br><hr>
+		@if ($comments->count() == 0)
+		No one has made a comment.
+		@else
 		@foreach($comments as $comment)
 		<div class="head">
 		@foreach($users as $user)
@@ -35,10 +46,26 @@
 		<p>{{$comment->content}}</p>
 		</div>
 		@endforeach
+		@endif
 		<hr>
 		</div>
 		<div class="col-md-4">
-		<p><font size="6">Menu</font><br><hr>
+		<p><font size="6">Menus</font><br>
+		<hr>
+		<Form method='get'>
+			<button type="submit" class="btn btn-default btn-lg btn-block">Make An Order</button>
+		</Form>
+		<hr>
+		<p><font size="6">Tables</font><br>
+		<hr>
+		@foreach ($tables as $table)
+		Table #{{$table->code}} - Capacity: {{$table->capacity}} @if($table->taken)(TAKEN)@endif<br>
+		@endforeach
+		<br>
+		<Form method='get'>
+			<button type="submit" class="btn btn-default btn-lg btn-block">Make A Reservation</button>
+		</Form>
+		<hr>
 		</div>
 	</div>
 </div>
