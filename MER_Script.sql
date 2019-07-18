@@ -76,6 +76,7 @@ CREATE TABLE users (
 	password Character Varying( 255 ) NOT NULL,
 	phone_number Character Varying( 255 ) NOT NULL,
 	address Character Varying( 255 ) NOT NULL,
+   avatar Character Varying( 255 ) NOT NULL,
 	remember_token Character Varying( 100 ),
 	created_at Timestamp( 0 ) Without Time Zone,
 	updated_at Timestamp( 0 ) Without Time Zone,

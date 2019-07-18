@@ -1,15 +1,15 @@
 -- User TABLE ----------------------------------------
-INSERT INTO users (name, email, email_verified_at, password, phone_number, address, remember_token, created_at, updated_at)
-VALUES ('Victor Huanqui', 'victor.huanqui@usach.cl', NULL, 'zomato6661', '+56985138116', 'Pedro Lagos 1118', NULL, '2019-06-07 04:40:54', '2019-06-07 04:40:54');
+INSERT INTO users (name, email, email_verified_at, password, phone_number, address, avatar, remember_token, created_at, updated_at)
+VALUES ('Victor Huanqui', 'victor.huanqui@usach.cl', NULL, 'zomato6661', '+56985138116', 'Pedro Lagos 1118', NULL, "http://lorempixel.com/640/480/", '2019-06-07 04:40:54', '2019-06-07 04:40:54');
 
-INSERT INTO users (name, email, email_verified_at, password, phone_number, address, remember_token, created_at, updated_at)
-VALUES ('Carlos Henrriquez', 'carlos.henrriquez@usach.cl', NULL, 'zomato6662', '+1234567890', 'Usach', NULL, '2019-06-07 04:40:54', '2019-06-07 04:40:54');
+INSERT INTO users (name, email, email_verified_at, password, phone_number, address, avatar, remember_token, created_at, updated_at)
+VALUES ('Carlos Henrriquez', 'carlos.henrriquez@usach.cl', NULL, 'zomato6662', '+1234567890', 'Usach', NULL, "http://lorempixel.com/640/480/", '2019-06-07 04:40:54', '2019-06-07 04:40:54');
 
-INSERT INTO users (name, email, email_verified_at, password, phone_number, address, remember_token, created_at, updated_at)
-VALUES ('Maximiliano Orellana', 'max.orellana@usach.cl', NULL, 'zomato6663', '+1234567809', 'Usach', NULL, '2019-06-07 04:40:54', '2019-06-07 04:40:54');
+INSERT INTO users (name, email, email_verified_at, password, phone_number, address, avatar, remember_token, created_at, updated_at)
+VALUES ('Maximiliano Orellana', 'max.orellana@usach.cl', NULL, 'zomato6663', '+1234567809', 'Usach', NULL, "http://lorempixel.com/640/480/", '2019-06-07 04:40:54', '2019-06-07 04:40:54');
 
-INSERT INTO users (name, email, email_verified_at, password, phone_number, address, remember_token, created_at, updated_at)
-VALUES ('Andres F', 'andres.f@usach.cl', NULL, 'zomato6664', '+1234567089', 'Usach', NULL, '2019-06-07 04:40:54', '2019-06-07 04:40:54');
+INSERT INTO users (name, email, email_verified_at, password, phone_number, address, avatar, remember_token, created_at, updated_at)
+VALUES ('Andres F', 'andres.f@usach.cl', NULL, 'zomato6664', '+1234567089', 'Usach', NULL, "http://lorempixel.com/640/480/", '2019-06-07 04:40:54', '2019-06-07 04:40:54');
 
 
 -- Country TABLE ----------------------------------------

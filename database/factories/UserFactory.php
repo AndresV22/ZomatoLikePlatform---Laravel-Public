@@ -18,5 +18,6 @@ $factory->define(User::class, function (Faker $faker) {
         'phone_number' => $faker->phoneNumber,
         'address' => $faker->address,
         'role_id' => $role_id->random()->id,
+        'avatar' => $faker->imageUrl($width = 640, $height = 480)
     ];
 });

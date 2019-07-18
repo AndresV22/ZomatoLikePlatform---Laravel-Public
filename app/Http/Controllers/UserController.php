@@ -32,7 +32,8 @@ class UserController extends Controller
             'email' => $request->get('email'),
             'password' => Hash::make($request->get('password')),
             'phone_number' => $request->get('phone_number'),
-            'address' => $request->get('address')
+            'address' => $request->get('address'),
+            'avatar' => $request->get('avatar')
         ]);
         $user->save();
         return $user;

@@ -22,6 +22,7 @@ class User extends Authenticatable
         'phone_number',
         'address',
         'role_id',
+        'avatar',
         'last_login_at',
         'last_logout_at'
     ];
