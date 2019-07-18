@@ -10,6 +10,14 @@ use App\Table;
 
 class PlaceController extends Controller
 {
+
+
+    public function index()
+    {
+        $places = Place::all();
+        return $places;
+    }
+
     public function store(Request $request)
     {
         $possible_user = User::find($request->get('user_id'));
