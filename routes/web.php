@@ -10,6 +10,9 @@ Route::get('/', 'WelcomeController@show');
 Route::get('/admin', 'AdminController@show');
 // Profile Controller
 Route::get('/profile', 'ProfileController@show');
+// Edit Profile Controller
+Route::get('/profile/edit', 'EditProfileController@show');
+Route::patch('/profile/edit', 'EditProfileController@update');
 
 // Place Routes
 Route::get('/place/all', 'PlaceController@index');

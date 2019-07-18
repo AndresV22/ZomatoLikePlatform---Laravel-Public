@@ -57,8 +57,9 @@ class PlaceController extends Controller
     public function show($id)
     {
         $place = Place::find($id);
-        $comments = Comment::all();
-        return view('place', compact('comments', 'place'));
+        $comments = Comment::where('place_id', $id)->get();
+        $users = User::all();
+        return view('place', compact('comments', 'place', 'users'));
     }
 
     /**

@@ -10,7 +10,6 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
                         <div class="form-group row">
                             <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
                             <div class="form-check form-check-inline">
@@ -19,13 +18,12 @@
                             </div>
                             <div class="form-check form-check-inline">
                                 <input id="role_id_2" class="form-check-input @error('role_id') is-invalid @enderror" type="radio" name="role_id" value=2 required autocomplete="role_id" autofocus>
-                                <label class="form-check-label" for="role_id_2">Place</label>
+                                <label class="form-check-label" for="role_id_2">Manager</label>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
