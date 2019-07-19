@@ -54,7 +54,7 @@ class LogProfileEditTrigger extends Migration
     public function down()
     {
         DB::unprepared('
-        DROP TRIGGER `tr_log_profile_edit`;
+        DROP TRIGGER \'tr_log_profile_edit\';
         DROP FUNCTION logProfileEdit;
         ');
     }

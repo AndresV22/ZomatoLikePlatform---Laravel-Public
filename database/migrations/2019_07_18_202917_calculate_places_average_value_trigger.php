@@ -22,14 +22,12 @@ class calculatePlacesAverageValueTrigger extends Migration
           average float;
         BEGIN
 
+
           SELECT max(id) INTO maxPk FROM comments;
 
           SELECT place_id INTO newPk
           FROM comments
           WHERE id = maxPk;
-
-          
-
 
           SELECT AVG(value) INTO average
           FROM (SELECT id, value, place_id
@@ -49,6 +47,10 @@ class calculatePlacesAverageValueTrigger extends Migration
         DB::unprepared('CREATE TRIGGER tr_calculate_places_average_value AFTER INSERT ON comments FOR EACH ROW
           EXECUTE PROCEDURE calculateAverageValue()
         ');
+
+        DB::unprepared('CREATE TRIGGER tr_calculate_places_average_value_2 AFTER UPDATE ON comments FOR EACH ROW WHEN (OLD.value IS DISTINCT FROM NEW.value)
+          EXECUTE PROCEDURE calculateAverageValue()
+        ');
     }
 
     /**
@@ -59,7 +61,8 @@ class calculatePlacesAverageValueTrigger extends Migration
     public function down()
     {
         DB::unprepared('
-        DROP TRIGGER `tr_calculate_places_average_value`;
+        DROP TRIGGER \'tr_calculate_places_average_value\';
+        DROP TRIGGER \'tr_calculate_places_average_value_2\';
         DROP FUNCTION calculateAverageValue;
         ');
     }

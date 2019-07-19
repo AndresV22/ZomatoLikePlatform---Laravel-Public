@@ -1,4 +1,7 @@
 <?php
+use App\User;
+use App\Place;
+use Illuminate\Support\Facades\Input;
 
 // Auth Controllers
 Auth::routes();
@@ -13,10 +16,22 @@ Route::get('/profile', 'ProfileController@show');
 Route::get('/profile/edit', 'EditProfileController@show');
 Route::patch('/profile/edit', 'EditProfileController@update');
 
-// Place Routes
-Route::get('/place/find/{id}', 'PlaceController@show');
 
-Route::get('/place/all', 'PlaceController@index');
+
+
+Route::any ( '/search', function () 
+{
+    $q = Input::get ('q');
+    $place = Place::where ('name', 'LIKE', '%'.$q.'%')->limit(5)->get();
+    if (count ( $place ) > 0)
+        return view ( 'welcome' )->withDetails ( $place )->withQuery ( $q );
+    else
+        return view ( 'welcome' )->withMessage ( 'No Details found. Try to search again !' );
+} );
+
+// Place Routes
+Route::get('/place/find/index', 'PlaceController@index');
+Route::get('/place/{id}', 'PlaceController@show');
 Route::post('/place/submit', 'PlaceController@store');
 Route::put('/place/edit/{id}', 'PlaceController@update');
 Route::delete('/place/destroy/{id}', 'PlaceController@destroy');

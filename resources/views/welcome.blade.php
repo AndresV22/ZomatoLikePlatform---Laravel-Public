@@ -18,14 +18,38 @@
 	</div>
 </div>
 
-<div class="container">
-	<font size="6" color="white"><p class="text-center">Search for places (by name, food, category...)</p></font>
-	<div class="d-flex justify-content-center">
-		<div class="searchbar">
-			<input class="search_input" type="text" name="" placeholder="Search...">
-			<a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-		</div>
-	</div>
-</div>
+<form action="/search" method="POST" role="search">
+    {{ csrf_field() }}
+    <div class="input-group">
+        <input type="text" class="form-control" name="q"
+            placeholder="Search places"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </span>
+    </div>
+</form>
 
+<div class="container">
+    @if(isset($details))
+        <p> The Search results for your query <b> {{ $query }} </b> are :</p>
+    <h2>Sample Place details</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($details as $place)
+            <tr>
+                <td>{{$place->name}}</td>
+                <td>{{$place->address}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    @endif
+</div>
 @endsection
