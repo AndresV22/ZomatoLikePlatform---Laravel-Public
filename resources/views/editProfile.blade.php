@@ -37,6 +37,10 @@
         					<input type="text" name="address" placeholder="Please enter your address here" class="form-control" value="{{ Auth::user()->address }}"/>
     					</div>
     					<div class="form-group">
+        					<label for="avatar" class="control-label"><b>Avatar:</b></label>
+        					<input type="text" name="avatar" placeholder="Please enter your avatar link here" class="form-control" value="{{ Auth::user()->avatar }}"/>
+    					</div>
+    					<div class="form-group">
         					<button type="submit" class="btn btn-default"> Submit </button>
     					</div>
 					</form>

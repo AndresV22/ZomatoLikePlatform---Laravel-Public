@@ -20,7 +20,7 @@
 				@elseif (Auth::user()->role_id == 2)
 					<p><font size="6">Manager Profile</font><br><hr>
 				@endif
-				<img src="https://placeimg.com/640/640/people" class="img-responsive img-thumbnail"><hr>
+				<img src="{{Auth::user()->avatar}}" class="img-responsive img-thumbnail"><hr>
 				Name: {{Auth::user()->name}}<br>
 				Phone: {{Auth::user()->phone_number}}<br>
 				Address: {{Auth::user()->address}}<br>

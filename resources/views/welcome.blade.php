@@ -19,7 +19,7 @@
 </div>
 
 <div class="container">
-	<font size="6" color="white"><p class="text-center">Search for food, places, categories...</p></font>
+	<font size="6" color="white"><p class="text-center">Search for places (by name, food, category...)</p></font>
 	<div class="d-flex justify-content-center">
 		<div class="searchbar">
 			<input class="search_input" type="text" name="" placeholder="Search...">
