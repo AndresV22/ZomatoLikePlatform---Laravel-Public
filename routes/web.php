@@ -22,6 +22,10 @@ Route::post('/place/{id}/comment', 'MakeCommentController@store');
 
 
 
+Route::get('/user/{id}/place', 'SubmitPlacesController@show');
+
+
+
 // Search route
 Route::any('/search', function () 
 {
