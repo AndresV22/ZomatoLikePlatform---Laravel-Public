@@ -13,3 +13,4 @@ $factory->define(App\Role::class, function (Faker $faker) {
         'description' => $faker->text($maxNbChars = 30),
     ];
 });
+    

@@ -45,4 +45,10 @@ class Place extends Model
     	return $this->hasMany('App\Comment');
     }
 
+    // A place has many payment vouchers
+    public function payment_vouchers()
+    {
+        return $this->hasMany('App\PaymentVoucher');
+    }
+
 }

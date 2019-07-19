@@ -13,6 +13,7 @@ class PaymentVoucher extends Model
      */
     protected $fillable = [
         'payment_method_id',
+        'place_id',
         'amount',
         'date',
         'detail',
@@ -28,9 +29,15 @@ class PaymentVoucher extends Model
     	return $this->belongsTo('App\PaymentMethod');
     }
 
-    // A payment method has one purchase
+    // A payment voucher has one purchase
     public function purchase()
     {
         return $this->hasOne('App\Purchase');
+    }
+
+    // A payment voucher belongs to one place
+    public function places()
+    {
+        return $this->belongsTo('App\Place');
     }
 }
