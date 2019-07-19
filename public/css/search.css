@@ -56,3 +56,7 @@
 .btn-link, .btn-link:hover, .btn-link:active, .btn-link:visited {
     color: white !important;
 }
+
+.white-link{
+    color: white !important;
+}

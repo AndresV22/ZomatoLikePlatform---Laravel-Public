@@ -11,8 +11,9 @@ class MakeCommentController extends Controller
 {
     public function show($id)
     {
+        $comments = Comment::all();
         $place = Place::find($id);
-        return view('comment', compact('place'));
+        return view('comment', compact('place', 'comments'));
     }
 
     public function store(Request $request)

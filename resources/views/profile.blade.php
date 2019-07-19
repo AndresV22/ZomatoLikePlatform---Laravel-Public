@@ -15,6 +15,9 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4">
+				@if (Auth::user()->role_id == 1)
+				<hr>
+				@else
 				@if (Auth::user()->role_id == 2)
 					<p><font size="6">User Profile</font><br><hr>
 				@elseif (Auth::user()->role_id == 3)
@@ -28,8 +31,23 @@
 				<Form method="get" action="{{"profile/edit"}}">
 					<button type="submit" class="btn btn-default btn-lg btn-block">Edit Profile</button>
 				</Form><hr>
+				@endif
 			</div>
 			<div class="col-md-4">
+				@if (Auth::user()->role_id == 1)
+				<p><font size="6">Admin</font><br><hr>
+				<img src="{{Auth::user()->avatar}}" class="img-responsive img-thumbnail"><hr>
+				Name: {{Auth::user()->name}}<br>
+				Phone: {{Auth::user()->phone_number}}<br>
+				Address: {{Auth::user()->address}}<br>
+				Mail: {{Auth::user()->email}}<br></p>
+				<Form method="get" action="{{"profile/edit"}}">
+					<button type="submit" class="btn btn-default btn-lg btn-block">Edit Profile</button>
+				</Form><hr>
+				<Form method="get" action="{{"admin"}}">
+					<button type="submit" class="btn btn-default btn-lg btn-block">Admin Dashboard</button>
+				</Form><hr>
+				@else
 				@if (Auth::user()->role_id == 2)
 				<p><font size="6">Comments</font><br><hr>
 				@if ($comments->where('user_id', Auth::user()->id)->count() == 0)
@@ -56,9 +74,14 @@
 				@endif
 				@endforeach
 				@endif
+				@endif
 				<hr>
 			</div>
 			<div class="col-md-4">
+				@if (Auth::user()->role_id == 1)
+					<hr>
+				@else
+				@if (Auth::user()->role_id == 2)
 				<p><font size="6">Order History</font><br><hr>
 				@if ($orders->where('user_id', Auth::user()->id)->count() == 0)
 				You haven't made any orders.
@@ -98,6 +121,10 @@
 				@endforeach
 				@endif
 				</p><hr>
+				@elseif (Auth::user()->role_id == 3)
+				<hr>
+				@endif
+				@endif
 			</div>
 		</div>
 	</div>

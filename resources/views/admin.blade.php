@@ -16,14 +16,45 @@
 		<div class="row">
 			<div class="col-md-4">
                 <p><font size="6">Statistics</font><br><hr>
+                <strong>Number of Admins</strong>: {{$users->where('role_id', '=', 1)->count()}}<br>
+                <strong>Number of Users</strong>: {{$users->where('role_id', '=', 2)->count()}}<br>
+                <strong>Number of Managers</strong>: {{$users->where('role_id', '=', 3)->count()}}<br>
+                <br>
+                <strong>Number of Places</strong>: {{$places->count()}}<br>
+                <br>
+                <strong>Number of Comments</strong>: {{$comments->count()}}<br>
+                <strong>Average Score</strong>: {{number_format($comments->avg('value'), 2, '.', '')}}<br>
+                <hr>
+                <p><font size="6">Places</font><br><hr>
+                    @foreach ($places as $place)
+                    <a class="white-link" href="place/{{$place->id}}"><strong>{{$place->id}}</strong> - {{$place->name}}</a>
+                    <br>
+                    @endforeach
                 <hr>
 			</div>
 			<div class="col-md-4">
                 <p><font size="6">Users</font><br><hr>
+                    @foreach ($users as $user)
+                    @if ($user->role_id == 2)
+                    <strong>{{$user->id}}</strong> - {{$user->name}}<br>
+                    @endif
+                    @endforeach
                 <hr>
             </div>	
             <div class="col-md-4">
+                <p><font size="6">Admins</font><br><hr>
+                @foreach ($users as $user)
+                    @if ($user->role_id == 1)
+                    <strong>{{$user->id}}</strong> - {{$user->name}}<br>
+                    @endif
+                @endforeach
+                <hr>
                 <p><font size="6">Managers</font><br><hr>
+                @foreach ($users as $user)
+                    @if ($user->role_id == 3)
+                    <strong>{{$user->id}}</strong> - {{$user->name}}<br>
+                    @endif
+                @endforeach
                 <hr>
 			</div>
 		</div>
