@@ -5,6 +5,7 @@
         margin: 0;
         padding: 0;
         background: #e74c3c !important;
+        color: white;
         }
     
         .searchbar{
@@ -49,3 +50,9 @@
         border-radius: 50%;
         color:#e74c3c;
         }
+
+
+
+.btn-link, .btn-link:hover, .btn-link:active, .btn-link:visited {
+    color: white !important;
+}

@@ -60,11 +60,33 @@
 			</div>
 			<div class="col-md-4">
 				<p><font size="6">Order History</font><br><hr>
-
+				@foreach ($orders as $order)
+				@if (28 == $order->user_id)
+					@if ($order->delivery)
+						<font size="4">Delivery</font>
+					@else
+						<font size="4">Retail</font>
+					@endif
+					<font size="4">- {{$order->name}} (ID Number: {{$order->id}})</font><br>
+					<font size="3">${{$order->amount}} - Status:</font>
+					@if ($order->status == 0)
+						<font size="3">Cooking</font>
+					@elseif ($order->status == 1)
+						<font size="3">Ready For Dispatch</font>
+					@elseif ($order->status == 2)
+						<font size="3">Delivered</font>
+					@endif
+					 - {{$order->detail}}</font><br>
+				@endif
+				@endforeach
 				</p>
 				<hr>
 				<p><font size="6">Reservation History</font><br><hr>
-
+				@foreach ($reservations as $reservation)
+				@if (Auth::user()->id == $reservation->user_id)
+				{{$reservation->detail}}<br>
+				@endif
+				@endforeach
 				</p>
 				<hr>
 			</div>
