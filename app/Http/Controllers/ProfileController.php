@@ -14,7 +14,6 @@ class ProfileController extends Controller
 {
     public function show()
     {
-        $reservations = Reservation::all();
         $comments = Comment::all();
         $places = Place::all();
         $orders = DB::table('payment_vouchers')
@@ -22,6 +21,13 @@ class ProfileController extends Controller
         ->join('users', 'payment_methods.user_id', '=', 'users.id')
         ->join('places', 'payment_vouchers.place_id', '=', 'places.id')
         ->select('payment_methods.user_id', 'payment_vouchers.id', 'payment_vouchers.delivery', 'places.name', 'payment_vouchers.amount', 'payment_vouchers.status', 'payment_vouchers.detail')
+        ->get();
+        $reservations = DB::table('table_reservations')
+        ->join('reservations', 'table_reservations.reservation_id', '=', 'reservations.id')
+        ->join('tables', 'table_reservations.table_id', '=', 'tables.id')
+        ->join('users', 'reservations.user_id', '=', 'users.id')
+        ->join('places', 'tables.place_id', '=', 'places.id')
+        ->select('reservations.id', 'reservations.user_id', 'reservations.date', 'reservations.time', 'tables.capacity', 'tables.code', 'places.name')
         ->get();
         return view('profile', compact('comments', 'places', 'orders', 'reservations'));
     }

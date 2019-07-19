@@ -2,6 +2,7 @@
 use App\User;
 use App\Place;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 
 // Auth Controllers
 Auth::routes();
@@ -22,7 +23,14 @@ Route::patch('/profile/edit', 'EditProfileController@update');
 Route::any('/search', function () 
 {
     $q = Input::get('query');
-    $place = Place::where('name', 'LIKE', '%'.$q.'%')->limit(5)->get();
+    $place = DB::table('places')
+    ->join('menus', 'menus.place_id', '=', 'places.id')
+    ->select('places.id', 'places.name', 'places.address', 'menus.category', 'places.average_value')
+    ->where('name', 'LIKE', '%'.$q.'%')
+    ->orWhere('address', 'LIKE', '%'.$q.'%')
+    ->orWhere('category', 'LIKE', '%'.$q.'%')
+    ->limit(5)
+    ->get();
     if (count ($place) > 0)
         return view('welcome')->withDetails($place)->withQuery($q);
     else
@@ -40,8 +48,6 @@ Route::any('/search', function ()
 
 Route::get('/MaxCambiaEsto', 'EmailController@sendOrderConfirmation');
 Route::get('/EstoTambienPls', 'EmailController@sendReservationConfirmation');
-
-
 
 // Place Routes
 Route::get('/place/find/index', 'PlaceController@index');

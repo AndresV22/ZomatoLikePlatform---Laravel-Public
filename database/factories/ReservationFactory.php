@@ -9,7 +9,7 @@ $factory->define(App\Reservation::class, function (Faker $faker) {
 	$user_id = DB::table('users')->select('id')->get();  
 
     return [
-       	'date' => $faker->dateTime($min = 'now'),
+       	'date' => $faker->date($format = 'Y-m-d', $min = 'now'),
        	'time' => $faker->time(),
 		'allow' => $faker->boolean(),
 		'user_id' => $user_id->random()->id,
