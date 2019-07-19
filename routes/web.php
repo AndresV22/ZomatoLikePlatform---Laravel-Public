@@ -18,6 +18,8 @@ Route::get('/profile', 'ProfileController@show');
 // Edit Profile Controller
 Route::get('/profile/edit', 'EditProfileController@show');
 Route::patch('/profile/edit', 'EditProfileController@update');
+// sdf
+Route::get('/place/{id}/comment', 'MakeCommentController@show');
 
 
 
@@ -31,6 +33,7 @@ Route::any('/search', function ()
     ->where('name', 'LIKE', '%'.$q.'%')
     ->orWhere('address', 'LIKE', '%'.$q.'%')
     ->orWhere('category', 'LIKE', '%'.$q.'%')
+    ->orWhere('average_value', 'LIKE', '%'.$q.'%')
     ->limit(5)
     ->get();
     if (count ($place) > 0)

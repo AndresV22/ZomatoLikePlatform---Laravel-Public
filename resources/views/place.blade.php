@@ -17,7 +17,7 @@
 		Address: {{$place->address}}<br>
 		Opens at: {{$place->opening_time}}<br>
 		Closes at: {{$place->closing_time}}<br><hr>
-		@if (Auth::user() && Auth::user()->role_id == 2 && $place->user_id == Auth::user()->id)
+		@if (Auth::user() && Auth::user()->role_id == 3 && $place->user_id == Auth::user()->id)
 			<Form method='get'>
 				<button type="submit" class="btn btn-default btn-lg btn-block">Edit Place</button>
 			</Form><hr>
@@ -29,7 +29,7 @@
 			<h4>Average user rating</h4>
 			<h2 class="bold padding-bottom-7">{{$place->average_value}} <small>/ 5</small></h2>
 		</div><br>
-		<Form method='get'>
+		<Form method='get' action='{{$place->id}}/comment'>
 			<button type="submit" class="btn btn-default btn-lg btn-block">Add Review</button>
 		</Form><hr>
 		<p><font size="6">Comments</font><br><hr>
@@ -50,18 +50,35 @@
 		<hr>
 		</div>
 		<div class="col-md-4">
-		<p><font size="6">Menus</font><br>
-		<hr>
+		<p><font size="6">Menus</font><br><hr>
+		@if ($menus->count() == 0)
+		There are no menus.
+		@else
+		@foreach ($menus as $menu)
+		<strong>Menu {{$menu->category}}</strong> - ${{$menu->price}} ({{$menu->discount}}% Off)<br>
+		@foreach ($dishes as $dish)
+		@if ($menu->id == $dish->menu_id)
+		<small>{{$dish->name}} - ${{$dish->price}} ({{$dish->discount}}% Off) - Cat. {{$dish->category}}</small><br>
+		@endif
+		@endforeach
+		@endforeach
+		@endif
+		<p>
 		<Form method='get'>
 			<button type="submit" class="btn btn-default btn-lg btn-block">Make An Order</button>
 		</Form>
 		<hr>
 		<p><font size="6">Tables</font><br>
 		<hr>
+		@if ($menus->count() == 0)
+		There are no tables.
+		@else
 		@foreach ($tables as $table)
 		Table #{{$table->code}} - Capacity: {{$table->capacity}} @if($table->taken)(TAKEN)@endif<br>
 		@endforeach
+		@endif
 		<br>
+		<p>
 		<Form method='get'>
 			<button type="submit" class="btn btn-default btn-lg btn-block">Make A Reservation</button>
 		</Form>
