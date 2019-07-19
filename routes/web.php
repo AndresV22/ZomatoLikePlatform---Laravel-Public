@@ -25,6 +25,9 @@ Route::post('/place/{id}/comment', 'MakeCommentController@store');
 Route::get('/user/{id}/place', 'SubmitPlacesController@show');
 
 
+Route::get('/place/{id}/reserve', 'ReservationMakerController@show');
+Route::post('/place/{id}/reserve', 'ReservationMakerController@store');
+
 
 // Search route
 Route::any('/search', function () 

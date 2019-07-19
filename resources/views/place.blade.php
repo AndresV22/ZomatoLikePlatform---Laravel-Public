@@ -79,7 +79,7 @@
 		@endif
 		<br>
 		<p>
-		<Form method='get'>
+		<Form method='get' action='/place/{{$place->id}}/reserve'>
 			<button type="submit" class="btn btn-default btn-lg btn-block">Make A Reservation</button>
 		</Form>
 		<hr>
