@@ -14,7 +14,7 @@ $factory->define(App\Menu::class, function (Faker $faker) {
         'place_id' => $place_id->random()->id,
         'purchase_id' => $purchase_id->random()->id,
         'price' => $faker->numberBetween($min = 3000, $max = 15000),
-        'discount' => $faker->numberBetween($min = 1000, $max = 5000),
+        'discount' => $faker->numberBetween($min = 0, $max = 100),
         'category' => $faker->randomElement($categories),
     ];
 });

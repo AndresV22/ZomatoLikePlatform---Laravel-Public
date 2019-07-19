@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Place;
 use App\User;
 use App\Comment;
 use App\Table;
+use App\Menu;
+use App\Dish;
 
 class PlaceController extends Controller
 {
@@ -43,7 +46,9 @@ class PlaceController extends Controller
         $comments = Comment::where('place_id', $id)->get();
         $users = User::all();
         $tables = Table::where('place_id', $id)->get();
-        return view('place', compact('comments', 'place', 'users', 'tables'));
+        $menus = Menu::where('place_id', $id)->get();
+        $dishes = Dish::all();
+        return view('place', compact('comments', 'place', 'users', 'tables', 'menus', 'dishes'));
     }
     public function update(Request $request, $id)
     {

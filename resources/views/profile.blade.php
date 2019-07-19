@@ -15,9 +15,9 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4">
-				@if (Auth::user()->role_id == 1)
+				@if (Auth::user()->role_id == 2)
 					<p><font size="6">User Profile</font><br><hr>
-				@elseif (Auth::user()->role_id == 2)
+				@elseif (Auth::user()->role_id == 3)
 					<p><font size="6">Manager Profile</font><br><hr>
 				@endif
 				<img src="{{Auth::user()->avatar}}" class="img-responsive img-thumbnail"><hr>
@@ -30,7 +30,7 @@
 				</Form><hr>
 			</div>
 			<div class="col-md-4">
-				@if (Auth::user()->role_id == 1)
+				@if (Auth::user()->role_id == 2)
 				<p><font size="6">Comments</font><br><hr>
 				@if ($comments->where('user_id', Auth::user()->id)->count() == 0)
 				You have no comments.
@@ -48,7 +48,7 @@
 				@endif
 				@endforeach
 				@endif
-				@elseif (Auth::user()->role_id == 2)
+				@elseif (Auth::user()->role_id == 3)
 				<p><font size="6">Places</font><br><hr>
 				@foreach($places as $place)
 				@if($place->user_id == Auth::user()->id)

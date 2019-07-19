@@ -29,7 +29,7 @@ class calculatePlacesAverageValueTrigger extends Migration
           FROM comments
           WHERE id = maxPk;
 
-          SELECT AVG(value) INTO average
+          SELECT  ROUND(AVG(value), 2) INTO average
           FROM (SELECT id, value, place_id
                 FROM comments
                 WHERE place_id = newPk) AS derivedTable;
