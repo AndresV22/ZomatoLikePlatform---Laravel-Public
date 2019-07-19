@@ -14,10 +14,11 @@ class Place extends Model
     protected $fillable = [
         'user_id',
         'name',
-        'address', 
+        'address',
         'opening_time',
         'closing_time',
         'average_value',
+        'avatar',
     ];
 
     /**********************   Relations   **********************/
