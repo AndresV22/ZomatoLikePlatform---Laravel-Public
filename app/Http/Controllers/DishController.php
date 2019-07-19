@@ -81,4 +81,10 @@ class DishController extends Controller
       $dish->delete();
       return "Deleted successfully!";
     }
+
+    public function getIndex()
+    {
+      $dishes = Dish::all();
+      return view('welcome', ['products' => $dishes]);
+    }
 }

@@ -58,4 +58,25 @@
     </table>
     @endif
 </div>
+
+<div class="container" style="color:black;max-size:100%" align="center">
+   @foreach($products->chunk(3) as $productChunk)
+      <div class="row">
+         @foreach($productChunk as $product)
+            <div class="col-sm-4 mt-4">
+               <div class="card">
+                  <div class="card-body">
+                     <h5 class="card-title">{{$product->name}}</h5>
+                     <p class="card-text">{{$product->description}}</p>
+                     <div align="right">
+                        <button type="button" class="btn btn-success">$ {{$product->price}}</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         @endforeach
+   </div>
+   @endforeach
+</div>
+   
 @endsection

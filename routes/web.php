@@ -1,6 +1,7 @@
 <?php
 use App\User;
 use App\Place;
+use App\Dish;
 use Illuminate\Support\Facades\Input;
 
 // Auth Controllers
@@ -8,6 +9,7 @@ Auth::routes();
 
 // Welcome Controller
 Route::get('/', 'WelcomeController@show');
+Route::get('/', ['uses' => 'DishController@getIndex', 'as' => 'resourses.views.welcome']);
 // Admin Dashboard Controller
 Route::get('/admin', 'AdminController@show');
 // Profile Controller
@@ -21,13 +23,16 @@ Route::patch('/profile/edit', 'EditProfileController@update');
 
 Route::any('/search', function () 
 {
-    $q = Input::get('query');
-    $place = Place::where('name', 'LIKE', '%'.$q.'%')->limit(5)->get();
-    if (count ($place) > 0)
-        return view('welcome')->withDetails($place)->withQuery($q);
-    else
-        return view('welcome')->withMessage('No details found. Try to search again!');
+   $q = Input::get('query');
+   $place = Place::where('name', 'LIKE', '%'.$q.'%')->limit(5)->get();
+   $products = Dish::all();
+   if (count ($place) > 0)
+   return view('welcome')->withDetails($place)->withQuery($q);
+   else
+   return view('welcome')->withMessage('No details found. Try to search again!');
 } );
+
+
 
 
 
