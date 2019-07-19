@@ -19,15 +19,16 @@
 </div>
 
 <form action="/search" method="POST" role="search">
-    {{ csrf_field() }}
-    <div class="input-group">
-        <input type="text" class="form-control" name="q"
-            placeholder="Search places"> <span class="input-group-btn">
-            <button type="submit" class="btn btn-default">
-                <span class="glyphicon glyphicon-search"></span>
-            </button>
-        </span>
-    </div>
+	{{ csrf_field() }}
+	<font size="6" color="white"><p class="text-center">Search places by name, category, food...</p></font>
+	<div class="d-flex justify-content-center">
+		<div class="searchbar">
+			<input type="text" class="search_input" name="query" placeholder="Search...">
+			<button type="submit" class="btn btn-default">
+				<a class="search_icon"><i class="fas fa-search"></i></a>
+	        </button>
+		</div>
+	</div>
 </form>
 
 <div class="container">

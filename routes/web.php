@@ -19,14 +19,14 @@ Route::patch('/profile/edit', 'EditProfileController@update');
 
 
 
-Route::any ( '/search', function () 
+Route::any('/search', function () 
 {
-    $q = Input::get ('q');
-    $place = Place::where ('name', 'LIKE', '%'.$q.'%')->limit(5)->get();
-    if (count ( $place ) > 0)
-        return view ( 'welcome' )->withDetails ( $place )->withQuery ( $q );
+    $q = Input::get('query');
+    $place = Place::where('name', 'LIKE', '%'.$q.'%')->limit(5)->get();
+    if (count ($place) > 0)
+        return view('welcome')->withDetails($place)->withQuery($q);
     else
-        return view ( 'welcome' )->withMessage ( 'No Details found. Try to search again !' );
+        return view('welcome')->withMessage('No details found. Try to search again!');
 } );
 
 // Place Routes

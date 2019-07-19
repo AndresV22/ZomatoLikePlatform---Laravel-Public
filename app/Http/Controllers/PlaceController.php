@@ -10,14 +10,11 @@ use App\Table;
 
 class PlaceController extends Controller
 {
-
-
     public function index()
     {
         $places = Place::all();
         return $places;
     }
-
     public function store(Request $request)
     {
         $possible_user = User::find($request->get('user_id'));
@@ -39,7 +36,6 @@ class PlaceController extends Controller
             return "Could not create new restaurant.";
         }
     }
-
     public function show($id)
     {
         $place = Place::find($id);
@@ -48,7 +44,6 @@ class PlaceController extends Controller
         $tables = Table::where('place_id', $id)->get();
         return view('place', compact('comments', 'place', 'users', 'tables'));
     }
-
     public function update(Request $request, $id)
     {
         $data = $request->all();
