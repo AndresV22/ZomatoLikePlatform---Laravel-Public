@@ -35,6 +35,7 @@ class MenuController extends Controller
         $menu = new Menu([
           'place_id' => $request->get('place_id'),
           'purchase_id' => $request->get('purchase_id'),
+          'name' => $request->get('name'),
           'price' => $request->get('price'),
           'category' => $request->get('category'),
           'discount' => $request->get('discount')

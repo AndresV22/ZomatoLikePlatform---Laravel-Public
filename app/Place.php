@@ -13,6 +13,7 @@ class Place extends Model
      */
     protected $fillable = [
         'user_id',
+        'city_id',
         'name',
         'address',
         'opening_time',
@@ -23,9 +24,15 @@ class Place extends Model
 
     /**********************   Relations   **********************/
     // A place belongs to one user
-    public function user()
+    public function users()
     {
         return $this->belongsTo('App\User');
+    }
+
+    // A place belongs to one city
+    public function cities()
+    {
+        return $this->belongsTo('App\City');
     }
 
     // A place has many tables

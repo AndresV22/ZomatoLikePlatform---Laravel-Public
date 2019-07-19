@@ -25,6 +25,7 @@ class PlaceController extends Controller
         {
             $place = new Place([
                 'user_id' => $request->get('user_id'),
+                'city_id' => $request->get('city_id'),
                 'name' => $request->get('name'),
                 'address' => $request->get('address'),
                 'opening_time' => $request->get('opening_time'),

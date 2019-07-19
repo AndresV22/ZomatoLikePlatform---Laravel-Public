@@ -14,7 +14,7 @@ class City extends Model
     protected $fillable = [
         'country_id',
         'name',
-        'code', 
+        'code',
     ];
 
     /**********************   Relations   **********************/
@@ -22,6 +22,11 @@ class City extends Model
     public function country()
     {
     	return $this->belongsTo('App\Country');
+    }
+    // A city has many places
+    public function places()
+    {
+      return $this->hasMany('App\Place');
     }
 
 }

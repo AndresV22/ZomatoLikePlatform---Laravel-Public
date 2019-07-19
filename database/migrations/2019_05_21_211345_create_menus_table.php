@@ -19,6 +19,7 @@ class CreateMenusTable extends Migration
             $table->bigInteger('purchase_id')->unsigned();
             $table->foreign('place_id')->references('id')->on('places')->onDelete('cascade');
             $table->foreign('purchase_id')->references('id')->on('purchases')->onDelete('cascade');
+            $table->string('name', 32);
             $table->integer('price');
             $table->integer('discount');
             $table->string('category', 20);
