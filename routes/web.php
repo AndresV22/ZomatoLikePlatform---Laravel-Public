@@ -18,12 +18,9 @@ Route::get('/profile/edit', 'EditProfileController@show');
 Route::patch('/profile/edit', 'EditProfileController@update');
 // sdf
 Route::get('/place/{id}/comment', 'MakeCommentController@show');
-Route::post('/place/{id}/comment', 'MakeCommentController@store');
-
-
+Route::post('/place/{id}/comment', 'CommentController@store');
 
 Route::get('/user/{id}/place', 'SubmitPlacesController@show');
-
 
 Route::get('/place/{id}/reserve', 'ReservationMakerController@show');
 Route::post('/place/{id}/reserve', 'ReservationMakerController@store');

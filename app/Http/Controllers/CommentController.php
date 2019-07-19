@@ -9,24 +9,12 @@ use App\User;
 
 class CommentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $comment = Comment::all();
         return $comment;
         //
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
 
     public function store(Request $request)
     {
@@ -41,32 +29,14 @@ class CommentController extends Controller
                 'value' => $request->get('value')
             ]);
             $comment->save();
-            return "Created successfully!";
+            return back();
         }
         else
         {
-            return "Could not create new comment.";
+            return back();
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        return Comment::find($id);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $data = $request->all();
@@ -75,12 +45,6 @@ class CommentController extends Controller
         return "Updated successfully!";
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $city = Comment::find($id);

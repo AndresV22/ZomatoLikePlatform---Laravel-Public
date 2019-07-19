@@ -24,36 +24,36 @@
 						<input name='place_id' type="hidden" value='{{$place->id}}'>
 						<input name='value' type="hidden" value=0>
 						<div class="form-group">
-							<textarea name='content' maxlength="180" class="form-control" id="content" required autocomplete="role_id" rows="3"></textarea>
+							<textarea name='content' maxlength="180" class="form-control" id="content" required rows="3"></textarea>
 						</div>
 						<div class="btn-toolbar justify-content-center" role="toolbar" aria-label="group">
-  							<div class="btn-group mr-2" role="group" aria-label="First group">
+  							<div class="btn-group mr-2" role="group" aria-label="First group" >
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="value" id="inlineRadio1" value=0>
-									<label class="form-check-label" for="inlineRadio1">0</label>
+									<input class="form-check-input" type="radio" name="value" value=0>
+									<label class="form-check-label">0</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="value" id="inlineRadio2" value=1>
-									<label class="form-check-label" for="inlineRadio2">1</label>
+									<input class="form-check-input" type="radio" name="value" value=1>
+									<label class="form-check-label">1</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="value" id="inlineRadio1" value=2>
-									<label class="form-check-label" for="inlineRadio1">2</label>
+									<input class="form-check-input" type="radio" name="value" value=2>
+									<label class="form-check-label">2</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="value" id="inlineRadio2" value=3>
-									<label class="form-check-label" for="inlineRadio2">3</label>
+									<input class="form-check-input" type="radio" name="value" value=3>
+									<label class="form-check-label">3</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="value" id="inlineRadio1" value=4>
-									<label class="form-check-label" for="inlineRadio1">4</label>
+									<input class="form-check-input" type="radio" name="value" value=4>
+									<label class="form-check-label">4</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="value" id="inlineRadio2" value=5>
-									<label class="form-check-label" for="inlineRadio2">5</label>
+									<input class="form-check-input" type="radio" name="value" value=5>
+									<label class="form-check-label">5</label>
 								</div>
 							</div>
-							<div class="btn-group mr-2" role="group" aria-label="Second group">
+							<div class="btn-group mr-2">
 								<button type="submit" class="btn btn-default">Submit Comment</button>
 							</div>
 						</div>

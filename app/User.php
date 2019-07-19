@@ -9,12 +9,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name',
         'email', 
@@ -27,38 +21,21 @@ class User extends Authenticatable
         'last_logout_at'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
         'last_login_at' => 'datetime',
         'last_logout_at' => 'datetime'
     ];
 
-    /**********************   Relations   **********************/
     // A user has many UserCities table models
     public function userCities()
     {
     return $this->hasMany('App\UserCity');
-    }
-
-    // A user has one Role table models
-    public function roles()
-    {
-        return $this->hasMany('App\Role');
     }
 
     // A user belongs to one UserRegister

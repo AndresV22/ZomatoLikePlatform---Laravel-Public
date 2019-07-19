@@ -11,11 +11,11 @@
                         <div class="form-group row">
                             <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
                             <div class="form-check form-check-inline">
-                                <input id="role_id_1" class="form-check-input @error('role_id') is-invalid @enderror" type="radio" name="role_id" value=1 required autocomplete="role_id" autofocus>
+                                <input id="role_id_1" class="form-check-input @error('role_id') is-invalid @enderror" type="radio" name="role_id" value=2 required autocomplete="role_id" autofocus>
                                 <label class="form-check-label" for="role_id_1">User</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input id="role_id_2" class="form-check-input @error('role_id') is-invalid @enderror" type="radio" name="role_id" value=2 required autocomplete="role_id" autofocus>
+                                <input id="role_id_2" class="form-check-input @error('role_id') is-invalid @enderror" type="radio" name="role_id" value=3 required autocomplete="role_id" autofocus>
                                 <label class="form-check-label" for="role_id_2">Manager</label>
                             </div>
                         </div>

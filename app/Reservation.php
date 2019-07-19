@@ -6,11 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reservation extends Model
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'user_id',
         'date',
@@ -18,7 +13,6 @@ class Reservation extends Model
         'allow', 
     ];
 
-    /**********************   Relations   **********************/
     // A reservation belongs to one user
     public function user()
     {

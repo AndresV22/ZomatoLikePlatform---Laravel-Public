@@ -17,7 +17,7 @@ $factory->define(App\Place::class, function (Faker $faker) {
         'city_id' => $city_id->random()->id,
         'opening_time' => $faker->time($format = 'H:i:s', $max = 'now'),
         'closing_time' => $faker->time($format = 'H:i:s', $max = 'now'),
-        'average_value' => $faker->randomFloat($nbMaxDecimals = 1, $min = 0, $max = 5),
+        'average_value' => 0,
         'avatar' => 'https://placeimg.com/1000/1000/arch'
     ];
 });
