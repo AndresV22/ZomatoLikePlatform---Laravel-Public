@@ -5,6 +5,7 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <script>$('.select2').select2();</script>
 
+
 @extends('layouts.app')
 @section('content')
 <link href="{{ asset('css/editProfile.css') }}" rel="stylesheet">
