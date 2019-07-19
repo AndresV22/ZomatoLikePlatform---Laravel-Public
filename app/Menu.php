@@ -33,8 +33,8 @@ class Menu extends Model
     }
 
     // A menu has many dishes
-    public function menuDishes()
+    public function dishes()
     {
-        return $this->hasMany('App\MenuDish');
+        return $this->hasMany('App\Dish');
     }
 }

@@ -65,12 +65,12 @@
             </div>
 			</div>
 			<div class="col-md-4">
-				<p align="center"><font size="6">History</font><br><hr>
-				@foreach($user_registers as $user_register)
-				@if($user_register->user_id == Auth::user()->id)
-				{{$user_register->created_at}} - {{$user_register->actions}}<br>
-				@endif
-				@endforeach
+				<p><font size="6">Order History</font><br><hr>
+
+				</p>
+				<hr>
+				<p><font size="6">Reservation History</font><br><hr>
+
 				</p>
 				<hr>
 			</div>

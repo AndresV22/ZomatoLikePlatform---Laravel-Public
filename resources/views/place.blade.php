@@ -17,7 +17,7 @@
 		Address: {{$place->address}}<br>
 		Opens at: {{$place->opening_time}}<br>
 		Closes at: {{$place->closing_time}}<br><hr>
-		@if (Auth::user()->role_id == 2 && $place->user_id == Auth::user()->id)
+		@if (Auth::user() && Auth::user()->role_id == 2 && $place->user_id == Auth::user()->id)
 			<Form method='get'>
 				<button type="submit" class="btn btn-default btn-lg btn-block">Edit Place</button>
 			</Form><hr>

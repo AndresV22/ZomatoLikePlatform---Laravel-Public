@@ -13,6 +13,7 @@ class Dish extends Model
      */
     protected $fillable = [
         'purchase_id',
+        'menu_id',
         'name',
         'price',
         'description',
@@ -31,5 +32,11 @@ class Dish extends Model
     public function purchase()
     {
         return $this->belongsTo('App\Purchase');
+    }
+
+    // A dish belongs to one menu.
+    public function menus()
+    {
+        return $this->belongsTo('App\Menu');
     }
 }
