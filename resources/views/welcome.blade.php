@@ -40,6 +40,10 @@
             <tr>
                 <th>Name</th>
                 <th>Address</th>
+                <th>Go</th>
+
+                
+            </button>
             </tr>
         </thead>
         <tbody>
@@ -47,6 +51,10 @@
             <tr>
                 <td>{{$place->name}}</td>
                 <td>{{$place->address}}</td>
+                <Form method="get" action="{{"profile/edit"}}">
+                    <td><button type="Submit" class="btn btn-outline-primary btn-custom-outline-primary btn-custom"></td>
+                        </Form><hr>
+                
             </tr>
             @endforeach
         </tbody>

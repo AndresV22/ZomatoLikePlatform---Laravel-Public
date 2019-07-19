@@ -17,6 +17,8 @@ class CreatePaymentVouchersTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('payment_method_id')->unsigned();
             $table->foreign('payment_method_id')->references('id')->on('payment_methods')->onDelete('cascade');
+            $table->bigInteger('place_id')->unsigned();
+            $table->foreign('place_id')->references('id')->on('places')->onDelete('cascade');
             $table->integer('amount');
             $table->date('date');
             $table->string('detail', 40);

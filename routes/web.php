@@ -29,6 +29,9 @@ Route::any('/search', function ()
         return view('welcome')->withMessage('No details found. Try to search again!');
 } );
 
+
+
+
 // Place Routes
 Route::get('/place/find/index', 'PlaceController@index');
 Route::get('/place/{id}', 'PlaceController@show');

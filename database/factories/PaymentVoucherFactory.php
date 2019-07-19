@@ -7,9 +7,11 @@ use Faker\Generator as Faker;
 
 $factory->define(App\PaymentVoucher::class, function (Faker $faker) {
 	$payment_method_id = DB::table('payment_methods')->select('id')->get();
+	$place_id = DB::table('places')->select('id')->get();
 
     return [
         'payment_method_id' => $payment_method_id->random()->id,
+        'place_id' => $place_id->random()->id,
         'amount' => $faker->numberBetween($min = 1000, $max = 20000),
         'date' => $faker->dateTimeBetween($startDate = '2019-03-25', $endDate = 'now'),
         'detail' => $faker->text($maxNbChars = 35),
