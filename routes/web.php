@@ -18,7 +18,7 @@ Route::patch('/profile/edit', 'EditProfileController@update');
 
 
 
-
+// Search route
 Route::any('/search', function () 
 {
     $q = Input::get('query');
@@ -29,6 +29,17 @@ Route::any('/search', function ()
         return view('welcome')->withMessage('No details found. Try to search again!');
 } );
 
+
+
+// Email API routes.
+// How to use: Invoke the functions giving a JSON with the following structure:
+//				{
+//					"name": "insertNameHere"
+//					"address": "insertEmailAddressHere"
+//				}  
+
+Route::get('/MaxCambiaEsto', 'EmailController@sendOrderConfirmation');
+Route::get('/EstoTambienPls', 'EmailController@sendReservationConfirmation');
 
 
 
