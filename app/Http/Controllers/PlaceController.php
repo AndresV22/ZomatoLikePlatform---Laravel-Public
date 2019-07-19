@@ -26,7 +26,8 @@ class PlaceController extends Controller
                 'address' => $request->get('address'),
                 'opening_time' => $request->get('opening_time'),
                 'closing_time' => $request->get('closing_time'),
-                'average_value' => $request->get('average_value')
+                'average_value' => $request->get('average_value'),
+                'avatar' => $request->get('avatar')
             ]);
             $place->save();
             return "Created successfully!";

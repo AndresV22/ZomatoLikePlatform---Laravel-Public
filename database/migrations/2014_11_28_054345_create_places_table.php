@@ -22,6 +22,7 @@ class CreatePlacesTable extends Migration
             $table->time('opening_time');
             $table->time('closing_time');
             $table->float('average_value')->nullable();
+            $table->string('avatar');
             $table->timestamps();
         });
     }

@@ -47,10 +47,13 @@
     					</div>
 
     					<div class="form-group">
-        					<button id="submitButton" type="submit" class="btn btn-default"> Submit </button>
-                  </div>
-
+        					<button type="submit" class="btn btn-default"> Submit </button>
+						</div>
 					</form>
+					<div class="alert alert-success alert-dismissible">
+ 						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						<strong>Success!</strong> Indicates a successful or positive action.
+					</div>
 				</div>
 			</div>
 		</div>

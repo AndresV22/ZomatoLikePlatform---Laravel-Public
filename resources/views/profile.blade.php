@@ -67,22 +67,23 @@
 			<div class="col-md-4">
 				<p><font size="6">Order History</font><br><hr>
 				@foreach ($orders as $order)
-				@if (28 == $order->user_id)
+				@if (Auth::user()->id == $order->user_id)
+				<small>
 					@if ($order->delivery)
-						<font size="4">Delivery</font>
+					<strong>Delivery</strong>
 					@else
-						<font size="4">Retail</font>
+					<strong>Retail</strong>
 					@endif
-					<font size="4">- {{$order->name}} (ID Number: {{$order->id}})</font><br>
-					<font size="3">${{$order->amount}} - Status:</font>
+					- {{$order->name}} (ID Number: {{$order->id}})</small>
+					<p>${{$order->amount}} - Status:
 					@if ($order->status == 0)
-						<font size="3">Cooking</font>
+						Cooking
 					@elseif ($order->status == 1)
-						<font size="3">Ready For Dispatch</font>
+						Ready For Dispatch
 					@elseif ($order->status == 2)
-						<font size="3">Delivered</font>
+						Delivered
 					@endif
-					 - {{$order->detail}}</font><br>
+					 - {{$order->detail}}</p>
 				@endif
 				@endforeach
 				</p>
@@ -90,11 +91,11 @@
 				<p><font size="6">Reservation History</font><br><hr>
 				@foreach ($reservations as $reservation)
 				@if (Auth::user()->id == $reservation->user_id)
-				{{$reservation->detail}}<br>
+				<small><strong>{{$reservation->name}}</strong> - Table #{{$reservation->code}} (ID Number: {{$reservation->id}})</small>
+				<p>Capacity: {{$reservation->capacity}} - {{$reservation->date}} at {{$reservation->time}}</p>
 				@endif
 				@endforeach
-				</p>
-				<hr>
+				</p><hr>
 			</div>
 		</div>
 	</div>

@@ -20,7 +20,7 @@
 
 <form action="/search" method="POST" role="search">
 	{{csrf_field()}}
-	<font size="6" color="white"><p class="text-center">Search places by name, category, food...</p></font>
+	<font size="6" color="white"><p class="text-center">Search places by name, category, location, rating...</p></font>
 	<div class="d-flex justify-content-center">
 		<div class="searchbar">
 			<input type="text" class="search_input" name="query" placeholder="Search...">
@@ -39,7 +39,7 @@
             <tr>
                 <th>Name</th>
                 <th>Address</th>
-                <th>Average Value</th>
+                <th>Rating (Average)</th>
             </tr>
         </thead>
         <tbody>

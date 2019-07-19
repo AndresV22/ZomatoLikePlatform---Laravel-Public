@@ -3,6 +3,7 @@ use App\User;
 use App\Place;
 use App\Dish;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 
 // Auth Controllers
 Auth::routes();
@@ -20,22 +21,35 @@ Route::patch('/profile/edit', 'EditProfileController@update');
 
 
 
-
+// Search route
 Route::any('/search', function () 
 {
-   $q = Input::get('query');
-   $place = Place::where('name', 'LIKE', '%'.$q.'%')->limit(5)->get();
-   $products = Dish::all();
-   if (count ($place) > 0)
-   return view('welcome')->withDetails($place)->withQuery($q);
-   else
-   return view('welcome')->withMessage('No details found. Try to search again!');
+    $q = Input::get('query');
+    $place = DB::table('places')
+    ->join('menus', 'menus.place_id', '=', 'places.id')
+    ->select('places.id', 'places.name', 'places.address', 'menus.category', 'places.average_value')
+    ->where('name', 'LIKE', '%'.$q.'%')
+    ->orWhere('address', 'LIKE', '%'.$q.'%')
+    ->orWhere('category', 'LIKE', '%'.$q.'%')
+    ->limit(5)
+    ->get();
+    if (count ($place) > 0)
+        return view('welcome')->withDetails($place)->withQuery($q);
+    else
+        return view('welcome')->withMessage('No details found. Try to search again!');
 } );
 
 
 
+// Email API routes.
+// How to use: Invoke the functions giving a JSON with the following structure:
+//				{
+//					"name": "insertNameHere"
+//					"address": "insertEmailAddressHere"
+//				}  
 
-
+Route::get('/MaxCambiaEsto', 'EmailController@sendOrderConfirmation');
+Route::get('/EstoTambienPls', 'EmailController@sendReservationConfirmation');
 
 // Place Routes
 Route::get('/place/find/index', 'PlaceController@index');
