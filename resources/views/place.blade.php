@@ -29,7 +29,7 @@
 			<h4>Average user rating</h4>
 			<h2 class="bold padding-bottom-7">{{$place->average_value}} <small>/ 5</small></h2>
 		</div><br>
-		<Form method='get' action='{{$place->id}}/comment'>
+		<Form method='get' action='/place/{{$place->id}}/comment'>
 			<button type="submit" class="btn btn-default btn-lg btn-block">Add Review</button>
 		</Form><hr>
 		<p><font size="6">Comments</font><br><hr>

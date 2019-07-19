@@ -60,6 +60,9 @@
 			</div>
 			<div class="col-md-4">
 				<p><font size="6">Order History</font><br><hr>
+				@if ($orders->where('user_id', Auth::user()->id)->count() == 0)
+				You haven't made any orders.
+				@else
 				@foreach ($orders as $order)
 				@if (Auth::user()->id == $order->user_id)
 				<small>
@@ -80,15 +83,20 @@
 					 - {{$order->detail}}</p>
 				@endif
 				@endforeach
+				@endif
 				</p>
 				<hr>
 				<p><font size="6">Reservation History</font><br><hr>
+				@if ($reservations->where('user_id', Auth::user()->id)->count() == 0)
+				You haven't made any reservations.
+				@else
 				@foreach ($reservations as $reservation)
 				@if (Auth::user()->id == $reservation->user_id)
 				<small><strong>{{$reservation->name}}</strong> - Table #{{$reservation->code}} (ID Number: {{$reservation->id}})</small>
 				<p>Capacity: {{$reservation->capacity}} - {{$reservation->date}} at {{$reservation->time}}</p>
 				@endif
 				@endforeach
+				@endif
 				</p><hr>
 			</div>
 		</div>

@@ -18,6 +18,7 @@ Route::get('/profile/edit', 'EditProfileController@show');
 Route::patch('/profile/edit', 'EditProfileController@update');
 // sdf
 Route::get('/place/{id}/comment', 'MakeCommentController@show');
+Route::post('/place/{id}/comment', 'MakeCommentController@store');
 
 
 
