@@ -37,8 +37,15 @@
         					<input type="text" name="address" placeholder="Please enter your address here" class="form-control" value="{{ Auth::user()->address }}"/>
     					</div>
     					<div class="form-group">
-        					<button type="submit" class="btn btn-default"> Submit </button>
+        					<button v-b-modal.successfully-message type="submit" class="btn btn-default"> Submit </button>
     					</div>
+
+                     <div class="modal-dialog" role="document"> id="successfully-message" title="BootstrapVue">
+                        <p class="my-4">Hello from modal!</p>
+                     </div>
+                  </div>
+
+
 					</form>
 				</div>
 			</div>
