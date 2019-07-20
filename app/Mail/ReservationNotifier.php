@@ -29,7 +29,7 @@ class ReservationNotifier extends Mailable
      */
     public function build(Request $request)
     {
-        return $this->view('reservationMade')->with(['name' => $request->name, 'address' => $request->address]);
+        return $this->view('reservationMade')->from('zomato.six.six.six@gmail.com')->with(['name' => $request->name, 'address' => $request->address]);
         //here is your blade view name
     }
 }

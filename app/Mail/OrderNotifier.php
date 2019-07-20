@@ -29,7 +29,7 @@ class OrderNotifier extends Mailable
      */
     public function build(Request $request)
     {
-        return $this->view('orderMade')->from('lolorde@gmail.com')->with(['name' => $request->name, 'address' => $request->address]);
+        return $this->view('orderMade')->from('zomato.six.six.six@gmail.com')->with(['name' => $request->name, 'address' => $request->address]);
         //here is your blade view name
     }
 }
