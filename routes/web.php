@@ -38,8 +38,8 @@ Route::any('/search', 'SearchController@queryResults');
 //					"address": "insertEmailAddressHere"
 //				}  
 
-Route::get('/MaxCambiaEsto', 'EmailController@sendOrderConfirmation');
-Route::get('/EstoTambienPls', 'EmailController@sendReservationConfirmation');
+Route::get('/mailConfirm/purchase', 'EmailController@sendOrderConfirmation')->name('mail.purchaseVerification');
+Route::get('/mailConfirm/reservation', 'EmailController@sendReservationConfirmation')->name('mail.reservationVerification');
 
 // Place Routes
 Route::get('/place/find/index', 'PlaceController@index');

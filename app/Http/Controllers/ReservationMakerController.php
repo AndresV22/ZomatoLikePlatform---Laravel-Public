@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -27,13 +26,23 @@ class ReservationMakerController extends Controller
           'date' => $request->get('date'),
           'time' => $request->get('time'),
           'allow' => $request->get('allow')
-      ]);
-      $reservation->save();
-      return "Created successfully!";
+        ]);
+
+        $reservation->save();
+
+
+        $parameters = ([
+            'name' => $request->get('name'),
+            'address' => $request->get('address')
+            ]);
+
+
+        return redirect()->route('mail.reservationVerification', $parameters);
       }
+
       else
       {
-        return "Could not create new reservation.";
+        return back();
       }
     }
 }

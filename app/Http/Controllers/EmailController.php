@@ -30,10 +30,9 @@ class EmailController extends Controller
             'address' => $request->get('address')
             ]);
 
-      Mail::to($request->get('address'))->send(new ReservationNotifier($user));
+
+      Mail::to($user['address'])->send(new ReservationNotifier($user));
  
-      if (Mail::failures()) {
-           return response()->Fail('Sorry! Please try again latter');
-      }
+      return back();
     }
 }

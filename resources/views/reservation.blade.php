@@ -21,6 +21,8 @@
 					<form action='reserve' method='post'>
 						{{csrf_field()}}
 						<input name='user_id' type="hidden" value='{{Auth::user()->id}}'>
+						<input name='name' type="hidden" value='{{Auth::user()->name}}'>
+						<input name='address' type="hidden" value='{{Auth::user()->email}}'>
 						<input name='allow' type="hidden" value='true'>
 						<div class="form-group">
 							<label for="date"><b>Reservation date</b></label>
