@@ -18,6 +18,7 @@ $factory->define(App\Place::class, function (Faker $faker) {
         'opening_time' => $faker->time($format = 'H:i:s', $max = 'now'),
         'closing_time' => $faker->time($format = 'H:i:s', $max = 'now'),
         'average_value' => 0,
-        'avatar' => 'https://placeimg.com/1000/1000/arch'
+        'avatar' => 'https://placeimg.com/1000/1000/arch',
+        'is_operative' => $faker->boolean(),
     ];
 });

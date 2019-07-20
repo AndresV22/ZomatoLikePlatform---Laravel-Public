@@ -25,6 +25,7 @@ class CreatePlacesTable extends Migration
             $table->time('closing_time');
             $table->float('average_value')->nullable();
             $table->string('avatar');
+            $table->boolean('is_operative');
             $table->timestamps();
         });
     }

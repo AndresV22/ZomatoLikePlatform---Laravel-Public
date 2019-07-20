@@ -18,44 +18,50 @@
 	</div>
 </div>
 
-<form action="/search" method="POST" role="search">
-	{{csrf_field()}}
-	<font size="6" color="white"><p class="text-center">Search places by name, category, location, rating...</p></font>
-	<div class="d-flex justify-content-center">
-		<div class="searchbar">
-			<input type="text" class="search_input" name="query" placeholder="Search...">
-			<button type="submit" class="btn btn-default">
-				<a class="search_icon"><i class="fas fa-search"></i></a>
-	        </button>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+			<font size="6" color="white"><p class="text-center">Search places by name, category, location, rating...</p></font>
+			<div class="form-group">
+				<form action="/search" method="POST" role="search">
+					{{csrf_field()}}
+					<div class="input-group mb-3">
+						<input name="query" type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+						<div class="input-group-append">
+							<button class="btn btn-outline-light" type="submit">Go</button>
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
-</form>
+</div>
 
 <div class="container">
-    @if(isset($details))
-    <font size="6" color="white"><p class="text-center">Search Results</p></font>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Rating (Average)</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($details as $place)
-            <tr>
-                <td>
-                <form method="get" action="place/{{$place->id}}">
-                       <button type="submit" class="btn btn-link">{{$place->name}}</button>
-                </form>
-                </td>
-                <td>{{$place->address}}</td>
-                <td>{{$place->average_value}}/5</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    @endif
+	@if(isset($details))
+	<font size="6" color="white"><p class="text-center">Search Results</p></font>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Rating (Average)</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($details as $place)
+			<tr>
+				<td>
+				<form method="get" action="place/{{$place->id}}">
+						<button type="submit" class="btn btn-link">{{$place->name}}</button>
+				</form>
+				</td>
+				<td>{{$place->address}}</td>
+				<td>{{$place->average_value}}/5</td>
+			</tr>
+			@endforeach
+		</tbody>
+	</table>
+	@endif
 </div>
 @endsection

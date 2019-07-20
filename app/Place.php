@@ -20,6 +20,7 @@ class Place extends Model
         'closing_time',
         'average_value',
         'avatar',
+        'is_operative'
     ];
 
     /**********************   Relations   **********************/

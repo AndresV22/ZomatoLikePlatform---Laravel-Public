@@ -27,27 +27,7 @@ Route::post('/place/{id}/reserve', 'ReservationMakerController@store');
 
 
 // Search route
-Route::any('/search', function () 
-{
-    $q = Input::get('query');
-    $place = DB::table('places')
-    ->join('menus', 'menus.place_id', '=', 'places.id')
-    ->join('cities', 'places.city_id', '=', 'cities.id')
-    ->join('countries', 'cities.country_id', '=', 'countries.id')
-    ->select('places.id', 'countries.name', 'cities.name', 'places.name', 'places.address', 'menus.category', 'places.average_value')
-    ->where('countries.name', 'LIKE', '%'.$q.'%')
-    ->where('cities.name', 'LIKE', '%'.$q.'%')
-    ->where('places.name', 'LIKE', '%'.$q.'%')
-    ->orWhere('address', 'LIKE', '%'.$q.'%')
-    ->orWhere('category', 'LIKE', '%'.$q.'%')
-    ->orWhere('average_value', 'LIKE', '%'.$q.'%')
-    ->limit(5)
-    ->get();
-    if (count ($place) > 0)
-        return view('welcome')->withDetails($place)->withQuery($q);
-    else
-        return view('welcome')->withMessage('No details found. Try to search again!');
-} );
+Route::any('/search', 'SearchController@queryResults');
 
 
 
