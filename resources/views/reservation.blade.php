@@ -8,7 +8,7 @@
 
 @extends('layouts.app')
 @section('content')
-<link href="{{ asset('css/editProfile.css') }}" rel="stylesheet">
+<link href="{{ asset('css/place.css') }}" rel="stylesheet">
 @if (Auth::guest() || Auth::user()-> id == 2)
 	<font size="7"><p class="text-center">You cannot reserve.</p></font>
 	<font size="4"><p class="text-center">Please log in to continue.</p></font>
@@ -21,8 +21,10 @@
 					<form action='reserve' method='post'>
 						{{csrf_field()}}
 						<input name='user_id' type="hidden" value='{{Auth::user()->id}}'>
+						<input name='place_name' type="hidden" value='{{$place->name}}'>
 						<input name='name' type="hidden" value='{{Auth::user()->name}}'>
 						<input name='address' type="hidden" value='{{Auth::user()->email}}'>
+						<input name='place_id' type="hidden" value='{{$place->id}}'>
 						<input name='allow' type="hidden" value='true'>
 						<div class="form-group">
 							<label for="date"><b>Reservation date</b></label>
@@ -33,6 +35,22 @@
    							 <input type="text" placeholder="Reservation time" name="time" required>
    							 </div>
 						<div class="btn-toolbar justify-content-center" role="toolbar" aria-label="group">
+
+						<div class="form-group mr-2">
+       						  <select name="table_code">
+
+								@foreach ($tables as $table)
+
+									@if ($table->taken)
+
+									@else
+										<option value="{{$table->code}}"> Table #{{$table->code}} </option>
+
+									@endif
+								@endforeach
+								
+          					   </select>
+          				</div> 
   							
 							<div class="btn-group mr-2" role="group" aria-label="Second group">
 								<button type="submit" class="btn btn-default">Submit Reservation</button>
@@ -46,3 +64,4 @@
 @endif
 
 @endsection
+

@@ -60,4 +60,10 @@ class Place extends Model
         return $this->hasMany('App\PaymentVoucher');
     }
 
+    // A place has many reservations
+    public function reservations()
+    {
+        return $this->hasMany('App\Reservation');
+    }
+
 }

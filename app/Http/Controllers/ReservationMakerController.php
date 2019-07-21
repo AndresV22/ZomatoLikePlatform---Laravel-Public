@@ -6,15 +6,18 @@ use App\User;
 use App\Place;
 use App\Comment;
 use App\Reservation;
+use App\Table;
 
 class ReservationMakerController extends Controller
 {
     public function show($id)
-    {
-        $comments = Comment::all();
+    { 
         $place = Place::find($id);
-        return view('reservation', compact('place', 'comments'));
+        $tables = Table::where('place_id', $id)->get();
+       
+        return view('reservation', compact('place', 'tables'));
     }
+
 
     public function store(Request $request)
     {
@@ -23,21 +26,32 @@ class ReservationMakerController extends Controller
       {
         $reservation = new Reservation([
           'user_id' => $request->get('user_id'),
+          'place_id' => $request->get('place_id'),
           'date' => $request->get('date'),
           'time' => $request->get('time'),
+          'table_code' => $request->get('table_code'),
           'allow' => $request->get('allow')
         ]);
 
         $reservation->save();
 
 
-        $parameters = ([
+        $table = Table::where('place_id', $request->get('place_id'))->get()->where('code', $request->get('table_code'))->first();
+
+        $newTableData = ([
+          'taken' => 'true']);
+
+        $table->update($newTableData);
+
+        $mailParameters = ([
             'name' => $request->get('name'),
-            'address' => $request->get('address')
+            'address' => $request->get('address'),
+            'place_name' => $request->get('place_name'),
+            'table_code' => $request->get('table_code')
             ]);
 
 
-        return redirect()->route('mail.reservationVerification', $parameters);
+        return redirect()->route('mail.reservationVerification', $mailParameters);
       }
 
       else

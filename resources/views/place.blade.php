@@ -70,7 +70,7 @@
 		<hr>
 		<p><font size="6">Tables</font><br>
 		<hr>
-		@if ($menus->count() == 0)
+		@if ($tables->count() == 0)
 		There are no tables.
 		@else
 		@foreach ($tables as $table)

@@ -8,6 +8,7 @@ class Reservation extends Model
 {
     protected $fillable = [
         'user_id',
+        'place_id',
         'date',
         'time',
         'allow', 
@@ -23,5 +24,10 @@ class Reservation extends Model
 	public function tableReservations()
     {
         return $this->hasMany('App\TableReservation');
+    }
+
+    public function places()
+    {
+        return $this->belongsTo('App\Place');
     }    
 }
