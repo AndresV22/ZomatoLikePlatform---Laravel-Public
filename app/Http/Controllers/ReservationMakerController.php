@@ -7,6 +7,7 @@ use App\Place;
 use App\Comment;
 use App\Reservation;
 use App\Table;
+use App\TableReservation;
 
 class ReservationMakerController extends Controller
 {
@@ -42,6 +43,13 @@ class ReservationMakerController extends Controller
           'taken' => 'true']);
 
         $table->update($newTableData);
+
+        $tableReservation = new TableReservation([
+          'reservation_id' => $reservation->id,
+          'table_id' => $table->id
+      ]);
+
+      $tableReservation->save();
 
         $mailParameters = ([
             'name' => $request->get('name'),
