@@ -29,7 +29,7 @@ class CommentController extends Controller
                 'value' => $request->get('value')
             ]);
             $comment->save();
-            return back();
+            return back()->with('success',' Comentario agregado correctamente. ');
         }
         else
         {

@@ -8,6 +8,7 @@
 @extends('layouts.app')
 @section('title', 'Welcome')
 @section('content')
+@include('flash-alerts')
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 <div class="container">
 	<div class="row justify-content-center">

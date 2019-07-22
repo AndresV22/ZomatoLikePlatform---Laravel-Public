@@ -44,6 +44,7 @@ class LoginController extends Controller
         $user = auth()->user();
         $user->last_login_at = Carbon::now();
         $user->save();
+        return redirect('/')->with('success',' Has iniciado sesión correctamente. ');
     }
 
     public function logout(Request $request)
@@ -55,7 +56,7 @@ class LoginController extends Controller
         $this->guard()->logout();
         $request->session()->flush();
         $request->session()->regenerate();
-        return redirect('/');
+        return redirect('/')->with('success',' Has cerrado tu sesión correctamente. ');
 
     }
 }
