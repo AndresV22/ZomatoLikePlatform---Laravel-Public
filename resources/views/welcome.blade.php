@@ -8,7 +8,7 @@
 @extends('layouts.app')
 @section('title', 'Welcome')
 @section('content')
-<link href="{{ asset('css/search.css') }}" rel="stylesheet">
+<link href="{{ asset('css/main.css') }}" rel="stylesheet">
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-md-6 align-self-center">

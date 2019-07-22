@@ -7,7 +7,7 @@
 
 @extends('layouts.app')
 @section('content')
-<link href="{{ asset('css/search.css') }}" rel="stylesheet">
+<link href="{{ asset('css/main.css') }}" rel="stylesheet">
 @if (Auth::guest() || Auth::user()->role_id != 1)
     <font size="7" color="white"><p class="text-center">You don't have admin privileges.</p></font>
     <font size="4" color="white"><p class="text-center">Please log in with admin credentials to continue.</p></font>

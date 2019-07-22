@@ -7,7 +7,7 @@
 
 @extends('layouts.app')
 @section('content')
-<link href="{{ asset('css/place.css') }}" rel="stylesheet">
+<link href="{{ asset('css/main.css') }}" rel="stylesheet">
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-4">

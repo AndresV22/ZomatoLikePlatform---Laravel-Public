@@ -8,7 +8,7 @@
 
 @extends('layouts.app')
 @section('content')
-<link href="{{ asset('css/place.css') }}" rel="stylesheet">
+<link href="{{ asset('css/main.css') }}" rel="stylesheet">
 @if (Auth::guest() || Auth::user()-> id == 2)
 	<font size="7"><p class="text-center">You cannot reserve.</p></font>
 	<font size="4"><p class="text-center">Please log in to continue.</p></font>

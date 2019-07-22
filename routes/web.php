@@ -16,8 +16,8 @@ Route::get('/profile', 'ProfileController@show');
 // Edit Profile Controller
 Route::get('/profile/edit', 'EditProfileController@show');
 Route::patch('/profile/edit', 'EditProfileController@update');
-// sdf
-Route::get('/place/{id}/comment', 'MakeCommentController@show');
+// Comment Controller
+Route::get('/place/{id}/comment', 'SubmitCommentController@show');
 Route::post('/place/{id}/comment', 'CommentController@store');
 
 Route::get('/user/{id}/place', 'SubmitPlacesController@show');
