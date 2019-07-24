@@ -10,11 +10,13 @@
 @section('content')
 @include('flash-alerts')
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-<div class="container">
-	<div class="row justify-content-center">
-		<div class="col-md-6 align-self-center">
-			<font size="7" color="white"><p class="text-center">Nice food. Is that simple.</p></font>
-			<font size="4" color="white"><p class="text-center">Zomato666 is the best site for finding the best food in the best places. Want some juicy empanadas de pino, a cold Antillanca beer or the tastiest completos in your area? We've got you covered.</p></font>
+<div class="jumbotron">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6 align-self-center">
+				<font size="7" color="white"><p class="text-center">Nice food. Is that simple.</p></font>
+				<font size="4" color="white"><p class="text-center">Zomato666 is the best site for finding the best food in the best places. Want some juicy empanadas de pino, a cold Antillanca beer or the tastiest completos in your area? We've got you covered.</p></font>
+			</div>
 		</div>
 	</div>
 </div>
