@@ -19,6 +19,14 @@ class EditProfileController extends Controller
         $data = $request->all();
         $user = Auth::user();
         $user->update($data);
-        return redirect('profile')->with('success','You have updated your profile succesfully.');
+        return redirect('profile')->with('success','You have updated your profile successfully.');
+    }
+
+    public function dashboardUpdate(Request $request, $id)
+     {
+        $data = $request->all();
+        $user = User::find($id);
+        $user->update($data);
+        return redirect('/admin/allUsers')->with('success','You have updated the profile successfully.');
     }
 }

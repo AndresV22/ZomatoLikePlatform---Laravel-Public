@@ -29,6 +29,7 @@ class UserController extends Controller
     {
         $user = new User([
             'name' => $request->get('name'),
+            'role_id' => $request->get('role_id'),
             'email' => $request->get('email'),
             'password' => Hash::make($request->get('password')),
             'phone_number' => $request->get('phone_number'),
@@ -36,7 +37,8 @@ class UserController extends Controller
             'avatar' => $request->get('avatar')
         ]);
         $user->save();
-        return $user;
+        
+        return back();
     }
 
     /**
@@ -76,5 +78,12 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
         return "Deleted successfully!";
+    }
+
+    public function delete($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect("/admin/allUsers");
     }
 }

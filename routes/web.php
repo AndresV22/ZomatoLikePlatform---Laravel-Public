@@ -11,6 +11,12 @@ Auth::routes();
 Route::get('/', 'WelcomeController@show');
 // Admin Dashboard Controller
 Route::get('/admin', 'AdminController@show');
+Route::get('/admin/register', 'AdminController@connectToNewRegister');
+Route::post('/admin/register', 'UserController@store');
+Route::get('/admin/allUsers', 'AdminController@connectToUserList');
+Route::get('/admin/dashboardProfileEdit/{id}', 'AdminController@connectToDashboardProfileEdit');
+Route::patch('/admin/dashboardProfileEdit/{id}', 'EditProfileController@dashboardUpdate');
+Route::delete('/admin/dashboardProfileDelete/{id}', 'UserController@delete');
 // Profile Controller
 Route::get('/profile', 'ProfileController@show');
 // Edit Profile Controller
