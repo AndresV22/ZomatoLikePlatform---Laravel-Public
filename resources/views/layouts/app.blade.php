@@ -48,20 +48,27 @@
                                 </li>
                             @endif
                         @else
-                            <li class="collapse navbar-collapse">
-                                <a id="navbarShoppingCartDropdown" class="nav-link dropdown" href="#shoppingCart" role="button" data-toggle="ShoppingDropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="dropdown mt-1">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="fas fa-shopping-cart"></i>  Shopping Cart 
                                     <span class="badge badge-pill badge-secondary">1</span>
                                 </a> 
 
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item">Compra 1</a>
+                                    <a class="dropdown-item">Compra 2</a>
+                                </div>
+                            </li>
 
+
+                            <li class="dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <img src="{{Auth::user()->avatar}}" width="30" height="30" style="border-radius:50%">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/profile">
+                                    <a class="dropdown-item" href="/profile">
                                         Profile
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
