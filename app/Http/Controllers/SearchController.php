@@ -29,6 +29,6 @@ class SearchController extends Controller
 		if (count ($place) > 0)
 			return view('welcome')->withDetails($place)->withQuery($q);
 		else
-			return view('welcome');
+			return redirect('/')->with('error', 'No places found.');
 	}
 }

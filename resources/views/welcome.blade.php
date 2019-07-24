@@ -9,9 +9,9 @@
 @section('title', 'Welcome')
 @section('content')
 @include('flash-alerts')
-<link href="{{ asset('css/main.css') }}" rel="stylesheet">
+<link href="{{asset('css/main.css')}}" rel="stylesheet">
 <div class="jumbotron">
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row justify-content-center">
 			<div class="col-md-6 align-self-center">
 				<font size="7" color="white"><p class="text-center">Nice food. Is that simple.</p></font>
@@ -24,7 +24,7 @@
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-md-6">
-			<font size="6" color="white"><p class="text-center">Search places by name, category, location, rating...</p></font>
+			<font size="5" color="white"><p class="text-center">Search places...</p></font>
 			<div class="form-group">
 				<form action="/search" method="POST" role="search">
 					{{csrf_field()}}
@@ -40,7 +40,7 @@
 	</div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
 	@if(isset($details))
 	<font size="6" color="white"><p class="text-center">Search Results</p></font>
 	<table class="table table-striped">
