@@ -36,3 +36,8 @@ body, html
 {
 	padding-bottom:7px;
 }
+
+.jumbotron{
+	background-image: url("../images/background.jpg");
+  background-size: cover;
+}
