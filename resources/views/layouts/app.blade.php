@@ -50,9 +50,9 @@
                         @else
                             <li class="collapse navbar-collapse">
                                 <a id="navbarShoppingCartDropdown" class="nav-link dropdown" href="#shoppingCart" role="button" data-toggle="ShoppingDropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="fas fa-shopping-cart"></i>  Shopping Cart 
+                                    <i class="fas fa-shopping-cart"></i>  Shopping Cart
                                     <span class="badge badge-pill badge-secondary">1</span>
-                                </a> 
+                                </a>
 
 
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -83,7 +83,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-0">
             @yield('content')
         </main>
     </div>
