@@ -7,6 +7,7 @@
 
 @extends('layouts.app')
 @section('content')
+@include('flash-alerts')
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 @if (Auth::guest())
 	<font size="7"><p class="text-center">You're not logged in.</p></font>
@@ -57,7 +58,7 @@
 				@if($comment->user_id == Auth::user()->id)
 				@foreach($places as $place)
 				@if($comment->place_id == $place->id)
-				
+
 				<div class="head">
 					<small><strong>Comment in {{$place->name}}</strong> - {{$comment->created_at}}  - {{$comment->value}}/5</small>
 					<p>{{$comment->content}}</p>
