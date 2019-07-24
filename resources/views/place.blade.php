@@ -52,21 +52,34 @@
 		<div class="col-md-4">
 		<p><font size="6">Menus</font><br><hr>
 		@if ($menus->count() == 0)
-		There are no menus.
+			There are no menus.
 		@else
-		@foreach ($menus as $menu)
-		<strong>Menu {{$menu->category}}</strong> - ${{$menu->price}} ({{$menu->discount}}% Off)<br>
-		@foreach ($dishes as $dish)
-		@if ($menu->id == $dish->menu_id)
-		<small>{{$dish->name}} - ${{$dish->price}} ({{$dish->discount}}% Off) - Cat. {{$dish->category}}</small><br>
-		@endif
-		@endforeach
-		@endforeach
+			@foreach ($menus as $menu)
+			<div class="card mb-3" style="color:black">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="card-header">Menu {{$menu->name}}</div>
+						<div class="card-body">
+							@foreach ($dishes as $dish)
+								@if ($menu->id == $dish->menu_id)							
+									<p class="card-text">{{$dish->name}} -
+										<a href="#" class="badge badge-success">${{$dish->price}}</a>
+										({{$dish->discount}}% Off)
+									</p>
+								@endif
+							@endforeach
+							<p class="card-text">Category: {{$menu->category}}</p>
+							
+							<div align="right">
+								<a role="button" class="btn btn-success">$ {{$menu->price}}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			@endforeach
 		@endif
 		<p>
-		<Form method='get'>
-			<button type="submit" class="btn btn-default btn-lg btn-block">Make An Order</button>
-		</Form>
 		<hr>
 		<p><font size="6">Tables</font><br>
 		<hr>
@@ -87,3 +100,4 @@
 	</div>
 </div>
 @endsection
+
