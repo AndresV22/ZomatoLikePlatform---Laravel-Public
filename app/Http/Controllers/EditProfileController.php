@@ -19,6 +19,6 @@ class EditProfileController extends Controller
         $data = $request->all();
         $user = Auth::user();
         $user->update($data);
-        return back();
+        return redirect('profile')->with('success','You have updated your profile succesfully.');
     }
 }
