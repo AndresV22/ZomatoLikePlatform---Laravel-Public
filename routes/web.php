@@ -11,6 +11,12 @@ Auth::routes();
 Route::get('/', 'WelcomeController@show');
 // Admin Dashboard Controller
 Route::get('/admin', 'AdminController@show');
+Route::get('/admin/register', 'AdminController@connectToNewRegister');
+Route::post('/admin/register', 'UserController@store');
+Route::get('/admin/allUsers', 'AdminController@connectToUserList');
+Route::get('/admin/dashboardProfileEdit/{id}', 'AdminController@connectToDashboardProfileEdit');
+Route::patch('/admin/dashboardProfileEdit/{id}', 'EditProfileController@dashboardUpdate');
+Route::delete('/admin/dashboardProfileDelete/{id}', 'UserController@delete');
 // Profile Controller
 Route::get('/profile', 'ProfileController@show');
 // Edit Profile Controller
@@ -19,8 +25,11 @@ Route::patch('/profile/edit', 'EditProfileController@update');
 // Comment Controller
 Route::get('/place/{id}/comment', 'SubmitCommentController@show');
 Route::post('/place/{id}/comment', 'CommentController@store');
+// Place Controller
+Route::get('/place/addToCart/{id}', 'PlaceController@menuAddToCart');
 
-Route::get('/user/{id}/place', 'SubmitPlacesController@show');
+Route::get('/profile/newPlace', 'SubmitPlacesController@show');
+Route::post('/profile/newPlace', 'SubmitPlacesController@store');
 
 Route::get('/place/{id}/reserve', 'ReservationMakerController@show');
 Route::post('/place/{id}/reserve', 'ReservationMakerController@store');

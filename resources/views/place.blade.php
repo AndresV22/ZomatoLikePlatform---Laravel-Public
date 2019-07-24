@@ -72,13 +72,15 @@
 							<p class="card-text">Category: {{$menu->category}}</p>
 
 							<div align="right">
-								<a role="button" class="btn btn-success">$ {{$menu->price}}</a>
+								<a role="button" class="btn btn-success">
+								$ {{$menu->price}}</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			@endforeach
+			<h1>GG VIDA</h1>
 		@endif
 		<p>
 		<hr>

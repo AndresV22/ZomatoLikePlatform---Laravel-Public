@@ -3,16 +3,15 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-
 <script>$('.select2').select2();</script>
 
 @extends('layouts.app')
 @section('title', 'Welcome')
 @section('content')
 @include('flash-alerts')
-<link href="{{ asset('css/main.css') }}" rel="stylesheet">
+<link href="{{asset('css/main.css')}}" rel="stylesheet">
 <div class="jumbotron">
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row justify-content-center">
 			<div class="col-md-6 align-self-center">
 				<font size="7" color="white"><p class="text-center">Nice food. Is that simple.</p></font>
@@ -21,10 +20,11 @@
 		</div>
 	</div>
 </div>
-<div class="container">
+
+<div class="container-fluid">
 	<div class="row justify-content-center">
 		<div class="col-md-6">
-			<font size="6" color="white"><p class="text-center">Search places by name, category, location, rating...</p></font>
+			<font size="5" color="white"><p class="text-center">Search places...</p></font>
 			<div class="form-group">
 				<form action="/search" method="POST" role="search">
 					{{csrf_field()}}
@@ -40,7 +40,7 @@
 	</div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
 	@if(isset($details))
 	<font size="6" color="white"><p class="text-center">Search Results</p></font>
 	<table class="table table-striped">

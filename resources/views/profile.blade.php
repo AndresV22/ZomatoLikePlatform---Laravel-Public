@@ -77,6 +77,9 @@
 				@endforeach
 				@endif
 				@endif
+				<Form method="get" action="/profile/newPlace">
+					<button type="submit" class="btn btn-default btn-lg btn-block">New Place</button>
+				</Form><hr>
 				<hr>
 			</div>
 			<div class="col-md-4">
