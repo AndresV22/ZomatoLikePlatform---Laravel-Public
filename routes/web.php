@@ -20,7 +20,8 @@ Route::patch('/profile/edit', 'EditProfileController@update');
 Route::get('/place/{id}/comment', 'SubmitCommentController@show');
 Route::post('/place/{id}/comment', 'CommentController@store');
 
-Route::get('/user/{id}/place', 'SubmitPlacesController@show');
+Route::get('/profile/newPlace', 'SubmitPlacesController@show');
+Route::post('/profile/newPlace', 'SubmitPlacesController@store');
 
 Route::get('/place/{id}/reserve', 'ReservationMakerController@show');
 Route::post('/place/{id}/reserve', 'ReservationMakerController@store');
