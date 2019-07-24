@@ -21,7 +21,7 @@
 	</div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
 	<div class="row justify-content-center">
 		<div class="col-md-6">
 			<font size="5" color="white"><p class="text-center">Search places...</p></font>

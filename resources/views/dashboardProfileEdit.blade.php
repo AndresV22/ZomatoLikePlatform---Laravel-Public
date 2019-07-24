@@ -1,12 +1,14 @@
 @extends('layouts.app')
 @section('content')
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+@if (Auth::guest() || Auth::user()->role_id != 1)
+    <font size="7" color="white"><p class="text-center">You don't have admin privileges.</p></font>
+    <font size="4" color="white"><p class="text-center">Please log in with admin credentials to continue.</p></font>
+@else
 <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
-
 <div id="throbber" style="display:none; min-height:120px;"></div>
 <div id="noty-holder"></div>
 <div id="wrapper">
-
 <div class="contained-fluid">
             <ul class="nav navbar-nav side-nav">
                 <li>
@@ -89,8 +91,7 @@
 			</div>
 		</div>
 	</div>
-
-
 </div>
+@endif
 
 @endsection

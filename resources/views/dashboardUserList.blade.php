@@ -2,12 +2,14 @@
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+@if (Auth::guest() || Auth::user()->role_id != 1)
+    <font size="7" color="white"><p class="text-center">You don't have admin privileges.</p></font>
+    <font size="4" color="white"><p class="text-center">Please log in with admin credentials to continue.</p></font>
+@else
 <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
-
 <div id="throbber" style="display:none; min-height:120px;"></div>
 <div id="noty-holder"></div>
 <div id="wrapper">
-
 <div class="contained-fluid">
             <ul class="nav navbar-nav side-nav">
                 <li>
@@ -83,8 +85,6 @@
                     <input type="hidden" name="_method" value="DELETE"> 
                     <button type="submit" class="btn btn-link" onclick="if (!confirm('Are you sure you want to delete this user?')) { return false }"> <i class="fas fa-trash-alt"></i></button>
                 </form>  
-
-
         </div>
     </div>
             </th>
@@ -93,5 +93,5 @@
         </tbody>
     </table>
 </div>
-
+@endif
 @endsection
