@@ -19,6 +19,8 @@ Route::patch('/profile/edit', 'EditProfileController@update');
 // Comment Controller
 Route::get('/place/{id}/comment', 'SubmitCommentController@show');
 Route::post('/place/{id}/comment', 'CommentController@store');
+// Place Controller
+Route::get('/place/addToCart/{id}', 'PlaceController@menuAddToCart');
 
 Route::get('/profile/newPlace', 'SubmitPlacesController@show');
 Route::post('/profile/newPlace', 'SubmitPlacesController@store');

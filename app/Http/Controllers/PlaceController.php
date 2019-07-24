@@ -10,6 +10,7 @@ use App\Comment;
 use App\Table;
 use App\Menu;
 use App\Dish;
+use Session;
 
 class PlaceController extends Controller
 {
@@ -57,5 +58,18 @@ class PlaceController extends Controller
         $place = Place::find($id);
         $place->update($data);
         return "Updated successfully!";
+    }
+
+    public function menuAddToCart(Request $request, $id){
+        $menu = Menu::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($menu, $menu->id);
+
+        $request->session()->put('cart', $cart);
+
+        dd($request->session()->get('cart'));
+
+        return back();
     }
 }

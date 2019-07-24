@@ -20,7 +20,6 @@ class SubmitPlacesController extends Controller
 
     public function store(Request $request)
     {
-
         $possible_country = Country::where('name', $request->get('country'))->first();
         $possible_city = City::where('name', $request->get('city'))->first();
         $possible_user = User::find($request->get('user_id'));
