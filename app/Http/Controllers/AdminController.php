@@ -49,6 +49,14 @@ class AdminController extends Controller
     	return view('dashboardPlaceList', compact('places'));
     }
 
+    public function connectToStats()
+    {
+    	$places = Place::all();
+    	$users = User::all();
+    	$comments = Comment::all();
+    	return view('dashboardStats', compact('places', 'users', 'comments'));
+    }
+
     public function connectToUserHistory()
     {
     	$registry = UserRegister::orderBy('id')->get();

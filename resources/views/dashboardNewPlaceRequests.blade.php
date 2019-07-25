@@ -31,7 +31,7 @@
                     <a href="/admin/dashboardManagePlaceRequests"><i class="fa fa-fw fa-user-plus"></i> New place requests</a>
                 </li>
                 <li>
-                    <a href="Statistics"><i class="fa fa-fw fa-paper-plane-o"></i> Statistics</a>
+                    <a href="statistics"><i class="fa fa-fw fa-paper-plane-o"></i> Statistics</a>
                 </li>
                 <li>
                     <a href="userHistory"><i class="fa fa-fw fa-paper-plane-o"></i> User History</a>
