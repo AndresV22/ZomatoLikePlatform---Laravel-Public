@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <p><font size="6"><p class="text-center">Checkout</p></font><br>
+            <p><font size="6"><p class="text-center">Payment Data</p></font><br>
                 <div class="rating-block">
                     <form>
                         <div class="form-group row">
@@ -109,7 +109,7 @@
                            </div>
 
                            <div class="col" align="left">
-                              <a class="btn btn-success" href="#" role="button">Pay Now</a>
+                              <a class="btn btn-success" href="/checkout/payed" role="button">Pay Now</a>
                            </div>          
                         </div>
                      </form>

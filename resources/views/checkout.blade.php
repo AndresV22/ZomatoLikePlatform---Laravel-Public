@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <p><font size="6"><p class="text-center">Checkout</p></font><br>
+            <p><font size="6"><p class="text-center">Confirm Payment</p></font><br>
                 <div class="rating-block">
                     <form action="/checkout/pay">
                         <div class="form-group row">

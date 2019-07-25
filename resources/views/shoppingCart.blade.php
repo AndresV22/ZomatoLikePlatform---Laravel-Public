@@ -3,9 +3,10 @@
 
 @if(Session::has('cart'))
 <div class="container">
-   <div class="row justify-content-center">
-      <div class ="col-md-6 align-self-center">
-         <h1 align="center">My Cart</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+         <p><font size="6"><p class="text-center">My Cart</p></font><br>
+
          <table class="table table-striped">
             <thead>
                <tr>
@@ -24,7 +25,7 @@
                   <td align="center">x{{$product['quantity']}}</td>
                   <td>$ {{$product['price']}}</td>
                   <td>
-                     <a role="button" class="btn btn-danger btn-sm" href="#">
+                     <a role="button" class="btn btn-danger btn-sm" href="/shoppingCart/removeItem/{{ $product['item']['id'] }}">
                         <i class="fas fa-trash-alt"></i>
                      </a>
                   </td>
