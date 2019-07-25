@@ -52,6 +52,12 @@ Notas:
 						</div>
 					</div>
 					<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+							<div class="form-group">
+									<label class="control-label" for="email"> What time?</label>
+									<input name="time" type="text" placeholder="HH:MM" class="form-control" required>
+							</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
 						<div class="form-group">
 							<label class="control-label required" for="select">Available Tables:</label>
 							<div class="select">
@@ -88,21 +94,15 @@ Notas:
                             <input id="phone" type="text" placeholder="(222) 222-2222" class="form-control" required>
                         </div>
                     </div>
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="form-group">
-                            <label class="control-label" for="textarea">Something to have in mind?</label>
-                            <textarea class="form-control" id="textarea" name="textarea" rows="4" placeholder="Write Your Requirements"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <button type="submit" name="singlebutton" class="btn btn-default">send</button>
-                    </div>
                 </div>
+								@endif
+								<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+										<button type="submit" name="singlebutton" class="btn btn-default">send</button>
+								</div>
                 </form>
         </div>
     </div>
 	</div>
 </div>
 </div>
-@endif
 @endsection
