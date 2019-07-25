@@ -35,14 +35,16 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">Payment Method</label>
 
                             <div class="col-md-6">
-                              <select class="custom-select" id="inputGroupSelect01" require>
+                              <select class="custom-select" name="inputGroupSelect01" require>
                                  <option selected disabled>-- Select one --</option>
-                                 <option value="1">Cash</option>
-                                 <option value="2">Credit Card</option>
-                                 <option value="3">Debit Card</option>
+                                 <option value="cash">Cash</option>
+                                 <option value="credit">Credit Card</option>
+                                 <option value="debit">Debit Card</option>
                               </select>
                             </div>
                         </div>
+
+                        
 
 
                         <div class="form-group row mb-0">

@@ -63,9 +63,8 @@
 						<div class="card-body">
 							@foreach ($dishes as $dish)
 								@if ($menu->id == $dish->menu_id)
-									<p class="card-text">{{$dish->name}} -
-										<a href="#" class="badge badge-success">${{$dish->price}}</a>
-										({{$dish->discount}}% Off)
+									<p class="card-text">{{$dish->name}} ({{$dish->discount}}% Off)
+										<a href="/place/dishAddToCart/{{$dish->id}}" class="badge badge-success">${{$dish->price}}</a>
 									</p>
 								@endif
 							@endforeach

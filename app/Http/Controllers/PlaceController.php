@@ -71,6 +71,16 @@ class PlaceController extends Controller
         return back();
     }
 
+    public function dishAddToCart(Request $request, $id){
+        $dish = Dish::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($dish, $dish->id);
+
+        $request->session()->put('cart', $cart);
+        return back();
+    }
+
     public function getCart() {
         if(!Session::has('cart')){
             return back();
@@ -107,6 +117,8 @@ class PlaceController extends Controller
                 $itemToDelete = $auxItem;
             }
         }
+
+        $test = count($items);
 
         //$itemToDelete->delete();
 
