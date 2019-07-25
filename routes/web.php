@@ -34,6 +34,7 @@ Route::post('/place/{id}/comment', 'CommentController@store');
 Route::get('/place/addToCart/{id}', 'PlaceController@menuAddToCart');
 Route::get('/shoppingCart', 'PlaceController@getCart');
 Route::get('/checkout', 'PlaceController@getCheckout');
+Route::get('/shoppingCart/removeItem/{id}', 'PlaceController@deleteItem');
 
 Route::get('/profile/newPlace', 'SubmitPlacesController@show');
 Route::post('/profile/newPlace', 'SubmitPlacesController@store');

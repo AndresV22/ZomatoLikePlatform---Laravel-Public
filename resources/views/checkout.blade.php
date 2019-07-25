@@ -10,9 +10,10 @@
                         <div class="form-group row">
                            <label for="name" class="col-md-4 col-form-label text-md-right">Total</label>
                            <div class="col-md-6">
-                              <h5 align="right" class="mt-2">$ {{$total}}</h5>
+                              <input class="form-control" type="text" placeholder="$ {{$total}}" readonly>
                            </div>
                         </div>
+
 
                         <div class="form-group row">
                            <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
@@ -42,10 +43,6 @@
                               </select>
                             </div>
                         </div>
-
-                        
-
-
 
 
                         <div class="form-group row mb-0">

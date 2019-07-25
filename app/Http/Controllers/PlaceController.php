@@ -93,4 +93,24 @@ class PlaceController extends Controller
         return view('checkout', compact('total'));
     }
 
+    public function deleteItem(Request $request, $id){
+        $items = Session::get('cart');
+        $item = null;
+
+        $item = Menu::find($id);
+        if($item == null){
+            $item = Dish::find($id);
+        }
+        
+        foreach($items as $auxItem){
+            if((string)$item == $auxItem){
+                $itemToDelete = $auxItem;
+            }
+        }
+
+        //$itemToDelete->delete();
+
+        return back();
+    }
+
 }

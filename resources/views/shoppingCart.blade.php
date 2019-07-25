@@ -24,8 +24,8 @@
                   <td align="center">x{{$product['quantity']}}</td>
                   <td>$ {{$product['price']}}</td>
                   <td>
-                     <a role="button" class="btn btn-danger btn-sm" href="/profile">
-                        <i class="fas fa-trash-alt" href="/profile"></i>
+                     <a role="button" class="btn btn-danger btn-sm" href="/shoppingCart/removeItem/{{$product['item']['id']}}">
+                        <i class="fas fa-trash-alt"></i>
                      </a>
                   </td>
                </tr>
