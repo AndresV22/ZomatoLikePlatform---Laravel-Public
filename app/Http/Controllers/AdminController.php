@@ -35,4 +35,10 @@ class AdminController extends Controller
     	$user = User::find($id);
     	return view('dashboardProfileEdit', compact('user'));
     }
+
+    public function connectToNewPlaceRequests()
+    {
+    	$places = Place::where('is_operative', false)->orderBy('id')->get();
+    	return view('dashboardNewPlaceRequests', compact('places'));
+    }
 }

@@ -17,6 +17,9 @@ Route::get('/admin/allUsers', 'AdminController@connectToUserList');
 Route::get('/admin/dashboardProfileEdit/{id}', 'AdminController@connectToDashboardProfileEdit');
 Route::patch('/admin/dashboardProfileEdit/{id}', 'EditProfileController@dashboardUpdate');
 Route::delete('/admin/dashboardProfileDelete/{id}', 'UserController@delete');
+Route::get('/admin/dashboardManagePlaceRequests', 'AdminController@connectToNewPlaceRequests');
+Route::post('/admin/dashboardManagePlaceRequests/accept/{id}', 'PlaceRequestController@accept');
+Route::post('/admin/dashboardManagePlaceRequests/reject/{id}', 'PlaceRequestController@reject');
 // Profile Controller
 Route::get('/profile', 'ProfileController@show');
 // Edit Profile Controller
@@ -50,6 +53,8 @@ Route::any('/search', 'SearchController@queryResults');
 
 Route::get('/mailConfirm/purchase', 'EmailController@sendOrderConfirmation')->name('mail.purchaseVerification');
 Route::get('/mailConfirm/reservation', 'EmailController@sendReservationConfirmation')->name('mail.reservationVerification');
+Route::get('/mailConfirm/requestAccepted', 'EmailController@sendRequestApproval')->name('mail.placeRequestAccepted');
+Route::get('/mailConfirm/requestRejected', 'EmailController@sendRequestRejection')->name('mail.placeRequestRejected');
 
 // Place Routes
 Route::get('/place/find/index', 'PlaceController@index');

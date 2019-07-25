@@ -7,6 +7,7 @@
 
 @extends('layouts.app')
 @section('content')
+@include('flash-alerts')
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 <div class="container-fluid">
 	<div class="row">
@@ -61,7 +62,7 @@
 						<div class="card-header">Menu {{$menu->name}}</div>
 						<div class="card-body">
 							@foreach ($dishes as $dish)
-								@if ($menu->id == $dish->menu_id)							
+								@if ($menu->id == $dish->menu_id)
 									<p class="card-text">{{$dish->name}} -
 										<a href="#" class="badge badge-success">${{$dish->price}}</a>
 										({{$dish->discount}}% Off)
@@ -69,7 +70,7 @@
 								@endif
 							@endforeach
 							<p class="card-text">Category: {{$menu->category}}</p>
-							
+
 							<div align="right">
 									<a role="button" class="btn btn-success" href="/place/addToCart/{{$menu->id}}">
 									$ {{$menu->price}}
@@ -103,4 +104,3 @@
 	</div>
 </div>
 @endsection
-

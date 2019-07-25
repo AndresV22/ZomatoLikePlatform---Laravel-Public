@@ -7,6 +7,8 @@ use Redirect,Response,DB,Config;
 use Mail;
 use App\Mail\OrderNotifier;
 use App\Mail\ReservationNotifier;
+use App\Mail\RequestApprovedNotifier;
+use App\Mail\RequestRejectedNotifier;
 class EmailController extends Controller
 {
 	public function sendOrderConfirmation(Request $request)
@@ -28,6 +30,26 @@ class EmailController extends Controller
 			'address' => $request->get('address')
 		]);
 		Mail::to($user['address'])->send(new ReservationNotifier($user));
+		return back();
+	}
+
+	public function sendRequestApproval(Request $request)
+	{
+		$user = ([
+			'name' => $request->get('name'),
+			'address' => $request->get('address')
+		]);
+		Mail::to($user['address'])->send(new RequestApprovedNotifier($user));
+		return back();
+	}
+
+	public function sendRequestRejection(Request $request)
+	{
+		$user = ([
+			'name' => $request->get('name'),
+			'address' => $request->get('address')
+		]);
+		Mail::to($user['address'])->send(new RequestRejectedNotifier($user));
 		return back();
 	}
 }
