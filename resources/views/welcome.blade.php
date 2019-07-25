@@ -40,31 +40,33 @@
 	</div>
 </div>
 
-<div class="container-fluid">
-	@if(isset($details))
-	<font size="6" color="white"><p class="text-center">Search Results</p></font>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Address</th>
-				<th>Rating (Average)</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach($details as $place)
-			<tr>
-				<td>
-				<form method="get" action="place/{{$place->id}}">
-						<button type="submit" class="btn btn-link">{{$place->name}}</button>
-				</form>
-				</td>
-				<td>{{$place->address}}</td>
-				<td>{{$place->average_value}}/5</td>
-			</tr>
-			@endforeach
-		</tbody>
-	</table>
-	@endif
-</div>
+@if(isset($details))
+	<div class="container-fluid">
+		<font size="6" color="white"><p class="text-center">Search Results</p></font>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Address</th>
+					<th>Rating (Average)</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach($details as $place)
+					<tr>
+						<td>
+						<form method="get" action="place/{{$place->id}}">
+							<button type="submit" class="btn btn-link">{{$place->name}}</button>
+						</form>
+						</td>
+						<td>
+							{{$place->address}}
+						</td>
+						<td>{{$place->average_value}}/5</td>
+					</tr>
+				@endforeach
+			</tbody>
+		</table>
+	</div>
+@endif
 @endsection

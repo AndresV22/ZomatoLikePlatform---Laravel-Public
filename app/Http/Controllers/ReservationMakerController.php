@@ -15,10 +15,8 @@ class ReservationMakerController extends Controller
     { 
         $place = Place::find($id);
         $tables = Table::where('place_id', $id)->get();
-       
         return view('reservation', compact('place', 'tables'));
     }
-
 
     public function store(Request $request)
     {
