@@ -62,18 +62,30 @@
 						<div class="card-header">Menu {{$menu->name}}</div>
 						<div class="card-body">
 							@foreach ($dishes as $dish)
-								@if ($menu->id == $dish->menu_id)
-									<p class="card-text">{{$dish->name}} ({{$dish->discount}}% Off)
-										<a href="/place/dishAddToCart/{{$dish->id}}" class="badge badge-success">${{$dish->price}}</a>
-									</p>
-								@endif
+								<div class="row mb-2">
+									@if ($menu->id == $dish->menu_id)
+										<div class="col-9">
+											<p class="card-text">{{$dish->name}} ({{$dish->discount}}% Off)</p>
+										</div>
+										<div class="col">
+											<p class="card-text">
+												<a href="/place/dishAddToCart/{{$dish->id}}" class="badge badge-success">$ {{$dish->price}}</a>
+											</p>
+										</div>
+									@endif
+								</div>
 							@endforeach
-							<p class="card-text">Category: {{$menu->category}}</p>
+							<p class="card-text">Category - {{$menu->category}}</p>
 
-							<div align="right">
+							<div class="row">
+								<div class="col-8">
+									<p class="card-text">Menu Price:</p>
+								</div>
+								<div class="col" align="right">
 									<a role="button" class="btn btn-success" href="/place/addToCart/{{$menu->id}}">
-									$ {{$menu->price}}
+										$ {{$menu->price}}
 									</a>
+								</div>
 							</div>
 						</div>
 					</div>

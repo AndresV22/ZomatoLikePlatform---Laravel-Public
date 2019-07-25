@@ -125,4 +125,13 @@ class PlaceController extends Controller
         return back();
     }
 
+    public function getPurchase(Request $request){
+        $price = $request->get('price');
+        $name = $request->get('user_name');
+        $address = $request->get('address');
+        $pyMethod = $request->get('paymentMethod');
+
+        return view('webpay', compact('price', 'name', 'address', 'pyMethod'));
+    }
+
 }
