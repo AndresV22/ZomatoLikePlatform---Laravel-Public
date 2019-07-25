@@ -35,7 +35,7 @@
                     <a href="Statistics"><i class="fa fa-fw fa-paper-plane-o"></i> Statistics</a>
                 </li>
                 <li>
-                    <a href="userHistory"><i class="fa fa-fw fa-paper-plane-o"></i> User History</a>
+                    <a href="/admin/userHistory"><i class="fa fa-fw fa-paper-plane-o"></i> User History</a>
                 </li>
             </ul>
         </div>
