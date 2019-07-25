@@ -38,7 +38,6 @@ Route::post('/profile/newPlace', 'SubmitPlacesController@store');
 Route::get('/place/{id}/reserve', 'ReservationMakerController@show');
 Route::post('/place/{id}/reserve', 'ReservationMakerController@store');
 
-
 // Search route
 Route::any('/search', 'SearchController@queryResults');
 

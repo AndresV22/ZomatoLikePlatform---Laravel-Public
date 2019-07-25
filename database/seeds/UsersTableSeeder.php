@@ -13,11 +13,11 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             'id' => 0,
-            'name' => 'Guest',
+            'name' => 'guest',
             'role_id' => 2,
             'email' => 'guest@email.com',
-            'password' => bcrypt('nopassword'),
-            'phone_number' => 123456789,
+            'password' => '$2y$10$3vr4OQi4SA323QMZaPJxm.Xy6eXz4zVbLIvix4S6lGknzU8.HAe96',
+            'phone_number' => 0,
             'address' => 'none',
             'avatar' => 'https://picsum.photos/100',
         ]);
