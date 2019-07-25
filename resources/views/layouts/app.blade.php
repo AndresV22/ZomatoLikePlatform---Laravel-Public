@@ -49,15 +49,12 @@
                             @endif
                         @else
                             <li class="dropdown mt-1">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a class="nav-link" href="{{ url('/shoppingCart') }}">
                                     <i class="fas fa-shopping-cart"></i>  Shopping Cart 
-                                    <span class="badge badge-pill badge-secondary">1</span>
+                                    <span class="badge badge-pill badge-secondary">
+                                       {{Session::has('cart') ? Session::get('cart')->totalQuantity : ""}}
+                                    </span>
                                 </a>
-
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item">Compra 1</a>
-                                    <a class="dropdown-item">Compra 2</a>
-                                </div>
                             </li>
 
 

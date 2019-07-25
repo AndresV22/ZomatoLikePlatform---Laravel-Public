@@ -11,6 +11,7 @@ use App\Table;
 use App\Menu;
 use App\Dish;
 use Session;
+use App\Cart;
 
 class PlaceController extends Controller
 {
@@ -67,9 +68,18 @@ class PlaceController extends Controller
         $cart->add($menu, $menu->id);
 
         $request->session()->put('cart', $cart);
-
-        dd($request->session()->get('cart'));
-
         return back();
     }
+
+    public function getCart() {
+        if(!Session::has('cart')){
+            return view('shoppingCart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $products = $cart->items;
+        $totalPrice = $cart->totalPrice;
+        return view('shoppingCart', compact('products', 'totalPrice'));
+    } 
+
 }

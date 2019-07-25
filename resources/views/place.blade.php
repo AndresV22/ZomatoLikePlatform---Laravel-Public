@@ -71,8 +71,9 @@
 							<p class="card-text">Category: {{$menu->category}}</p>
 							
 							<div align="right">
-								<a role="button" class="btn btn-success">
-								$ {{$menu->price}}</a>
+									<a role="button" class="btn btn-success" href="/place/addToCart/{{$menu->id}}">
+									$ {{$menu->price}}
+									</a>
 							</div>
 						</div>
 					</div>
