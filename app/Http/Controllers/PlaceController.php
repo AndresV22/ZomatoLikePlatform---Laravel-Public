@@ -73,7 +73,7 @@ class PlaceController extends Controller
 
     public function getCart() {
         if(!Session::has('cart')){
-            return view('shoppingCart');
+            return back();
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
@@ -81,5 +81,16 @@ class PlaceController extends Controller
         $totalPrice = $cart->totalPrice;
         return view('shoppingCart', compact('products', 'totalPrice'));
     } 
+
+    public function getCheckout(){
+        if(!Session::has('cart')){
+            return back();
+        }
+
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $total = $cart->totalPrice;
+        return view('checkout', compact('total'));
+    }
 
 }
