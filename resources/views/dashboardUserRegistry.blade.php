@@ -47,51 +47,28 @@
             <tr>
               <th>#</th>
               <th>User</th>
-              <th>Email</th>
-              <th>Phone Number</th>
-              <th>Address</th>
-              <th>Avatar</th>
-              <th>Role</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($users as $user)
-            <tr>
-              <td>{{$user->id}}</td>
-              <td>{{$user->name}}</td>
-              <td>{{$user->email}}</td>
-              <td>{{$user->phone_number}}</td>
-              <td>{{$user->address}}</td>
-              <td><img src="{{$user->avatar}}" width="40" height="40" style="border-radius:60%"></td>
-              @if ($user->role_id == 1)
-                <td>Admin</td>
-              @elseif ($user->role_id == 2)
-                <td>User</td>
-              @elseif ($user->role_id == 3)
-                 <td>Manager</td>
-              @endif
-              
-              <th> 
+              <th>Action</th>
+          </tr>
+      </thead>
+      <tbody>
+        @foreach ($registry as $entry)
+        <tr>
+            <td>{{$entry->id}}</td>
 
-                <div style="width:105px;">
-    <div style="float: left; width: 50px"> 
-                
-                <a href="/admin/dashboardProfileEdit/{{$user->id}}"> <button class="btn"> <i class="fas fa-edit"></i> </button> </a>
-        </div>
-        <div style="float: right; width: 50px"> 
-                <form action="/admin/dashboardProfileDelete/{{$user->id}}" method="POST">
-                    
-                    <input type="hidden" name="_method" value="DELETE"> 
-                    <button type="submit" class="btn btn-link" onclick="if (!confirm('Are you sure you want to delete this user?')) { return false }"> <i class="fas fa-trash-alt"></i></button>
-                </form>  
-        </div>
-    </div>
-            </th>
-            </tr>
+            @foreach ($users as $user)
+                 @if ($entry->user_id == $user->id)
+                 <td> {{$user->name}} </td>
+                 @endif
             @endforeach
-        </tbody>
-    </table>
+            <td> {{$entry->actions}} </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
 </div>
+
+
+
+
 @endif
 @endsection

@@ -20,6 +20,8 @@ Route::delete('/admin/dashboardProfileDelete/{id}', 'UserController@delete');
 Route::get('/admin/dashboardManagePlaceRequests', 'AdminController@connectToNewPlaceRequests');
 Route::post('/admin/dashboardManagePlaceRequests/accept/{id}', 'PlaceRequestController@accept');
 Route::post('/admin/dashboardManagePlaceRequests/reject/{id}', 'PlaceRequestController@reject');
+Route::get('/admin/allPlaces', 'AdminController@connectToPlaceList');
+Route::get('/admin/userHistory', 'AdminController@connectToUserHistory');
 // Profile Controller
 Route::get('/profile', 'ProfileController@show');
 // Edit Profile Controller
@@ -39,6 +41,9 @@ Route::post('/profile/newPlace', 'SubmitPlacesController@store');
 Route::get('/place/{id}/reserve', 'ReservationMakerController@show');
 Route::post('/place/{id}/reserve', 'ReservationMakerController@store');
 
+// Submit Menus
+Route::get('/profile/submitMenu', 'MenuController@show');
+Route::post('/profile/submitMenu', 'MenuController@submitMenu');
 
 // Search route
 Route::any('/search', 'SearchController@queryResults');
@@ -50,7 +55,7 @@ Route::any('/search', 'SearchController@queryResults');
 //				{
 //					"name": "insertNameHere"
 //					"address": "insertEmailAddressHere"
-//				}  
+//				}
 
 Route::get('/mailConfirm/purchase', 'EmailController@sendOrderConfirmation')->name('mail.purchaseVerification');
 Route::get('/mailConfirm/reservation', 'EmailController@sendReservationConfirmation')->name('mail.reservationVerification');

@@ -127,6 +127,11 @@
 				@endif
 				</p><hr>
 				@elseif (Auth::user()->role_id == 3)
+				<p><font size="6">Submit Menu</font><br>
+				<hr>
+					<Form method="get" action="/profile/submitMenu">
+						<button type="submit" class="btn btn-default btn-lg btn-block">Create a Menu</button>
+					</Form>
 				<hr>
 				@endif
 				@endif

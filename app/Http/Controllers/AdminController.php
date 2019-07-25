@@ -7,6 +7,7 @@ use App\User;
 use App\Place;
 use App\Comment;
 use App\Country;
+use App\UserRegister;
 
 class AdminController extends Controller
 {
@@ -40,5 +41,18 @@ class AdminController extends Controller
     {
     	$places = Place::where('is_operative', false)->orderBy('id')->get();
     	return view('dashboardNewPlaceRequests', compact('places'));
+    }
+
+    public function connectToPlaceList()
+    {
+    	$places = Place::where('is_operative', true)->orderBy('id')->get();
+    	return view('dashboardPlaceList', compact('places'));
+    }
+
+    public function connectToUserHistory()
+    {
+    	$registry = UserRegister::orderBy('id')->get();
+    	$users = User::all();
+    	return view('dashboardUserRegistry', compact('registry', 'users'));
     }
 }

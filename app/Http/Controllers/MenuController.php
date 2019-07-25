@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Menu;
 use App\Place;
 use App\Purchase;
+use App\Dish;
 
 class MenuController extends Controller
 {
@@ -43,6 +44,19 @@ class MenuController extends Controller
         $menu->save();
         return "Created successfully!";
       }
+      else if ($possible_purchase == null && $possible_place != null)
+      {
+        $menu = new Menu([
+          'place_id' => $request->get('place_id'),
+          'purchase_id' => null,
+          'name' => $request->get('name'),
+          'price' => $request->get('price'),
+          'category' => $request->get('category'),
+          'discount' => $request->get('discount')
+        ]);
+        $menu->save();
+        return "Created successfully!";
+      }
       else
       {
         return "Could not create new menu.";
@@ -55,10 +69,12 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        return Menu::find($id);
-    }
+     public function show()
+     {
+         $places = Place::all();
+         $dishes = Dish::all();
+         return view('submitMenu', compact('places', 'dishes'))->with('warning', 'When you create a menu, it shows in all the places you have.');
+     }
 
     /**
      * Update the specified resource in storage.
@@ -86,5 +102,28 @@ class MenuController extends Controller
       $menu = Menu::find($id);
       $menu->delete();
       return "Deleted successfully!";
+    }
+
+    public function submitMenu(Request $request)
+    {
+      $possible_place = Place::find($request->get('place_id'));
+      $possible_purchase = Purchase::find($request->get('purchase_id'));
+      if ($possible_purchase == null && $possible_place != null)
+      {
+        $menu = new Menu([
+          'place_id' => $request->get('place_id'),
+          'purchase_id' => null,
+          'name' => $request->get('name'),
+          'price' => $request->get('price'),
+          'category' => $request->get('category'),
+          'discount' => $request->get('discount')
+        ]);
+        $menu->save();
+        return view('profile')->with('success','Added menu successfully.');
+      }
+      else
+      {
+        return view('profile')->with('error', 'Could not create menu. Please verify input.');
+      }
     }
 }

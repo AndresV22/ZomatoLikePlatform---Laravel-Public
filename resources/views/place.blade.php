@@ -81,7 +81,6 @@
 				</div>
 			</div>
 			@endforeach
-			<h1>GG VIDA</h1>
 		@endif
 		<p>
 		<hr>
