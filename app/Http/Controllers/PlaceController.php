@@ -134,4 +134,14 @@ class PlaceController extends Controller
         return view('webpay', compact('price', 'name', 'address', 'pyMethod'));
     }
 
+    public function restarShoppingCart(Request $request){
+        if(!Session::has('cart')){
+            return view('welcome');
+        }
+        $items = Session::get('cart');
+        $items->myDeleteAll();
+        Session::remove('cart');
+        return view('welcome');
+    }
+
 }

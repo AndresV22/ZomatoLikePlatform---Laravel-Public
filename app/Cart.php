@@ -31,5 +31,12 @@ class Cart{
       $this->totalPrice += $item->price;   
    }
 
+   public function myDeleteAll(){
+      
+      $this->items = null;
+      $this->totalQuantity = 0;
+      $this->totalPrice = 0;
+   }
+
 }
 
