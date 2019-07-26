@@ -21,7 +21,7 @@ class CreatePaymentVouchersTable extends Migration
             $table->foreign('place_id')->references('id')->on('places')->onDelete('cascade');
             $table->integer('amount');
             $table->date('date');
-            $table->string('detail', 40);
+            $table->string('detail', 200);
             $table->integer('status');
             $table->boolean('delivery');
             $table->timestamps();

@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-                <p><font size="6"><p class="text-center">Register</p></font><br>
-                <div class="rating-block">
+                <div class="rating-block mt-5" style="border-radius:30px">
+                    <p><font size="6"><p class="text-center"><strong>Register</strong></p></font><br>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="form-group row">

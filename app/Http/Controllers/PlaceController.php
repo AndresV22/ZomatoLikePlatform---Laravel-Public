@@ -101,6 +101,7 @@ class PlaceController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $total = $cart->totalPrice;
+
         return view('checkout', compact('total'));
     }
 }

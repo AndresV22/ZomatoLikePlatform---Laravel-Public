@@ -9,8 +9,8 @@
                     <form action='/newPaymentVoucher' method='post'>
                         {{csrf_field()}}
                         <input name='payment_method_id' type="hidden" value="{{ $pay['id'] }}">
-                        <input name='date' type="hidden" value="2019-07-23">
-                        <input name='detail' type="hidden" value="696969696">
+                        <input name='date' type="hidden" value="2019-07-26">
+                        <input name='detail' type="hidden" value="{{$detail}}">
                         <input name='status' type="hidden" value="0">
                         <div class="form-group row">
                            <label for="name" class="col-md-4 col-form-label text-md-right">Total</label>
@@ -35,6 +35,16 @@
                               <input id="address" type="text" class="form-control" value="{{$address}}" readonly>
                            </div>
                         </div>
+
+
+                        <div class="form-group row">
+                           <label for="mail" class="col-md-4 col-form-label text-md-right">Email</label>
+
+                           <div class="col-md-6">
+                              <input id="email" name="email" type="mail" class="form-control"value="{{$user_email}}" readonly>
+                           </div>
+                        </div>
+
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Payment Method</label>

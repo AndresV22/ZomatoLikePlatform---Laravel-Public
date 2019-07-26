@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PaymentMethod;
 use App\User;
+use App\Cart;
+use Session;
 
 class PaymentMethodController extends Controller
 {
@@ -88,10 +90,20 @@ class PaymentMethodController extends Controller
       $price = $request->get('price');
       $name = $request->get('user_name');
       $address = $request->get('address');
+      $oldCart = Session::get('cart');
+
+      $user_email = $request->get('email');
+
+      $cart = new Cart($oldCart);
+      $detail = ""; 
       
       $pay = $this->store($request);
       
-      return view('webpay', compact('price', 'name', 'address', 'pay'));
+      foreach($cart->items as $item){
+          $detail = $item['item']['name'] . " x" . $item['quantity'] . ", " . $detail;
+      }
+
+      return view('webpay', compact('price', 'name', 'address', 'pay', 'detail', 'user_email'));
     }
 
 

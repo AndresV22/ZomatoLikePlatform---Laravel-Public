@@ -20,7 +20,7 @@
 		Closes at: {{$place->closing_time}}<br><hr>
 		@if (Auth::user() && Auth::user()->role_id == 3 && $place->user_id == Auth::user()->id)
 			<Form method='get'>
-				<button type="submit" class="btn btn-default btn-lg btn-block">Edit Place</button>
+				<button type="submit" class="btn btn-light btn-lg btn-block">Edit Place</button>
 			</Form><hr>
 		@endif
 		</div>
@@ -31,7 +31,7 @@
 			<h2 class="bold padding-bottom-7">{{$place->average_value}} <small>/ 5</small></h2>
 		</div><br>
 		<Form method='get' action='/place/{{$place->id}}/comment'>
-			<button type="submit" class="btn btn-default btn-lg btn-block">Add Review</button>
+			<button type="submit" class="btn btn-light btn-lg btn-block">Add Review</button>
 		</Form><hr>
 		<p><font size="6">Comments</font><br><hr>
 		@if ($comments->count() == 0)
@@ -105,7 +105,7 @@
 		<br>
 		<p>
 		<Form method='get' action='/place/{{$place->id}}/reserve'>
-			<button type="submit" class="btn btn-default btn-lg btn-block">Make A Reservation</button>
+			<button type="submit" class="btn btn-light btn-lg btn-block">Make A Reservation</button>
 		</Form>
 		<hr>
 		</div>
