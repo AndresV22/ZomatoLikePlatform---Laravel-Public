@@ -1,7 +1,7 @@
 <?php
- 
+
 namespace App\Http\Controllers;
- 
+
 use Illuminate\Http\Request;
 use Redirect,Response,DB,Config;
 use Mail;
@@ -28,7 +28,7 @@ class EmailController extends Controller
 			'address' => $request->get('address')
 		]);
 		Mail::to($user['address'])->send(new ReservationNotifier($user));
-		return back();
+		return back()->with('success', 'Reservation added. Please check your email for details.');
 	}
 
 	public function sendRequestApproval(Request $request)

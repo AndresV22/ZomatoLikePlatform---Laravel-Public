@@ -10,7 +10,7 @@ $factory->define(App\Table::class, function (Faker $faker) {
     return [
     	'place_id' => $place_id->random()->id,
         'capacity' => $faker->numberBetween($min = 1, $max = 12),
-        'code' => $faker->unique()->numberBetween($min = 1, $max = 100),
+        'code' => $faker->unique()->numberBetween($min = 1, $max = 500),
         'taken' => $faker->boolean(),
     ];
 });
