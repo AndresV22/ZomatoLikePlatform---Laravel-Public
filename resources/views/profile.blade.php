@@ -75,14 +75,16 @@
 				<form method="get" action="place/{{$place->id}}">
 				<button type="submit" class="btn btn-link">{{$place->name}}</button>
 				</form>
+				<Form method="get" action="/profile/newPlace">
+					<button type="submit" class="btn btn-default btn-lg btn-block">New Place</button>
+				</Form><hr>
 				@endif
 				@endforeach
 				@endif
 				@endif
-				<Form method="get" action="/profile/newPlace">
-					<button type="submit" class="btn btn-default btn-lg btn-block">New Place</button>
-				</Form><hr>
+				@if(Auth::user()->id == 2)
 				<hr>
+				@endif
 			</div>
 			<div class="col-md-4">
 				@if (Auth::user()->role_id == 1)
