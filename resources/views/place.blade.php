@@ -9,6 +9,7 @@
 @section('content')
 @include('flash-alerts')
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+<hr>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-4">
@@ -30,9 +31,12 @@
 			<h4>Average user rating</h4>
 			<h2 class="bold padding-bottom-7">{{$place->average_value}} <small>/ 5</small></h2>
 		</div><br>
+		@if (!Auth::guest() && Auth::user()->role_id == 2)
 		<Form method='get' action='/place/{{$place->id}}/comment'>
 			<button type="submit" class="btn btn-light btn-lg btn-block">Add Review</button>
-		</Form><hr>
+		</form>
+		@endif
+		<hr>
 		<p><font size="6">Comments</font><br><hr>
 		@if ($comments->count() == 0)
 		No one has made a comment.
@@ -104,9 +108,11 @@
 		@endif
 		<br>
 		<p>
-		<Form method='get' action='/place/{{$place->id}}/reserve'>
-			<button type="submit" class="btn btn-light btn-lg btn-block">Make A Reservation</button>
-		</Form>
+		@if (!Auth::guest() && Auth::user()->role_id == 2)
+			<Form method='get' action='/place/{{$place->id}}/reserve'>
+				<button type="submit" class="btn btn-light btn-lg btn-block">Make A Reservation</button>
+			</form>
+		@endif
 		<hr>
 		</div>
 	</div>

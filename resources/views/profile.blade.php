@@ -9,6 +9,7 @@
 @section('content')
 @include('flash-alerts')
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+<hr>
 @if (Auth::guest())
 	<font size="7"><p class="text-center">You're not logged in.</p></font>
 	<font size="4"><p class="text-center">Please log in to continue.</p></font>
@@ -17,7 +18,6 @@
 		<div class="row">
 			<div class="col-md-4">
 				@if (Auth::user()->role_id == 1)
-				<hr>
 				@else
 				@if (Auth::user()->role_id == 2)
 					<p><font size="6">User Profile</font><br><hr>
@@ -88,7 +88,6 @@
 			</div>
 			<div class="col-md-4">
 				@if (Auth::user()->role_id == 1)
-					<hr>
 				@else
 				@if (Auth::user()->role_id == 2)
 				<p><font size="6">Order History</font><br><hr>

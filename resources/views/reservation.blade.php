@@ -4,13 +4,6 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <script>$('.select2').select2();</script>
-
-<!--
-Notas:
-	- Falta asociarlo con el controlador.
-	- Falta agregar que una pe1rsona "invitado" pueda hacer una reserva. (Posible solucion: un if con el rol de invitado)
- -->
-
 @extends('layouts.app')
 @section('content')
 <link href="{{asset('css/main.css')}}" rel="stylesheet">
@@ -37,11 +30,11 @@ Notas:
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label for="date" class="control-label"><b>Date:</b></label>
-								<input type="text" name="date" maxlength="20" placeholder="DD/MM/AAAA" class="form-control" value=""/>
+								<input type="date" data-date-format="dd-MM-yyyy" name="date" class="form-control">
 							</div>
 							<div class="form-group col-md-6">
 								<label for="time" class="control-label"><b>Time:</b></label>
-								<input type="text" name="time" maxlength="20" placeholder="HH:MM:SS" class="form-control" value=""/>
+								<input type="time" data-time-format="hh:mm:ss" name="time"class="form-control">
 							</div>
 						</div>
 						<div class="form-group">
