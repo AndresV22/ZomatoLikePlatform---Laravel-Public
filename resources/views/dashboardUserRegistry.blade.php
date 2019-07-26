@@ -22,9 +22,8 @@
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i>  Places <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-2" class="collapse">
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.1</a></li>
+                        <li><a href="admin/submitPlace"><i class="fa fa-angle-double-right"></i> Create new place</a></li>
                         <li><a href="admin/allPlaces"><i class="fa fa-angle-double-right"></i> List all places</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.3</a></li>
                     </ul>
                 </li>
                 <li>
@@ -40,7 +39,7 @@
         </div>
 
 
-        <h2>User Dashboard</h2>
+        <h2>User History</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>

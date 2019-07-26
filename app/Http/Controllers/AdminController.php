@@ -7,6 +7,7 @@ use App\User;
 use App\Place;
 use App\Comment;
 use App\Country;
+use App\City;
 use App\UserRegister;
 
 class AdminController extends Controller
@@ -35,6 +36,15 @@ class AdminController extends Controller
     {
     	$user = User::find($id);
     	return view('dashboardProfileEdit', compact('user'));
+    }
+
+    public function connectToSubmitPlace()
+    {
+    	$users = User::all();
+    	$countries = Country::all();
+    	$cities = City::all();
+
+    	return view('dashboardSubmitPlace', compact('users', 'countries', 'cities'));
     }
 
     public function connectToNewPlaceRequests()
