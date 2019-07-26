@@ -6,7 +6,9 @@ use App\Comment;
 use App\Place;
 use App\PaymentVoucher;
 use App\PaymentMethod;
-USE App\Reservation;
+use App\Reservation;
+use App\Menu;
+use App\Dish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,6 +18,8 @@ class ProfileController extends Controller
     {
         $comments = Comment::all();
         $places = Place::all();
+        $menus = Menu::all();
+        $dishes = Dish::all();
         $orders = DB::table('payment_vouchers')
         ->join('payment_methods', 'payment_vouchers.payment_method_id', '=', 'payment_methods.id')
         ->join('users', 'payment_methods.user_id', '=', 'users.id')
@@ -29,6 +33,6 @@ class ProfileController extends Controller
         ->join('places', 'tables.place_id', '=', 'places.id')
         ->select('reservations.id', 'reservations.user_id', 'reservations.date', 'reservations.time', 'tables.capacity', 'tables.code', 'places.name')
         ->get();
-        return view('profile', compact('comments', 'places', 'orders', 'reservations'));
+        return view('profile', compact('comments', 'places', 'orders', 'reservations', 'menus', 'dishes'));
     }
 }

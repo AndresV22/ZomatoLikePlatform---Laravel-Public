@@ -42,7 +42,7 @@
 
 @if(isset($details))
 	<div class="container-fluid">
-		<font size="6" color="white"><p class="text-center">Search Results</p></font>
+		<font size="5" color="white"><p class="text-center">Search Results</p></font>
 		<table class="table table-striped">
 			<thead>
 				<tr>

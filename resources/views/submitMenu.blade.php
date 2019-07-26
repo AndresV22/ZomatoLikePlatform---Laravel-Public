@@ -10,10 +10,13 @@
 @include('flash-alerts')
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
-
+@if (Auth::guest() || Auth::user()-> role_id != 3)
+	<font size="7"><p class="text-center">You cannot submit menus.</p></font>
+	<font size="4"><p class="text-center">Please log in to continue.</p></font>
+@else
 <div class="content">
 <div class="container">
-  <form action='submitMenu' method='submitMenu'>
+  <form action='submitMenu' method='post'>
 
       <div class="row">
 
@@ -32,34 +35,18 @@
               <div class="form-group">
                   <label class="control-label required" for="place_id">Choose a place</label>
                   <div class="select">
-                      <select multiple="multiple" name="table-code" class="form-control">
+                      <select multiple="multiple" name="place_id" class="form-control">
                         @foreach ($places as $place)
-
                           @if ($place->user_id == Auth::user()->id)
                             <option value="{{$place->id}}">{{$place->name}}</option>
-                          @endif
-                        @endforeach
+													@endif
+												@endforeach
                       </select>
                   </div>
               </div>
           </div>
 
-<!-- Elegir dishes
 
-          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-              <div class="form-group">
-                  <label class="control-label required" for="select">Choose dishes</label>
-                  <div class="select">
-                      <select multiple="multiple" name="dishes" class="form-control">
-                        @foreach ($dishes as $dish)
-                            <option value="{{$dish->name}}">{{$dish->name}}</option>
-                        @endforeach
-                      </select>
-                  </div>
-              </div>
-          </div>
-
--->
 
           <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
               <div class="form-group">
@@ -91,8 +78,11 @@
           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
               <button type="submit" name="singlebutton" class="btn btn-primary">send</button>
           </div>
+
       </div>
       </form>
+
 </div>
 </div>
+@endif
 @endsection

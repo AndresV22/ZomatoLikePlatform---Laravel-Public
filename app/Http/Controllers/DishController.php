@@ -43,7 +43,16 @@ class DishController extends Controller
       }
       else
       {
-          return "Could not create new dish.";
+        $dish = new Dish([
+          'purchase_id' => null,
+          'name' => $request->get('name'),
+          'price' => $request->get('price'),
+          'description' => $request->get('description'),
+          'category' => $request->get('category'),
+          'discount' => $request->get('discount')
+      ]);
+      $dish->save();
+      return view('profile')->with('success', 'Dish created successfully.');
       }
     }
     /**

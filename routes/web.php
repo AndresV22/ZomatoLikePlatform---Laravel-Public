@@ -51,8 +51,12 @@ Route::get('/place/{id}/reserve', 'ReservationMakerController@show');
 Route::post('/place/{id}/reserve', 'ReservationMakerController@store');
 
 // Submit Menus
-Route::get('/profile/submitMenu', 'MenuController@show');
-Route::post('/profile/submitMenu', 'MenuController@submitMenu');
+Route::get('/profile/submitMenu', 'SubmitMenuController@show');
+Route::post('/profile/submitMenu', 'SubmitMenuController@store');
+
+// Submit Dishes
+Route::get('/profile/submitDish', 'SubmitDishController@show');
+Route::post('/profile/submitDish', 'SubmitDishController@store');
 
 // Search route
 Route::any('/search', 'SearchController@queryResults');
