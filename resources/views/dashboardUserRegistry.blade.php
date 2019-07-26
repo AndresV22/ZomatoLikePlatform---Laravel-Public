@@ -6,39 +6,36 @@
     <font size="7" color="white"><p class="text-center">You don't have admin privileges.</p></font>
     <font size="4" color="white"><p class="text-center">Please log in with admin credentials to continue.</p></font>
 @else
-<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
-<div id="throbber" style="display:none; min-height:120px;"></div>
-<div id="noty-holder"></div>
-<div id="wrapper">
-<div class="contained-fluid">
-            <ul class="nav navbar-nav side-nav">
-                <li>
-                    <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-search"></i> Users <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-                    <ul id="submenu-1" class="collapse">
-                        <li><a href="/admin/register"><i class="fa fa-angle-double-right"></i> Create new user</a></li>
-                        <li><a href="/admin/allUsers"><i class="fa fa-angle-double-right"></i> List all users</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i>  Places <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-                    <ul id="submenu-2" class="collapse">
-                        <li><a href="/admin/submitPlace"><i class="fa fa-angle-double-right"></i> Create new place</a></li>
-                        <li><a href="/admin/allPlaces"><i class="fa fa-angle-double-right"></i> List all places</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/admin/dashboardManagePlaceRequests"><i class="fa fa-fw fa-user-plus"></i> New place requests</a>
-                </li>
-                <li>
-                    <a href="statistics"><i class="fa fa-fw fa-paper-plane-o"></i> Statistics</a>
-                </li>
-                <li>
-                    <a href="userHistory"><i class="fa fa-fw fa-paper-plane-o"></i> User History</a>
-                </li>
-            </ul>
-        </div>
-
-
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+	<span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/register">Create New User</a>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="/admin/allUsers">List All Users</a>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="/admin/submitPlace">Create New Place</a>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="/admin/allPlaces">List All Places</a>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="/admin/dashboardManagePlaceRequests">Place Requests</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/statistics">Statistics</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/admin/userHistory">User History<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
         <h2>User History</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
