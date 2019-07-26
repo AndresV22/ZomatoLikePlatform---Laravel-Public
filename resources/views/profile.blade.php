@@ -72,7 +72,9 @@
 				<p><font size="6">Places</font><br><hr>
 				@foreach($places as $place)
 				@if($place->user_id == Auth::user()->id)
-				{{$place->name}}<br>
+				<form method="get" action="place/{{$place->id}}">
+				<button type="submit" class="btn btn-link">{{$place->name}}</button>
+				</form>
 				@endif
 				@endforeach
 				@endif
