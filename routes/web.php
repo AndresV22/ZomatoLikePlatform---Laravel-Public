@@ -59,6 +59,9 @@ Route::post('/profile/submitMenu', 'SubmitMenuController@store');
 Route::get('/profile/submitDish', 'SubmitDishController@show');
 Route::post('/profile/submitDish', 'SubmitDishController@store');
 
+// Add dish to menu
+Route::get('/dish/editMenu', 'DishController@updateMenu');
+
 // Search route
 Route::any('/search', 'SearchController@queryResults');
 

@@ -72,7 +72,9 @@
 				<p><font size="6">Places</font><br><hr>
 				@foreach($places as $place)
 				@if($place->user_id == Auth::user()->id)
-				{{$place->name}}<br>
+				<form method="get" action="place/{{$place->id}}">
+				<button type="submit" class="btn btn-link">{{$place->name}}</button>
+				</form>
 				@endif
 				@endforeach
 				@endif
@@ -133,7 +135,12 @@
 					@if ($place->user_id == Auth::user()->id)
 						@foreach ($menus as $menu)
 							@if ($menu->place_id == $place->id)
-								<p>Menu: {{$menu->name}} - Price: ${{$menu->price}} at Place: {{$place->name}}</p>
+
+							<!-- cambiar esto una vez terminada la vista de menu-->
+							<form method="get" action="menu/{{$menu->id}}">
+								<button type="submit" class="btn btn-link">{{$menu->name}}</button>
+							</form>
+
 							@endif
 						@endforeach
 					@endif
