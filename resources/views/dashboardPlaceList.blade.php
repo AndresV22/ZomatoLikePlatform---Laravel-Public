@@ -66,12 +66,11 @@
 
               <div style="width:105px;">
                 <div style="float: left; width: 50px"> 
-                <a href="/admin/dashboardPlaceEdit/{{$place->id}}"> <button class="btn"> <i class="fas fa-edit"></i> </button> </a>
+                <a href="/admin/editPlace/{{$place->id}}"> <button class="btn"> <i class="fas fa-edit"></i> </button> </a>
                 </div>
 
                 <div style="float: right; width: 50px"> 
-                    <form action="/admin/dashboardPlaceDelete/{{$place->id}}" method="DELETE">
-                    
+                    <form action="/admin/deletePlace/{{$place->id}}" method="POST">
                          <input type="hidden" name="_method" value="DELETE"> 
                         <button type="submit" class="btn btn-link" onclick="if (!confirm('Are you sure you want to delete this place?')) { return false }"> <i class="fas fa-trash-alt"></i></button>
                   </form>  

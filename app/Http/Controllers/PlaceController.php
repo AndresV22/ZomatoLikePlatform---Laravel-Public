@@ -104,4 +104,11 @@ class PlaceController extends Controller
 
         return view('checkout', compact('total'));
     }
+
+    public function destroy($id)
+    {
+        $place = Place::find($id);
+        $place->delete();
+        return back();
+    }
 }
