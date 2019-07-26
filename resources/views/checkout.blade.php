@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
+<link href="{{asset('css/main.css')}}" rel="stylesheet">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -60,7 +60,7 @@
                               <label for="name" class="col-md-4 col-form-label text-md-right">Card Holder Name</label>
                               <div class="col-md-6">
                                  <input id="bank" name="bank" type="text" class="form-control text-muted" value="none">
-                                 <small id="emailHelp" class="form-text text-muted">If you are paying in cash leave this field empty.</small>
+                                 <small id="emailHelp" class="form-text text-muted"><font color="white">If you are paying in cash leave this field empty.</font></small>
                               </div>
                         </div>
 

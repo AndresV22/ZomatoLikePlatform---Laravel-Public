@@ -14,96 +14,69 @@ Notas:
 @extends('layouts.app')
 @section('content')
 <link href="{{asset('css/main.css')}}" rel="stylesheet">
-<link href="{{asset('css/reservation.css')}}" rel="stylesheet">
-
-<!-- Bootsnipp -->
-<div class="content">
-	<div class="container">
-		<div class="row">
-			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30 text-center">
-				<h2>Table reservation for {{$place->name}}</h2>
+@if ($tables->count() == 0)
+	<font size="7" color="white"><p class="text-center">There are no available tables.</p></font>
+	<font size="4" color="white"><p class="text-center">Sorry. Please come back in another time.</p></font>
+@else
+	<div class='container-fluid'>
+		<div class='row justify-content-center'>
+			<div class="col-md-4 align-self-center">
+				<p><font size="6"><p class="text-center">Make a reservation</p></font><br>
+				<div class="rating-block">
+					<form action='reserve' method='post'>
+					@csrf
+						<input name='place_name' type="hidden" value='{{$place->name}}'>
+						<input name='place_id' type="hidden" value='{{$place->id}}'>
+						<input name='allow' type="hidden" value='true'>
+						<input name='user_id' type="hidden" value=0>
+						@if(Auth::user())
+							<input name='user_id' type="hidden" value='{{Auth::user()->id}}'>
+							<input name='name' type="hidden" value='{{Auth::user()->name}}'>
+							<input name='address' type="hidden" value='{{Auth::user()->email}}'>
+						@endif
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="date" class="control-label"><b>Date:</b></label>
+								<input type="text" name="date" maxlength="20" placeholder="DD/MM/AAAA" class="form-control" value=""/>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="time" class="control-label"><b>Time:</b></label>
+								<input type="text" name="time" maxlength="20" placeholder="HH:MM:SS" class="form-control" value=""/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="tableList"><b>Available tables</b></label>
+							<select name="table_code" id="tableList" class="form-control" required>
+								<option value="none"> Select a table... </option>
+								@foreach ($tables as $table)
+									@if (!$table->taken)
+										<option value="{{$table->id}}"> Table: #{{$table->code}} - Capacity: {{$table->capacity}}</option>
+									@endif
+								@endforeach
+							</select>
+						</div>
+						@if (Auth::guest())
+							<div class="form-group">
+								<h4 class="tour-form-title">Personal information</h4>
+							</div>
+							<div class="form-group">
+								<label for="name" class="control-label"><b>Name:</b></label>
+								<input type="text" name="name" maxlength="20" placeholder="Name..." class="form-control" value=""/>
+							</div>
+							<div class="form-group">
+								<label for="time" class="control-label"><b>Email:</b></label>
+								<input type="text" name="address" maxlength="20" placeholder="Email..." class="form-control" value=""/>
+							</div>
+						@endif
+						<div class="btn-toolbar justify-content-center" role="toolbar" aria-label="group">
+							<div class="btn-group mr-2" role="group" aria-label="Second group">
+								<button type="submit" class="btn btn-default">Send Reservation Request</button>
+							</div>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30">
- 				<div class="tour-booking-form">
-				<form action='reserve' method='post'>
-				@csrf
-				<input name='place_name' type="hidden" value='{{$place->name}}'>
-				<input name='place_id' type="hidden" value='{{$place->id}}'>
-				<input name='allow' type="hidden" value='true'>
-				<input name='user_id' type="hidden" value=0>
-				@if(Auth::user())
-					<input name='user_id' type="hidden" value='{{Auth::user()->id}}'>
-					<input name='name' type="hidden" value='{{Auth::user()->name}}'>
-					<input name='address' type="hidden" value='{{Auth::user()->email}}'>
-				@endif
-				<div class="row">
-					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-						<h4 class="tour-form-title">To make a reservation, fill the next fields:</h4>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-						<div class="form-group">
-							<label class="control-label" for="date">When do you want to come?</label>
-							<div class="input-group">
-								<input name="date" type="text" placeholder="DD/MM/AAAA" class="form-control" required>
-								<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-							<div class="form-group">
-									<label class="control-label" for="email"> What time?</label>
-									<input name="time" type="text" placeholder="HH:MM" class="form-control" required>
-							</div>
-					</div>
-					<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-						<div class="form-group">
-							<label class="control-label required" for="select">Available Tables:</label>
-							<div class="select">
-								<select id="select" name="table_code" class="form-control">
-									@foreach ($tables as $table)
-										@if ($table->taken)
-										@else
-											<option value="{{$table->code}}"> Table: #{{$table->code}} - Capacity: {{$table->capacity}}</option>
-										@endif
-									@endforeach
-								</select>
-							</div>
-						</div>
-					</div>
-					@if (Auth::guest())
-					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt30">
-						<h4 class="tour-form-title">Personal information</h4>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                        <div class="form-group">
-                            <label class="control-label" for="name">Name</label>
-                            <input id="name" name="name" type="text" placeholder="First Name" class="form-control" required>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                        <div class="form-group">
-                            <label class="control-label" for="email"> Email</label>
-                            <input id="email" name="address" type="text" placeholder="xxxx@xxxx.xxx" class="form-control" required>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
-                        <div class="form-group">
-                            <label class="control-label" for="phone"> Phone</label>
-                            <input id="phone" type="text" placeholder="(XXX) XXXX XXXX" class="form-control" required>
-                        </div>
-                    </div>
-                
-					@endif
-					</div>
-								<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-										<button type="submit" name="singlebutton" class="btn btn-default">send</button>
-								</div>
-                </form>
-        </div>
-    </div>
 	</div>
-</div>
-</div>
+@endif
 @endsection

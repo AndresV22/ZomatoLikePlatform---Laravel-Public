@@ -58,11 +58,9 @@
 								@foreach ($cities as $city)
 										<option value="{{$city->name}}"> {{$city->name}} </option>
 								@endforeach
-          					   </select>
-          				</div> 
-
+							</select>
+						</div> 
 						<div class="btn-toolbar justify-content-center" role="toolbar" aria-label="group">
-  							
 							<div class="btn-group mr-2" role="group" aria-label="Second group">
 								<button type="submit" class="btn btn-default">Submit New Place</button>
 							</div>

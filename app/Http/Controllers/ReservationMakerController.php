@@ -14,7 +14,9 @@ class ReservationMakerController extends Controller
     public function show($id)
     { 
         $place = Place::find($id);
-        $tables = Table::where('place_id', $id)->get();
+        $tables = Table::where('place_id', $id)
+        ->where('taken', false)
+        ->get();
         return view('reservation', compact('place', 'tables'));
     }
 
