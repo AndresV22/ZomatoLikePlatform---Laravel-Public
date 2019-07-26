@@ -83,12 +83,13 @@ class PlaceController extends Controller
 
     public function getCart() {
         if(!Session::has('cart')){
-            return back();
+            return view('welcome');
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $products = $cart->items;
         $totalPrice = $cart->totalPrice;
+
         return view('shoppingCart', compact('products', 'totalPrice'));
     } 
 
@@ -102,46 +103,4 @@ class PlaceController extends Controller
         $total = $cart->totalPrice;
         return view('checkout', compact('total'));
     }
-
-    public function deleteItem(Request $request, $id){
-        $items = Session::get('cart');
-        $item = null;
-
-        $item = Menu::find($id);
-        if($item == null){
-            $item = Dish::find($id);
-        }
-        
-        foreach($items as $auxItem){
-            if((string)$item == $auxItem){
-                $itemToDelete = $auxItem;
-            }
-        }
-
-        $test = count($items);
-
-        //$itemToDelete->delete();
-
-        return back();
-    }
-
-    public function getPurchase(Request $request){
-        $price = $request->get('price');
-        $name = $request->get('user_name');
-        $address = $request->get('address');
-        $pyMethod = $request->get('paymentMethod');
-
-        return view('webpay', compact('price', 'name', 'address', 'pyMethod'));
-    }
-
-    public function restarShoppingCart(Request $request){
-        if(!Session::has('cart')){
-            return view('welcome');
-        }
-        $items = Session::get('cart');
-        $items->myDeleteAll();
-        Session::remove('cart');
-        return view('welcome');
-    }
-
 }

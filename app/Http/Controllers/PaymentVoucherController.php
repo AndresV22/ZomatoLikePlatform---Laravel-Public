@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PaymentVoucher;
 use App\PaymentMethod;
+use App\Cart;
+use Session;
 
 class PaymentVoucherController extends Controller
 {
@@ -28,10 +30,21 @@ class PaymentVoucherController extends Controller
     public function store(Request $request)
     {
       $possible_payment_method = PaymentMethod::find($request->get('payment_method_id'));
+      $oldCart = Session::get('cart');
+      $cart = new Cart($oldCart);
+      $products = $cart->items;
+      $totalPrice = $cart->totalPrice;
+
+      foreach($products as $product){
+        $place_id = $product['item']['place_id'];
+        break;
+      }
+
       if ($possible_payment_method != null)
       {
         $paymentVoucher = new PaymentVoucher([
           'payment_method_id' => $request->get('payment_method_id'),
+          'place_id' => $place_id,
           'amount' => $request->get('amount'),
           'date' => $request->get('date'),
           'detail' => $request->get('detail'),
@@ -39,7 +52,14 @@ class PaymentVoucherController extends Controller
           'delivery' => $request->get('delivery')
       ]);
       $paymentVoucher->save();
-      return "Created successfully!";
+
+      $items = Session::get('cart');
+      $items->myDeleteAll();
+      Session::remove('cart');
+      
+      $pyVoucherId = $paymentVoucher->id;
+      $totalPrice = $paymentVoucher->amount;
+      return view('paymentVoucher', compact('products', 'pyVoucherId', 'totalPrice'));
       }
       else
       {

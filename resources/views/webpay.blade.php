@@ -6,11 +6,16 @@
         <div class="col-md-8">
             <p><font size="6"><p class="text-center">Payment Data</p></font><br>
                 <div class="rating-block">
-                    <form>
+                    <form action='/newPaymentVoucher' method='post'>
+                        {{csrf_field()}}
+                        <input name='payment_method_id' type="hidden" value="{{ $pay['id'] }}">
+                        <input name='date' type="hidden" value="2019-07-23">
+                        <input name='detail' type="hidden" value="696969696">
+                        <input name='status' type="hidden" value="0">
                         <div class="form-group row">
                            <label for="name" class="col-md-4 col-form-label text-md-right">Total</label>
                            <div class="col-md-6">
-                              <input id="price" name="price" class="form-control" type="text" value="{{$price}}" readonly>
+                              <input id="price" name="amount" class="form-control" type="text" value="{{$price}}" readonly>
                            </div>
                         </div>
 
@@ -34,21 +39,33 @@
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Payment Method</label>
                             <div class="col-md-6">
-                              <input id="pay" class="form-control" type="text" value="{{$pyMethod}}" readonly>
+                              <input id="type" name="type" class="form-control" type="text" value="{{$pay['type']}}" readonly>
                            </div>
                         </div>
 
-                        @if($pyMethod == 'Cash')
-                           
-
-                        @elseif($pyMethod == 'Credit Card')
-                           <div class="form-group row">
-                              <label for="name" class="col-md-4 col-form-label text-md-right">Card Holder Name</label>
-                              <div class="col-md-6">
-                                 <input id="holder" type="text" class="form-control" require>
-                              </div>
+                        <div class="form-group row">
+                           <label for="name" class="col-md-4 col-form-label text-md-right">Card Holder Name</label>
+                           <div class="col-md-6">
+                              <input id="bank" name="bank" type="text" class="form-control" value="{{$pay['bank']}}" readonly>
                            </div>
+                        </div>
 
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Delivery</label>
+
+                            <div class="col-md-6">
+                              <select class="custom-select" id="paymentMethod" name="delivery" require>
+                                 <option selected disabled>-- Select one --</option>
+                                 <option value="true">Yes</option>
+                                 <option value="false">No</option>
+                              </select>
+                            </div>
+                        </div>
+
+                        @if($pay['type'] == 'Cash')
+                        
+                        
+                        @elseif($pay['type'] == 'Credit Card')
                            <div class="form-group row">
                               <label for="name" class="col-md-4 col-form-label text-md-right">Credit Card Number</label>
                               <div class="col-md-6">
@@ -81,7 +98,7 @@
                         <div class="form-group row">
                               <label for="name" class="col-md-4 col-form-label text-md-right">Card Holder Name</label>
                               <div class="col-md-6">
-                                 <input id="holder" type="text" class="form-control" require>
+                                 <input id="holder" name="bank" type="text" class="form-control" require>
                               </div>
                            </div>
 
@@ -109,7 +126,7 @@
                            </div>
 
                            <div class="col" align="left">
-                              <a class="btn btn-success" href="/checkout/payed" role="button">Pay Now</a>
+                              <button class="btn btn-success" type="submit">Pay Now</button>
                            </div>          
                         </div>
                      </form>

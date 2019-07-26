@@ -13,7 +13,7 @@
 	<div class="row">
 		<div class="col-md-4">
 		<p><font size="6">Place</font><br><hr>
-		<img src="https://placeimg.com/640/640/arch" class="img-responsive img-thumbnail"><hr>
+		<img src={{$place->avatar}} class="img-responsive img-thumbnail"><hr>
 		Name: {{$place->name}}<br>
 		Address: {{$place->address}}<br>
 		Opens at: {{$place->opening_time}}<br>
@@ -59,11 +59,11 @@
 			<div class="card mb-3" style="color:black">
 				<div class="row">
 					<div class="col-sm-12">
-						<div class="card-header">Menu {{$menu->name}}</div>
+						<div class="card-header">Menu: {{$menu->name}} - Category: {{$menu->category}}</div>
 						<div class="card-body">
 							@foreach ($dishes as $dish)
-								<div class="row mb-2">
-									@if ($menu->id == $dish->menu_id)
+								@if ($menu->id == $dish->menu_id)
+									<div class="row mb-2">
 										<div class="col-9">
 											<p class="card-text">{{$dish->name}} ({{$dish->discount}}% Off)</p>
 										</div>
@@ -72,11 +72,9 @@
 												<a href="/place/dishAddToCart/{{$dish->id}}" class="badge badge-success">$ {{$dish->price}}</a>
 											</p>
 										</div>
-									@endif
-								</div>
+									</div>
+								@endif
 							@endforeach
-							<p class="card-text">Category - {{$menu->category}}</p>
-
 							<div class="row">
 								<div class="col-8">
 									<p class="card-text">Menu Price:</p>

@@ -38,24 +38,26 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li class="dropdown mt-1">
+                            <a class="nav-link" href="{{ url('/shoppingCart') }}">
+                                <i class="fas fa-shopping-cart"></i>  Shopping Cart 
+                                <span class="badge badge-pill badge-secondary">
+                                    {{Session::has('cart') ? Session::get('cart')->totalQuantity : ""}}
+                                </span>
+                            </a>
+                        </li>
+
                         @guest
-                            <li class="nav-item">
+                            <li class="nav-item mt-1">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="nav-item mt-1">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
-                            <li class="dropdown mt-1">
-                                <a class="nav-link" href="{{ url('/shoppingCart') }}">
-                                    <i class="fas fa-shopping-cart"></i>  Shopping Cart 
-                                    <span class="badge badge-pill badge-secondary">
-                                       {{Session::has('cart') ? Session::get('cart')->totalQuantity : ""}}
-                                    </span>
-                                </a>
-                            </li>
+                            
 
 
                             <li class="dropdown">
