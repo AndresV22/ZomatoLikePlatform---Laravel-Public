@@ -108,7 +108,7 @@
 		@endif
 		<br>
 		<p>
-		@if (!Auth::guest() && Auth::user()->role_id == 2)
+		@if (Auth::guest() || Auth::user()->role_id == 2)
 			<Form method='get' action='/place/{{$place->id}}/reserve'>
 				<button type="submit" class="btn btn-light btn-lg btn-block">Make A Reservation</button>
 			</form>
