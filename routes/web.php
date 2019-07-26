@@ -23,6 +23,8 @@ Route::post('/admin/dashboardManagePlaceRequests/reject/{id}', 'PlaceRequestCont
 Route::get('/admin/allPlaces', 'AdminController@connectToPlaceList');
 Route::get('/admin/submitPlace', 'AdminController@connectToSubmitPlace');
 Route::post('/admin/submitPlace', 'SubmitPlacesController@adminStore');
+Route::get('/admin/editPlace/{id}', 'AdminController@connectToEditPlace');
+Route::patch('/admin/editPlace/{id}', 'PlaceController@adminUpdate');
 Route::delete('/admin/deletePlace/{id}', 'PlaceController@destroy');
 Route::get('/admin/statistics', 'AdminController@connectToStats');
 Route::get('/admin/userHistory', 'AdminController@connectToUserHistory');

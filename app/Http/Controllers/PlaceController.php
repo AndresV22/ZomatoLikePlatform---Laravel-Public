@@ -128,4 +128,12 @@ class PlaceController extends Controller
         
         return view('shoppingCart', compact('totalPrice', 'products'));
     }
+
+    public function adminUpdate(Request $request, $id)
+    {
+        $data = $request->all();
+        $place = Place::find($id);
+        $place->update($data);
+        return back();
+    }
 }

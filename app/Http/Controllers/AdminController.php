@@ -59,6 +59,15 @@ class AdminController extends Controller
     	return view('dashboardPlaceList', compact('places'));
     }
 
+    public function connectToEditPlace($id)
+    {
+        $place = Place::find($id);
+        $cities = City::all();
+        $countries = Country::all();
+        return view('dashboardPlaceEdit', compact('place', 'cities', 'countries'));
+
+    }
+
     public function connectToStats()
     {
     	$places = Place::all();
