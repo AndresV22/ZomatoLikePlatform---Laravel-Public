@@ -19,13 +19,13 @@
   		Precio: {{$menu->price}}<br>
   		Category at: {{$menu->category}}<br>
   		Discount at: {{$menu->discount}}<br><hr>
-      <font size="5">Dishes:</font><br><hr>
+      <font size="5">Dishes:</font><br>
       @foreach($dishes as $dish)
         @if($dish->menu_id == $menu->id)
-          {{$dish->name}}<br>
+          {{$dish->name}} - Price: {{$dish->price}}<br>
         @endif
       @endforeach
-
+      <hr>
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
         <Form method="put" action="/dish/editMenu">
           <div class="form-group">

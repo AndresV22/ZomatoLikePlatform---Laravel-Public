@@ -96,6 +96,7 @@ class DishController extends Controller
     {
       $dish = Dish::find($request->get('dish_id'));
       $dish->menu_id = $request->get('menu_id');
+      $dish->save();
       return back()->with('success', 'Dish added to menu.');
     }
 }
