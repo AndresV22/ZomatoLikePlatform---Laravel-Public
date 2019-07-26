@@ -8,6 +8,7 @@
 
 @extends('layouts.app')
 @section('content')
+@include('flash-alerts')
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 @if (Auth::guest() || Auth::user()->role_id != 2)
 	<font size="7"><p class="text-center">You cannot comment.</p></font>

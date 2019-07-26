@@ -103,10 +103,11 @@
 		Table #{{$table->code}} - Capacity: {{$table->capacity}} @if($table->taken)(TAKEN)@endif<br>
 		@endforeach
 		@endif
-		@if ($place->user_id == Auth::user()->id)
+		@if (Auth::guest())
+
+		@elseif ($place->user_id == Auth::user()->id)
 		<hr>
 		<a class="btn btn-light btn-lg btn-block" role="button" href="/table/new/{{$place->id}}">Add Table</a>
-
 
 		@endif
 		<br>
