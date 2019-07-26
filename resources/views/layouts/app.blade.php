@@ -38,6 +38,8 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+
+                        @if("{{ Auth::user() ? Auth::user()->role : '666' }}" != 0)
                         <li class="dropdown mt-1">
                             <a class="nav-link" href="{{ url('/shoppingCart') }}">
                                 <i class="fas fa-shopping-cart"></i>  Shopping Cart 
@@ -46,6 +48,7 @@
                                 </span>
                             </a>
                         </li>
+                        @endif
 
                         @guest
                             <li class="nav-item mt-1">
