@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Purchase;
 use App\User;
+use App\Place;
 use App\PaymentVoucher;
 
 class PurchaseController extends Controller
@@ -30,7 +31,8 @@ class PurchaseController extends Controller
     {
         $possible_payment_voucher = PaymentVoucher::find($request->get('payment_voucher_id'));
         $possible_user = User::find($request->get('user_id'));
-        if ($possible_payment_voucher != null && $possible_user != null)
+        $possible_place = Place::find($possible_payment_voucher->place_id);
+        if ($possible_payment_voucher != null && $possible_user != null && $possible_place != null)
         {
             $purchase = new Purchase([
                 'payment_voucher_id' => $request->get('payment_voucher_id'),
@@ -38,7 +40,18 @@ class PurchaseController extends Controller
                 'status' => $request->get('status')
             ]);
             $purchase->save();
-            return view('welcome');
+
+
+            $mailParameters = ([
+            'name' => $request->get('username'),
+            'address' => $request->get('user_email'),
+            'place_name' => $possible_place->name,
+            'amount' => $possible_payment_voucher->amount,
+            'date' => $possible_payment_voucher->date,
+            'detail' => $possible_payment_voucher->detail
+            ]);
+
+            return redirect()->route('mail.purchaseVerification', $mailParameters);
         }
         else
         {

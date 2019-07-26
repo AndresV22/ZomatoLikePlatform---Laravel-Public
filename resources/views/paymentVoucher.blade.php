@@ -34,6 +34,8 @@
 						<input name='payment_voucher_id' type="hidden" value="{{$pyVoucherId}}">
 						<input name='user_id' type="hidden" value="{{ Auth::user() ? Auth::user()->id : '0' }}">
 						<input name='status' type='hidden' value="0">
+                  <input name='user_email' type='hidden' value="{{$user_email}}">
+                  <input name='username' type='hidden' value="{{$username}}">
 
                   <div class="col" align="center">
                      <button class="btn btn-success" type="submit">Accept</button>

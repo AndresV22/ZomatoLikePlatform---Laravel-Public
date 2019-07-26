@@ -46,7 +46,7 @@ Notas:
 						</div>
 						<div class="form-group">
 							<label for="tableList"><b>Available tables</b></label>
-							<select name="table_code" id="tableList" class="form-control" required>
+							<select name="table_id" id="tableList" class="form-control" required>
 								<option value="none"> Select a table... </option>
 								@foreach ($tables as $table)
 									@if (!$table->taken)
