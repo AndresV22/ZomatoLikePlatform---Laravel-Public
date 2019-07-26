@@ -104,4 +104,21 @@ class PlaceController extends Controller
 
         return view('checkout', compact('total'));
     }
+
+    public function removeItem(Request $request, $id){
+        if(!Session::has('cart')){
+            return back();
+        }
+        $oldCart = Session::get('cart');
+        $shoppingCart = new Cart($oldCart);
+        
+        $shoppingCart->deleteItem($id);
+        
+        
+
+        $totalPrice = $shoppingCart->totalPrice;
+        $products = $shoppingCart->items;
+        
+        return view('shoppingCart', compact('totalPrice', 'products'));
+    }
 }

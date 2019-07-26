@@ -38,5 +38,23 @@ class Cart{
       $this->totalPrice = 0;
    }
 
+   public function deleteItem($id){
+
+      
+
+      foreach($this->items as $this->product){
+         if($this->product['item']['id'] == $id){
+            $this->product['item']->delete();
+            
+            $this->totalPrice = $this->totalPrice - ($this->product['price'] * $this->product['quantity']);
+            
+            $this->totalQuantity = $this->totalQuantity - 1;
+            break;
+         }            
+      }
+      
+      
+   }
+
 }
 

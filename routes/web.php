@@ -37,6 +37,7 @@ Route::post('/place/{id}/comment', 'CommentController@store');
 Route::get('/place/addToCart/{id}', 'PlaceController@menuAddToCart');
 Route::get('/place/dishAddToCart/{id}', 'PlaceController@dishAddToCart');
 Route::get('/shoppingCart', 'PlaceController@getCart');
+Route::get('/shoppingCart/removeItem/{id}', 'PlaceController@removeItem');
 Route::get('/checkout', 'PlaceController@getCheckout');
 // Payment Method Controller
 Route::post('/newPaymentMethod', 'PaymentMethodController@storeAndRedirect');
