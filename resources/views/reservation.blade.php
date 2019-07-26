@@ -55,11 +55,11 @@
 							</div>
 							<div class="form-group">
 								<label for="name" class="control-label"><b>Name:</b></label>
-								<input type="text" name="name" maxlength="20" placeholder="Name..." class="form-control" value=""/>
+								<input type="text" name="name" maxlength="32" placeholder="Name..." class="form-control" value=""/>
 							</div>
 							<div class="form-group">
 								<label for="time" class="control-label"><b>Email:</b></label>
-								<input type="text" name="address" maxlength="20" placeholder="Email..." class="form-control" value=""/>
+								<input type="text" name="address" maxlength="50" placeholder="Email..." class="form-control" value=""/>
 							</div>
 						@endif
 						<div class="btn-toolbar justify-content-center" role="toolbar" aria-label="group">

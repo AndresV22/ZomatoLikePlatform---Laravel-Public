@@ -80,4 +80,16 @@ class TableController extends Controller
       $table->delete();
       return "Deleted successfully!";
     }
+
+    public function addTable(Request $request){
+      $place => Place::find($request->get('place_id')),
+      $table = new Table([
+        'place_id' => $place->get('id'),
+        'capacity' => $request->get('capacity'),
+        'code' => $request->get('code'),
+        'taken' => false,
+      ]);
+      $table->save();
+      return back()->with('success', 'Table added successfully.');
+    }
 }

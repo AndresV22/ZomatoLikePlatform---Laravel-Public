@@ -106,8 +106,30 @@
 		Table #{{$table->code}} - Capacity: {{$table->capacity}} @if($table->taken)(TAKEN)@endif<br>
 		@endforeach
 		@endif
+		@if ($place->user_id == Auth::user()->id)
+		<hr>
+		<p><font size="6">Add Table</font><br>
+		<Form action='addTable' method='post'>
+
+			<input name='place_id' type="hidden" value='{{$place->id}}'>
+
+			<div class="form-group col-md-6">
+				<label for="capacity" class="control-label"><b>Capacity</b></label>
+				<input type="integer" name="capacity" class="form-control">
+			</div>
+
+			<div class="form-group col-md-6">
+				<label for="code" class="control-label"><b>Code</b></label>
+				<input type="integer" name="code" class="form-control">
+			</div>
+
+			<button type="submit" class="btn btn-light btn-lg btn-block">Add a table</button>
+
+		</form>
+		@endif
 		<br>
 		<p>
+		<hr>
 		@if (Auth::guest() || Auth::user()->role_id == 2)
 			<Form method='get' action='/place/{{$place->id}}/reserve'>
 				<button type="submit" class="btn btn-light btn-lg btn-block">Make A Reservation</button>
