@@ -6,6 +6,7 @@
 <script>$('.select2').select2();</script>
 @extends('layouts.app')
 @section('content')
+@include('flash-alerts')
 <link href="{{asset('css/main.css')}}" rel="stylesheet">
 @if ($tables->count() == 0)
 	<font size="7" color="white"><p class="text-center">There are no available tables.</p></font>
