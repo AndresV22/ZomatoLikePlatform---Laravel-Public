@@ -30,26 +30,19 @@
 							 <label for="address"><b>Address</b></label>
 							 <input type="text" name="address" placeholder="Address" class="form-control" required>
 						</div>
-						<div class="form-group">
-							<label for="opening_time"><b>Opening Time</b></label>
-							<input type="text" name="opening_time" placeholder="Opening Time" class="form-control" required>
-						</div>
-						<div class="form-group">
-							<label for="closing_time"><b>Closing Time</b></label>
-							<input type="text" name="closing_time" placeholder="Closing Time" class="form-control" required>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="opening_time" class="control-label"><b>Opening time:</b></label>
+								<input type="time" data-time-format="hh:mm:ss" name="opening_time" class="form-control" required>
+							</div>
+							<div class="form-group col-md-6">
+								<label for="closing_time" class="control-label"><b>Closing time:</b></label>
+								<input type="time" data-time-format="hh:mm:ss" name="closing_time" class="form-control" required>
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="avatar"><b>Avatar</b></label>
 							<input type="text" name="avatar" placeholder="Avatar" class="form-control" required>
-						</div>
-						<div class="form-group mr-2">
-							<label for="countryList"><b>Country</b></label>
-							<select name="country" id="countryList" class="form-control" required>
-								<option value="None"> Select a country... </option>
-								@foreach ($countries as $country)
-										<option value="{{$country->name}}"> {{$country->name}} </option>
-								@endforeach
-							</select>
 						</div>
 						<div class="form-group mr-2">
 							<label for="cityList"><b>City</b></label>
