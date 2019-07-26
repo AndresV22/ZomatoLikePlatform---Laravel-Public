@@ -106,13 +106,14 @@
 		@if ($place->user_id == Auth::user()->id)
 		<hr>
 		<a class="btn btn-light btn-lg btn-block" role="button" href="/table/new/{{$place->id}}">Add Table</a>
-		
+
 
 		@endif
 		<br>
 		<p>
-		<hr>
+
 		@if (Auth::guest() || Auth::user()->role_id == 2)
+		<hr>
 			<Form method='get' action='/place/{{$place->id}}/reserve'>
 				<button type="submit" class="btn btn-light btn-lg btn-block">Make A Reservation</button>
 			</form>

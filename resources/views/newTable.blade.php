@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+@include('flash-alerts')
 <link href="{{asset('css/main.css')}}" rel="stylesheet">
 <div class="container">
     <div class="row justify-content-center">
@@ -19,7 +20,7 @@
                         </div>
 
                         <div class="form-group row">
-                           <label for="name" class="col-md-4 col-form-label text-md-right">Codde</label>
+                           <label for="name" class="col-md-4 col-form-label text-md-right">Code</label>
                            <div class="col-md-6">
                               <input id="price" name="code" class="form-control" type="text" value="" required>
                            </div>
@@ -33,7 +34,7 @@
 
                            <div class="col" align="left">
                               <button class="btn btn-success" type="submit">Confirm</button>
-                           </div> 
+                           </div>
                         </div>
                     </form>
                 </div>

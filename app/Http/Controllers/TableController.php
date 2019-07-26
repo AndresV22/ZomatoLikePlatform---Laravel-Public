@@ -36,11 +36,11 @@ class TableController extends Controller
           'taken' => $request->get('taken')
         ]);
         $table->save();
-        return redirect('/');
+        return back()->with('success', 'Table added successfully');
       }
       else
       {
-          return "Could not create new table.";
+          return back()->with('error', 'Could not create a table.');
       }
     }
     /**
@@ -83,7 +83,7 @@ class TableController extends Controller
 
     public function addTable(Request $request, $id){
       $place_id = $id;
-      
+
       return view('newTable', compact('place_id'));
     }
 }
