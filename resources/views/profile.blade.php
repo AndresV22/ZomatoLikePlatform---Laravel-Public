@@ -75,11 +75,12 @@
 				<form method="get" action="place/{{$place->id}}">
 				<button type="submit" class="btn btn-link">{{$place->name}}</button>
 				</form>
+				@endif
+				@endforeach
 				<Form method="get" action="/profile/newPlace">
 					<button type="submit" class="btn btn-default btn-lg btn-block">New Place</button>
 				</Form><hr>
-				@endif
-				@endforeach
+				
 				@endif
 				@endif
 				@if(Auth::user()->id == 2)
