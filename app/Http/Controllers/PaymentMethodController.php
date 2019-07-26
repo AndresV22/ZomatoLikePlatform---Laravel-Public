@@ -91,6 +91,9 @@ class PaymentMethodController extends Controller
       $name = $request->get('user_name');
       $address = $request->get('address');
       $oldCart = Session::get('cart');
+
+      $user_email = $request->get('email');
+      
       $cart = new Cart($oldCart);
       $detail = ""; 
       
