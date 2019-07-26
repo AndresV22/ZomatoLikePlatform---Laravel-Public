@@ -56,13 +56,13 @@ class PaymentVoucherController extends Controller
       $items = Session::get('cart');
       $items->myDeleteAll();
       Session::remove('cart');
-      $use_email = $request->get('email');
 
-    
+      $user_email = $request->get('email');
+      $username = $request->get('name');
       
       $pyVoucherId = $paymentVoucher->id;
       $totalPrice = $paymentVoucher->amount;
-      return view('paymentVoucher', compact('products', 'pyVoucherId', 'totalPrice'));
+      return view('paymentVoucher', compact('products', 'pyVoucherId', 'totalPrice', 'user_email', 'username'));
       }
       else
       {

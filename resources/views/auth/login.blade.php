@@ -1,18 +1,17 @@
 @extends('layouts.app')
 @section('content')
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-                <div class="rating-block mt-5" style="border-radius:30px">
-            <p><font size="6"><p class="text-center"> <strong> Login </strong></p></font><br>
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+		<p><font size="6"><p class="text-center">Login</p></font><br>
+			<div class="rating-block">
+				<form method="POST" action="{{ route('login') }}">
+				@csrf
+					<div class="form-group row">
+						<label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+						<div class="col-md-6">
+							<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
