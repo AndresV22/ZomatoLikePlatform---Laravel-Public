@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PaymentVoucher;
 use App\PaymentMethod;
+use App\Cart;
+use Session;
 
 class PaymentVoucherController extends Controller
 {
@@ -28,10 +30,33 @@ class PaymentVoucherController extends Controller
     public function store(Request $request)
     {
       $possible_payment_method = PaymentMethod::find($request->get('payment_method_id'));
+      $items  = Session::get('cart');
+      $menu_id = null;
+      
+      foreach($items->items as $item){
+          if(array_key_exists("menu_id", $item)){
+            $menu_id = $item->place_id;
+          }
+      }
+
+      if($menu_id != null){
+        $menu = Menu::find($menu_id);
+        $place_id = $menu->place_id;
+      }
+
+
+      foreach($items- as $item){
+        if(array_key_exists("place_id", $item)){
+          $place_id = $item->place_id;
+        }
+      }
+
+
       if ($possible_payment_method != null)
       {
         $paymentVoucher = new PaymentVoucher([
           'payment_method_id' => $request->get('payment_method_id'),
+          'place_id' => $place_id,
           'amount' => $request->get('amount'),
           'date' => $request->get('date'),
           'detail' => $request->get('detail'),

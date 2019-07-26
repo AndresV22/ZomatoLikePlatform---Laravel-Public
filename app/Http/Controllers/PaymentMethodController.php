@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PaymentMethod;
 use App\User;
+use Session;
+use App\Cart;
 
 class PaymentMethodController extends Controller
 {
@@ -36,7 +38,7 @@ class PaymentMethodController extends Controller
           'bank' => $request->get('bank')
         ]);
         $paymentMethod->save();
-        return "Created successfully!";
+        return $paymentMethod;
       }
       else
       {
@@ -82,4 +84,17 @@ class PaymentMethodController extends Controller
       $paymentMethod->delete();
       return "Deleted successfully!";
     }
+
+    public function storeAndRedirect(Request $request)
+    {
+      $price = $request->get('price');
+      $name = $request->get('user_name');
+      $address = $request->get('address');
+      
+      $pay = $this->store($request);
+      
+      return view('webpay', compact('price', 'name', 'address', 'pay'));
+    }
+
+
 }
