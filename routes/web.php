@@ -22,7 +22,8 @@ Route::post('/admin/dashboardManagePlaceRequests/accept/{id}', 'PlaceRequestCont
 Route::post('/admin/dashboardManagePlaceRequests/reject/{id}', 'PlaceRequestController@reject');
 Route::get('/admin/allPlaces', 'AdminController@connectToPlaceList');
 Route::get('/admin/submitPlace', 'AdminController@connectToSubmitPlace');
-Route::post('admin/submitPlace', 'SubmitPlacesController@adminStore');
+Route::post('/admin/submitPlace', 'SubmitPlacesController@adminStore');
+Route::delete('/admin/deletePlace/{id}', 'PlaceController@destroy');
 Route::get('/admin/statistics', 'AdminController@connectToStats');
 Route::get('/admin/userHistory', 'AdminController@connectToUserHistory');
 // Profile Controller
@@ -37,6 +38,7 @@ Route::post('/place/{id}/comment', 'CommentController@store');
 Route::get('/place/addToCart/{id}', 'PlaceController@menuAddToCart');
 Route::get('/place/dishAddToCart/{id}', 'PlaceController@dishAddToCart');
 Route::get('/shoppingCart', 'PlaceController@getCart');
+Route::get('/shoppingCart/removeItem/{id}', 'PlaceController@removeItem');
 Route::get('/checkout', 'PlaceController@getCheckout');
 // Payment Method Controller
 Route::post('/newPaymentMethod', 'PaymentMethodController@storeAndRedirect');
