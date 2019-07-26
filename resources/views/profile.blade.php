@@ -127,10 +127,35 @@
 				@endif
 				</p><hr>
 				@elseif (Auth::user()->role_id == 3)
-				<p><font size="6">Submit Menu</font><br>
+				<font size="6">Menus</font><br>
 				<hr>
+				@foreach ($places as $place)
+					@if ($place->user_id == Auth::user()->id)
+						@foreach ($menus as $menu)
+							@if ($menu->place_id == $place->id)
+								<p>Menu: {{$menu->name}} - Price: ${{$menu->price}} at Place: {{$place->name}}</p>
+							@endif
+						@endforeach
+					@endif
+				@endforeach
 					<Form method="get" action="/profile/submitMenu">
-						<button type="submit" class="btn btn-default btn-lg btn-block">Create a Menu</button>
+						<button type="submit" class="btn btn-default btn-lg btn-block">Add Menu</button>
+					</Form>
+
+				<hr>
+				<font size="6">Dishes</font><br>
+				<hr>
+					@foreach ($places as $place)
+						@if ($place->user_id == Auth::user()->id)
+							@foreach ($dishes as $dish)
+								@if ($dish->place_id == $place->id)
+									<p>Dish: {{$dish->name}} - Price: ${{$dish->price}}</p>
+								@endif
+							@endforeach
+						@endif
+					@endforeach
+					<Form method="get" action="/profile/submitDish">
+						<button type="submit" class="btn btn-default btn-lg btn-block">Add dish</button>
 					</Form>
 				<hr>
 				@endif
