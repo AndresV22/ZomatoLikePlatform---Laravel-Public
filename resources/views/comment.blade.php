@@ -12,6 +12,9 @@
 @if (Auth::guest() || Auth::user()->role_id != 2)
 	<font size="7"><p class="text-center">You cannot comment.</p></font>
 	<font size="4"><p class="text-center">Please log in to continue.</p></font>
+@elseif ($reservationsMade->count() == 0 && $ordersMade->count() == 0)
+	<font size="7"><p class="text-center">You cannot comment.</p></font>
+	<font size="4"><p class="text-center">This feature is only for those who have ordered or made a reservation.</p></font>
 @else
 	<div class='container'>
 		<div class='row justify-content-center'>
