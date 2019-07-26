@@ -30,27 +30,15 @@ class PaymentVoucherController extends Controller
     public function store(Request $request)
     {
       $possible_payment_method = PaymentMethod::find($request->get('payment_method_id'));
-      $items  = Session::get('cart');
-      $menu_id = null;
-      
-      foreach($items->items as $item){
-          if(array_key_exists("menu_id", $item)){
-            $menu_id = $item->place_id;
-          }
+      $oldCart = Session::get('cart');
+      $cart = new Cart($oldCart);
+      $products = $cart->items;
+      $totalPrice = $cart->totalPrice;
+
+      foreach($products as $product){
+        $place_id = $product['item']['place_id'];
+        break;
       }
-
-      if($menu_id != null){
-        $menu = Menu::find($menu_id);
-        $place_id = $menu->place_id;
-      }
-
-
-      foreach($items- as $item){
-        if(array_key_exists("place_id", $item)){
-          $place_id = $item->place_id;
-        }
-      }
-
 
       if ($possible_payment_method != null)
       {
@@ -64,7 +52,8 @@ class PaymentVoucherController extends Controller
           'delivery' => $request->get('delivery')
       ]);
       $paymentVoucher->save();
-      return "Created successfully!";
+      
+      return view('welcome');
       }
       else
       {
