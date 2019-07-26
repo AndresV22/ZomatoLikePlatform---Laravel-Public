@@ -77,7 +77,7 @@ class DishController extends Controller
       $data = $request->all();
       $dish = Dish::find($id);
       $dish->update($data);
-      return "Updated successfully!";
+      return back();
     }
     /**
      * Remove the specified resource from storage.
@@ -90,5 +90,12 @@ class DishController extends Controller
       $dish = Dish::find($id);
       $dish->delete();
       return "Deleted successfully!";
+    }
+
+    public function updateMenu(Request $request)
+    {
+      $dish = Dish::find($request->get('dish_id'));
+      $dish->menu_id = $request->get('menu_id');
+      return back()->with('success', 'Dish added to menu.');
     }
 }

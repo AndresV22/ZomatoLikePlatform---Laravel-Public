@@ -71,7 +71,12 @@ class MenuController extends Controller
      */
      public function show($id)
      {
-         return Menu::find($id);
+       $menu = Menu::find($id);
+       $dishes = Dish::all();
+       $places = Place::all();
+       return view('menu', compact('menu', 'dishes', 'places'));
+
+
      }
 
     /**

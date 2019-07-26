@@ -133,7 +133,12 @@
 					@if ($place->user_id == Auth::user()->id)
 						@foreach ($menus as $menu)
 							@if ($menu->place_id == $place->id)
-								<p>Menu: {{$menu->name}} - Price: ${{$menu->price}} at Place: {{$place->name}}</p>
+
+							<!-- cambiar esto una vez terminada la vista de menu-->
+							<form method="get" action="menu/{{$menu->id}}">
+								<button type="submit" class="btn btn-link">{{$menu->name}}</button>
+							</form>
+
 							@endif
 						@endforeach
 					@endif
