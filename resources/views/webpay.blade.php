@@ -36,6 +36,16 @@
                            </div>
                         </div>
 
+
+                        <div class="form-group row">
+                           <label for="mail" class="col-md-4 col-form-label text-md-right">Email</label>
+
+                           <div class="col-md-6">
+                              <input id="email" name="email" type="mail" class="form-control"value="{{$user_email}}" readonly>
+                           </div>
+                        </div>
+
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Payment Method</label>
                             <div class="col-md-6">

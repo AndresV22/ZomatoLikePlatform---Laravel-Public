@@ -93,7 +93,7 @@ class PaymentMethodController extends Controller
       $oldCart = Session::get('cart');
 
       $user_email = $request->get('email');
-      
+
       $cart = new Cart($oldCart);
       $detail = ""; 
       
@@ -103,7 +103,7 @@ class PaymentMethodController extends Controller
           $detail = $item['item']['name'] . " x" . $item['quantity'] . ", " . $detail;
       }
 
-      return view('webpay', compact('price', 'name', 'address', 'pay', 'detail'));
+      return view('webpay', compact('price', 'name', 'address', 'pay', 'detail', 'user_email'));
     }
 
 
