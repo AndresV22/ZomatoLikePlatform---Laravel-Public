@@ -21,6 +21,9 @@ Route::get('/admin/dashboardManagePlaceRequests', 'AdminController@connectToNewP
 Route::post('/admin/dashboardManagePlaceRequests/accept/{id}', 'PlaceRequestController@accept');
 Route::post('/admin/dashboardManagePlaceRequests/reject/{id}', 'PlaceRequestController@reject');
 Route::get('/admin/allPlaces', 'AdminController@connectToPlaceList');
+Route::get('/admin/submitPlace', 'AdminController@connectToSubmitPlace');
+Route::post('admin/submitPlace', 'SubmitPlacesController@adminStore');
+Route::get('/admin/statistics', 'AdminController@connectToStats');
 Route::get('/admin/userHistory', 'AdminController@connectToUserHistory');
 // Profile Controller
 Route::get('/profile', 'ProfileController@show');

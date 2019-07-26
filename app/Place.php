@@ -66,4 +66,10 @@ class Place extends Model
         return $this->hasMany('App\Reservation');
     }
 
+    // A place has many dishes
+    public function dishes()
+    {
+        return $this->hasMany('App\Dish');
+    }
+
 }

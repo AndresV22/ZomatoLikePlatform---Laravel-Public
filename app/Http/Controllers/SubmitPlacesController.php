@@ -44,4 +44,33 @@ class SubmitPlacesController extends Controller
             return back();;
         }
     }
+
+    public function adminStore(Request $request)
+    {
+
+        $possible_country = Country::find($request->get('country_id'));
+        $possible_city = City::find($request->get('city_id'));
+        $possible_user = User::find($request->get('user_id'));
+        if ($possible_user != null && $possible_country != null && $possible_city != null)
+        {
+            $place = new Place([
+                'user_id' => $request->get('user_id'),
+                'city_id' => $possible_city->id,
+                'country_id' => $possible_country->id,
+                'name' => $request->get('name'),
+                'address' => $request->get('address'),
+                'opening_time' => $request->get('opening_time'),
+                'closing_time' => $request->get('closing_time'),
+                'avatar' => $request->get('avatar'),
+                'is_operative' => true
+            ]);
+            
+            $place->save();
+            return back();
+        }
+        else
+        {
+            return back();;
+        }
+    }
 }

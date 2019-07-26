@@ -52,10 +52,16 @@ Notas:
 						</div>
 					</div>
 					<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+							<div class="form-group">
+									<label class="control-label" for="email"> What time?</label>
+									<input name="time" type="text" placeholder="HH:MM" class="form-control" required>
+							</div>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
 						<div class="form-group">
 							<label class="control-label required" for="select">Available Tables:</label>
 							<div class="select">
-								<select id="select" name="table-code" class="form-control">
+								<select id="select" name="table_code" class="form-control">
 									@foreach ($tables as $table)
 										@if ($table->taken)
 										@else
@@ -73,36 +79,31 @@ Notas:
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                         <div class="form-group">
                             <label class="control-label" for="name">Name</label>
-                            <input id="name" type="text" placeholder="First Name" class="form-control" required>
+                            <input id="name" name="name" type="text" placeholder="First Name" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                         <div class="form-group">
                             <label class="control-label" for="email"> Email</label>
-                            <input id="email" type="text" placeholder="xxxx@xxxx.xxx" class="form-control" required>
+                            <input id="email" name="address" type="text" placeholder="xxxx@xxxx.xxx" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
                         <div class="form-group">
                             <label class="control-label" for="phone"> Phone</label>
-                            <input id="phone" type="text" placeholder="(222) 222-2222" class="form-control" required>
+                            <input id="phone" name="phone" type="text" placeholder="(222) 222-2222" class="form-control" required>
                         </div>
                     </div>
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="form-group">
-                            <label class="control-label" for="textarea">Something to have in mind?</label>
-                            <textarea class="form-control" id="textarea" name="textarea" rows="4" placeholder="Write Your Requirements"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <button type="submit" name="singlebutton" class="btn btn-default">send</button>
-                    </div>
-                </div>
+                
+					@endif
+					</div>
+								<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+										<button type="submit" name="singlebutton" class="btn btn-default">send</button>
+								</div>
                 </form>
         </div>
     </div>
 	</div>
 </div>
 </div>
-@endif
 @endsection

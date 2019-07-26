@@ -23,13 +23,13 @@ class Dish extends Model
 
     /**********************   Relations   **********************/
     // A dish belongs to one place
-    public function place()
+    public function places()
     {
         return $this->belongsTo('App\Place');
     }
 
     // A dish belongs to one purchase
-    public function purchase()
+    public function purchases()
     {
         return $this->belongsTo('App\Purchase');
     }

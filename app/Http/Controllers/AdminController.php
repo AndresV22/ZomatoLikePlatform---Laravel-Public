@@ -7,6 +7,7 @@ use App\User;
 use App\Place;
 use App\Comment;
 use App\Country;
+use App\City;
 use App\UserRegister;
 
 class AdminController extends Controller
@@ -37,6 +38,15 @@ class AdminController extends Controller
     	return view('dashboardProfileEdit', compact('user'));
     }
 
+    public function connectToSubmitPlace()
+    {
+    	$users = User::all();
+    	$countries = Country::all();
+    	$cities = City::all();
+
+    	return view('dashboardSubmitPlace', compact('users', 'countries', 'cities'));
+    }
+
     public function connectToNewPlaceRequests()
     {
     	$places = Place::where('is_operative', false)->orderBy('id')->get();
@@ -47,6 +57,14 @@ class AdminController extends Controller
     {
     	$places = Place::where('is_operative', true)->orderBy('id')->get();
     	return view('dashboardPlaceList', compact('places'));
+    }
+
+    public function connectToStats()
+    {
+    	$places = Place::all();
+    	$users = User::all();
+    	$comments = Comment::all();
+    	return view('dashboardStats', compact('places', 'users', 'comments'));
     }
 
     public function connectToUserHistory()
