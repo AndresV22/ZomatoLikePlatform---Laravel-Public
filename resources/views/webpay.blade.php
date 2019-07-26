@@ -24,7 +24,7 @@
                            <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
 
                            <div class="col-md-6">
-                              <input id="name" type="text" class="form-control" value="{{$name}}" readonly>
+                              <input id="name" name="name" type="text" class="form-control" value="{{$name}}" readonly>
                            </div>
                         </div>
 

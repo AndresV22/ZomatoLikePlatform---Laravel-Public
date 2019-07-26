@@ -41,15 +41,30 @@ class PurchaseController extends Controller
             ]);
             $purchase->save();
 
+            if ($possible_payment_voucher->delivery == true)
+            {
+                   $mailParameters = ([
+                     'name' => $request->get('username'),
+                    'address' => $request->get('user_email'),
+                    'place_name' => $possible_place->name,
+                    'amount' => $possible_payment_voucher->amount,
+                    'date' => $possible_payment_voucher->date,
+                    'detail' => $possible_payment_voucher->detail,
+                    'type' => 'Delivery']);
+            }
 
-            $mailParameters = ([
-            'name' => $request->get('username'),
-            'address' => $request->get('user_email'),
-            'place_name' => $possible_place->name,
-            'amount' => $possible_payment_voucher->amount,
-            'date' => $possible_payment_voucher->date,
-            'detail' => $possible_payment_voucher->detail
-            ]);
+            else
+            {
+                 $mailParameters = ([
+                     'name' => $request->get('username'),
+                    'address' => $request->get('user_email'),
+                    'place_name' => $possible_place->name,
+                    'amount' => $possible_payment_voucher->amount,
+                    'date' => $possible_payment_voucher->date,
+                    'detail' => $possible_payment_voucher->detail,
+                    'type' => 'Pick up']);
+            }
+            
 
             return redirect()->route('mail.purchaseVerification', $mailParameters);
         }
