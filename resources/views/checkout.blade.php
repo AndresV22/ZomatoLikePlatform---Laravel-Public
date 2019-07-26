@@ -7,8 +7,7 @@
             <p><font size="6"><p class="text-center">Confirm Payment</p></font><br>
                 <div class="rating-block">
                     <form action='/newPaymentMethod' method='post'>
-                        <input name='user_id' type="hidden" value='{{Auth::user()->id}}'>
-                        <input id="bank" name="bank" type="hidden" class="form-control" value="none">
+                        <input name='user_id' type="hidden" value="{{ Auth::user() ? Auth::user()->id : '0' }}">
                         <div class="form-group row">
                            <label for="name" class="col-md-4 col-form-label text-md-right">Total</label>
                            <div class="col-md-6">

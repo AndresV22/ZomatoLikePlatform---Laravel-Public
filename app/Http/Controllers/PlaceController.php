@@ -83,7 +83,7 @@ class PlaceController extends Controller
 
     public function getCart() {
         if(!Session::has('cart')){
-            return back();
+            return view('welcome');
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);

@@ -38,7 +38,7 @@ class PurchaseController extends Controller
                 'status' => $request->get('status')
             ]);
             $purchase->save();
-            return "Created successfully!";
+            return view('welcome');
         }
         else
         {
@@ -84,4 +84,5 @@ class PurchaseController extends Controller
       $purchase->delete();
       return "Deleted successfully!";
     }
+
 }

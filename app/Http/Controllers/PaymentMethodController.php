@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PaymentMethod;
 use App\User;
-use Session;
-use App\Cart;
 
 class PaymentMethodController extends Controller
 {

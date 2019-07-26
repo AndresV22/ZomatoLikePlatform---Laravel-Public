@@ -38,11 +38,12 @@ Route::get('/place/addToCart/{id}', 'PlaceController@menuAddToCart');
 Route::get('/place/dishAddToCart/{id}', 'PlaceController@dishAddToCart');
 Route::get('/shoppingCart', 'PlaceController@getCart');
 Route::get('/checkout', 'PlaceController@getCheckout');
-Route::get('/shoppingCart/removeItem/{id}', 'PlaceController@deleteItem');
 // Payment Method Controller
 Route::post('/newPaymentMethod', 'PaymentMethodController@storeAndRedirect');
 // Payment Voucher  Controller
 Route::post('/newPaymentVoucher', 'PaymentVoucherController@store');
+// Purchase Controller
+Route::post('/newVaucher', 'PurchaseController@store');
 
 Route::get('/profile/newPlace', 'SubmitPlacesController@show');
 Route::post('/profile/newPlace', 'SubmitPlacesController@store');

@@ -52,8 +52,14 @@ class PaymentVoucherController extends Controller
           'delivery' => $request->get('delivery')
       ]);
       $paymentVoucher->save();
+
+      $items = Session::get('cart');
+      $items->myDeleteAll();
+      Session::remove('cart');
       
-      return view('welcome');
+      $pyVoucherId = $paymentVoucher->id;
+      $totalPrice = $paymentVoucher->amount;
+      return view('paymentVoucher', compact('products', 'pyVoucherId', 'totalPrice'));
       }
       else
       {
