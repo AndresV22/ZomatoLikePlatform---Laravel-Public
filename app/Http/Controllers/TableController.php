@@ -36,7 +36,7 @@ class TableController extends Controller
           'taken' => $request->get('taken')
         ]);
         $table->save();
-        return "Created successfully!";
+        return redirect('/');
       }
       else
       {
@@ -81,15 +81,9 @@ class TableController extends Controller
       return "Deleted successfully!";
     }
 
-    public function addTable(Request $request){
-      $place => Place::find($request->get('place_id')),
-      $table = new Table([
-        'place_id' => $place->get('id'),
-        'capacity' => $request->get('capacity'),
-        'code' => $request->get('code'),
-        'taken' => false,
-      ]);
-      $table->save();
-      return back()->with('success', 'Table added successfully.');
+    public function addTable(Request $request, $id){
+      $place_id = $id;
+      
+      return view('newTable', compact('place_id'));
     }
 }

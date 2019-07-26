@@ -20,7 +20,7 @@
 		Opens at: {{$place->opening_time}}<br>
 		Closes at: {{$place->closing_time}}<br><hr>
 		@if (Auth::user() && Auth::user()->role_id == 3 && $place->user_id == Auth::user()->id)
-			<Form method='get'>
+			<Form method='get' >
 				<button type="submit" class="btn btn-light btn-lg btn-block">Edit Place</button>
 			</Form><hr>
 		@endif
@@ -108,24 +108,9 @@
 		@endif
 		@if ($place->user_id == Auth::user()->id)
 		<hr>
-		<p><font size="6">Add Table</font><br>
-		<Form action='addTable' method='post'>
+		<a class="btn btn-light btn-lg btn-block" role="button" href="/table/new/{{$place->id}}">Add Table</a>
+		
 
-			<input name='place_id' type="hidden" value='{{$place->id}}'>
-
-			<div class="form-group col-md-6">
-				<label for="capacity" class="control-label"><b>Capacity</b></label>
-				<input type="integer" name="capacity" class="form-control">
-			</div>
-
-			<div class="form-group col-md-6">
-				<label for="code" class="control-label"><b>Code</b></label>
-				<input type="integer" name="code" class="form-control">
-			</div>
-
-			<button type="submit" class="btn btn-light btn-lg btn-block">Add a table</button>
-
-		</form>
 		@endif
 		<br>
 		<p>

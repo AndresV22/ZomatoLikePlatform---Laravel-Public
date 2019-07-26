@@ -46,6 +46,9 @@ Route::post('/newPaymentMethod', 'PaymentMethodController@storeAndRedirect');
 Route::post('/newPaymentVoucher', 'PaymentVoucherController@store');
 // Purchase Controller
 Route::post('/newVaucher', 'PurchaseController@store');
+// Table Controller
+Route::get('/table/new/{id}', 'TableController@addTable');
+
 
 Route::get('/profile/newPlace', 'SubmitPlacesController@show');
 Route::post('/profile/newPlace', 'SubmitPlacesController@store');
