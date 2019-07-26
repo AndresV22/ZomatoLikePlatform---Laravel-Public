@@ -41,7 +41,7 @@
         					<input type="text" name="avatar" placeholder="Please enter your avatar link here" class="form-control" value="{{ Auth::user()->avatar }}"/>
     					</div>
     					<div class="form-group">
-        					<button type="submit" class="btn btn-default"> Submit </button>
+        					<button type="submit" class="btn btn-light"> Submit </button>
 						</div>
 					</form>
 				</div>

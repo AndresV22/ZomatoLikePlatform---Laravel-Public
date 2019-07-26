@@ -14,14 +14,14 @@
                         <div class="form-group row">
                            <label for="name" class="col-md-4 col-form-label text-md-right">Capacity</label>
                            <div class="col-md-6">
-                              <input id="price" name="capacity" class="form-control" type="text" value="gg" required>
+                              <input id="price" name="capacity" class="form-control" type="text" value="" required>
                            </div>
                         </div>
 
                         <div class="form-group row">
                            <label for="name" class="col-md-4 col-form-label text-md-right">Codde</label>
                            <div class="col-md-6">
-                              <input id="price" name="code" class="form-control" type="text" value="gg" required>
+                              <input id="price" name="code" class="form-control" type="text" value="" required>
                            </div>
                         </div>
 

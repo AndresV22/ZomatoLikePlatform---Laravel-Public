@@ -30,7 +30,7 @@
 				Address: {{Auth::user()->address}}<br>
 				Mail: {{Auth::user()->email}}<br></p>
 				<Form method="get" action="{{"profile/edit"}}">
-					<button type="submit" class="btn btn-default btn-lg btn-block">Edit Profile</button>
+					<button type="submit" class="btn btn-light btn-lg btn-block">Edit Profile</button>
 				</Form><hr>
 				@endif
 			</div>
@@ -43,10 +43,10 @@
 				Address: {{Auth::user()->address}}<br>
 				Mail: {{Auth::user()->email}}<br></p>
 				<Form method="get" action="{{"profile/edit"}}">
-					<button type="submit" class="btn btn-default btn-lg btn-block">Edit Profile</button>
+					<button type="submit" class="btn btn-light btn-lg btn-block">Edit Profile</button>
 				</Form><hr>
 				<Form method="get" action="{{"admin"}}">
-					<button type="submit" class="btn btn-default btn-lg btn-block">Admin Dashboard</button>
+					<button type="submit" class="btn btn-light btn-lg btn-block">Admin Dashboard</button>
 				</Form><hr>
 				@else
 				@if (Auth::user()->role_id == 2)
@@ -78,7 +78,7 @@
 				@endif
 				@endforeach
 				<Form method="get" action="/profile/newPlace">
-					<button type="submit" class="btn btn-default btn-lg btn-block">New Place</button>
+					<button type="submit" class="btn btn-light btn-lg btn-block">New Place</button>
 				</Form><hr>
 				
 				@endif
@@ -148,7 +148,7 @@
 					@endif
 				@endforeach
 					<Form method="get" action="/profile/submitMenu">
-						<button type="submit" class="btn btn-default btn-lg btn-block">Add Menu</button>
+						<button type="submit" class="btn btn-light btn-lg btn-block">Add Menu</button>
 					</Form>
 
 				<hr>
@@ -164,7 +164,7 @@
 						@endif
 					@endforeach
 					<Form method="get" action="/profile/submitDish">
-						<button type="submit" class="btn btn-default btn-lg btn-block">Add dish</button>
+						<button type="submit" class="btn btn-light btn-lg btn-block">Add dish</button>
 					</Form>
 				<hr>
 				@endif

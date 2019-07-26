@@ -102,7 +102,7 @@
                         </div> 
                         <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="group">
                             <div class="btn-group mr-2" role="group" aria-label="Second group">
-                                <button type="submit" class="btn btn-default">Submit Changes</button>
+                                <button type="submit" class="btn btn-light">Submit Changes</button>
                             </div>
                         </div>
                     </form>

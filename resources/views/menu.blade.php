@@ -43,7 +43,7 @@
 
           <input name='menu_id' type="hidden" value='{{$menu->id}}'>
 
-          <button type="submit" class="btn btn-default btn-lg btn-block">Add dish</button>
+          <button type="submit" class="btn btn-light btn-lg btn-block">Add dish</button>
         </Form>
       </div>
       <hr>

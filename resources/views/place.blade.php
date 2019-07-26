@@ -19,11 +19,7 @@
 		Address: {{$place->address}}<br>
 		Opens at: {{$place->opening_time}}<br>
 		Closes at: {{$place->closing_time}}<br><hr>
-		@if (Auth::user() && Auth::user()->role_id == 3 && $place->user_id == Auth::user()->id)
-			<Form method='get' >
-				<button type="submit" class="btn btn-light btn-lg btn-block">Edit Place</button>
-			</Form><hr>
-		@endif
+
 		</div>
 		<div class="col-md-4">
 		<p><font size="6">Rating</font><br><hr>
@@ -95,6 +91,7 @@
 			</div>
 			@endforeach
 		@endif
+
 		<p>
 		<hr>
 		<p><font size="6">Tables</font><br>

@@ -57,7 +57,7 @@
 								</div>
 							</div>
 							<div class="btn-group mr-2">
-								<button type="submit" class="btn btn-default">Submit Comment</button>
+								<button type="submit" class="btn btn-light">Submit Comment</button>
 							</div>
 						</div>
 					</form>

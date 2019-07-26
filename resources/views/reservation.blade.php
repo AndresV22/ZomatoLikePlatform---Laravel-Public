@@ -64,7 +64,7 @@
 						@endif
 						<div class="btn-toolbar justify-content-center" role="toolbar" aria-label="group">
 							<div class="btn-group mr-2" role="group" aria-label="Second group">
-								<button type="submit" class="btn btn-default">Send Reservation Request</button>
+								<button type="submit" class="btn btn-light">Send Reservation Request</button>
 							</div>
 						</div>
 					</form>
