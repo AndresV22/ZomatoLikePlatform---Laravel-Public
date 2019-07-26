@@ -30,6 +30,7 @@ class DishController extends Controller
       if ($possible_purchase != null)
       {
         $dish = new Dish([
+          'place_id' => $request->get('place_id'),
           'purchase_id' => $request->get('purchase_id'),
           'name' => $request->get('name'),
           'price' => $request->get('price'),

@@ -19,6 +19,8 @@ class CreateDishesTable extends Migration
             $table->foreign('purchase_id')->references('id')->on('purchases')->onDelete('cascade');
             $table->bigInteger('menu_id')->unsigned();
             $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
+            $table->bigInteger('place_id')->unsigned();
+            $table->foreign('place_id')->references('id')->on('places')->onDelete('cascade');
             $table->string('name', 32);
             $table->integer('price');
             $table->text('description');

@@ -22,8 +22,8 @@
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i>  Places <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                     <ul id="submenu-2" class="collapse">
-                        <li><a href="admin/submitPlace"><i class="fa fa-angle-double-right"></i> Create new place</a></li>
-                        <li><a href="admin/allPlaces"><i class="fa fa-angle-double-right"></i> List all places</a></li>
+                        <li><a href="/admin/submitPlace"><i class="fa fa-angle-double-right"></i> Create new place</a></li>
+                        <li><a href="/admin/allPlaces"><i class="fa fa-angle-double-right"></i> List all places</a></li>
                     </ul>
                 </li>
                 <li>
@@ -41,7 +41,7 @@
         <div class='container'>
         <div class='row justify-content-center'>
             <div class="col-md-8 align-self-center">
-                <p><font size="4"><p class="text-center">Fill the info of your new place, {{Auth::user()->name}}</p></font><br>
+                <p><font size="4"><p class="text-center">Fill the info of the new place, {{Auth::user()->name}}</p></font><br>
                 <div class="rating-block">
                     <form action='/admin/submitPlace' method='post'>
                         {{csrf_field()}}
